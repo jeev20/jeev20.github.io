@@ -3,10 +3,10 @@
   "username": "jeev20",
   "name": null,
   "userimg": "https://avatars0.githubusercontent.com/u/19647823?v=4",
-  "sort": "updated",
+  "sort": "star",
   "order": "asc",
   "includeFork": false,
-  "theme": "light.css",
+  "theme": "dark.css",
   "types": [
    "all"
   ]
