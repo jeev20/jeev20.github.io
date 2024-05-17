@@ -1,1 +1,1 @@
-#[![Build and Deploy](https://github.com/jeev20/jeev20.github.io/actions/workflows/pages-deploy.yml/badge.svg)](https://github.com/jeev20/jeev20.github.io/actions/workflows/pages-deploy.yml)
+[![Build and Deploy](https://github.com/jeev20/jeev20.github.io/actions/workflows/pages-deploy.yml/badge.svg)](https://github.com/jeev20/jeev20.github.io/actions/workflows/pages-deploy.yml)
