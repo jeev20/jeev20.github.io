@@ -16,7 +16,7 @@ timezone: Europe/Oslo
 
 #title: jeev20 # the main title
 
-#tagline: Integrations Developer | UiPath MVP  # it will display as the sub-title
+tagline: Learning along the way # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal blog for a RPA Developer.
