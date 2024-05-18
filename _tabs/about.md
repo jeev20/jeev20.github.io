@@ -23,17 +23,29 @@ mindmap
     Research
       Risk analysis
       Autonomous systems
+        Underwater Remotely Operated Vehicles
+        TCAS & COLREGs
+      Applied ML in safety science
     Tools
       Automation
         UiPath
-        PowerPlatform
+        PowerAutomate
         BluePrism
         Robocorp
       Misc
         Mermaid
+        SharePoint
+        PowerApps
       Programming
         Python
+         Pytorch
         SQL
+        PowerShell
+        Git
+      Visualisations
+        Splunk
+        PowerBI
+        Graphana
       
       
 ```
