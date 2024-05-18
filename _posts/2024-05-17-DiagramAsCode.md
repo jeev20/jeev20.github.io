@@ -30,7 +30,7 @@ docker run --rm -u `id -u`:`id -g` -v ~/Path/ToDiagramCode:/data minlag/mermaid-
 
 Output:
 ![[dockeroutput.png]]
-### Using an HTML file 
+### Using a HTML file 
 In the below example from mermaid's documentation, we define the diagram within a `<pre></pre>` tag and of `class=mermaid`. 
 ```html
 <!DOCTYPE html>
