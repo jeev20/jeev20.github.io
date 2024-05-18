@@ -146,9 +146,7 @@ This is quite straight forward the user defines the port to be mapped. Kroki is
 ```docker
 docker run -d -p 8000:8000 yuzutech/kroki
 ```
-What is great with kroki is provides a one-stop-shop to integrate with many tools via a REST-API. 
-
-
+What is great with kroki is provides a one-stop-shop to integrate with many tools via a REST-API. That said, the documentation of usage is somewhat lacking in my opinion.
 The documentation provides ways to interact with the API for different tools: https://docs.kroki.io/kroki/setup/http-clients/ 
 
 
