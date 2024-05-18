@@ -121,12 +121,12 @@ classDef goodEvent fill:green
 ```
 
 ### Using VSCode extension
-[Markdown Preview Mermaid Support]("https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid") from Matt Bierner can render any mermaid diagram definition and the UI interface allows the user to export the diagram in different image formats. 
+[Markdown Preview Mermaid Support](https://github.com/mjbvz/vscode-markdown-mermaid.git) from Matt Bierner can render any mermaid diagram definition and the UI interface allows the user to export the diagram in different image formats. 
 ![alt text](/assets/images/VsCodeExtension.png)
 
 
 ### Using Mermaid CLI
-If one prefers the command line, then [mermaid-cli]("https://github.com/mermaid-js/mermaid-cli") is the official CLI by the maintainers of mermaid js. This option will require that you install additional javascript libraries, which some might would not want to do. 
+If one prefers the command line, then [mermaid-cli](https://github.com/mermaid-js/mermaid-cli.git) is the official CLI by the maintainers of mermaid js. This option will require that you install additional javascript libraries, which some might would not want to do. 
 
 Installing mermaid-cli 
 ```bash
