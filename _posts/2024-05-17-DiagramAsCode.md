@@ -6,7 +6,7 @@ tags: ["mermaidjs", "kroki"]
 mermaid: true
 ---
 
-This week I have been researching for a tool which can help in creating diagrams texts (diagram as code). These tools are much like graphviz but are much easier to get started with and use. Two tools which are widely used are:
+I have been searching for a tool which can create diagrams based on declarative texts (diagram as code). A tool much like graphviz but easier to get started with and use. Two tools which fits my requirements are:
 
 1. Mermaid
 	* https://github.com/mermaid-js/mermaid 
@@ -17,7 +17,9 @@ This week I have been researching for a tool which can help in creating diagrams
 
 ## Mermaid 
 
-Mermaid offers plenty of charts to choose from and has a user friendly syntax. The documentation provides many examples for different diagrams.
+Mermaid offers plenty of charts to choose from and has a user friendly syntax. The documentation provides many examples for different diagrams and the syntax seem to be easy to learn.
+
+There are many ways to convert the diagram definitions as described below.
 
 
 ### Using Docker 
@@ -49,7 +51,7 @@ In the below example from mermaid's documentation, we define the diagram within 
 </html>
 ```
 
-This html can then be served and the output will be served to the DOM like so. 
+This html can then be served and the DOM of the webpage is updated like so. 
 ```mermaid
 graph LR
       A --- B
@@ -59,7 +61,7 @@ graph LR
 
 ### Using mermaid-live-editor
 #### Online 
-The maintainers of mermaid have also open-sourced the live editor [https://mermaid.live/](https://mermaid.live/) so that users can opt to run them locally. This self-hosting option is a handy option to have for users who do not want to use the hosted live-editor. 
+The maintainers of mermaid have also open-sourced the live editor [https://mermaid.live/](https://mermaid.live/) so that users can opt to run them locally. This self-hosting option is a handy option to have for users who do not want to use the hosted live-editor (although everything runs in the users browser even in the cloud version). 
 #### Self-hosted
 To spin up your own instance of the live-editor use the docker/podman command. 
 ```docker-cli
@@ -68,12 +70,12 @@ docker run --platform linux/amd64 --publish 8000:8080 ghcr.io/mermaid-js/mermaid
 To change the port which is mapped to the container port 8080 edit  `--publish 8081:8080`
 This will then run mermaid server at https://localhost:8080
 
-You have other options which can be customized. Details can be found at https://github.com/mermaid-js/mermaid-live-editor
+You have other options which can be customized, such as `MERMAID_RENDERER_URL` and  `MERMAID_KROKI_RENDERER_URL`. Details can be found at https://github.com/mermaid-js/mermaid-live-editor
 
 
 ### Using obsidian
 
-An example diagram definition followed by the output (rendered within obsidian with `mermaid` tag)
+An example diagram definition followed by the output (rendered within obsidian with `mermaid` tag). No extra community packages need to be installed within obsidian for this to work. 
 ```
 ---
 title: UiPath Reframework for Perfomer
@@ -131,7 +133,7 @@ classDef goodEvent fill:green
 
 
 ### Using Mermaid CLI
-If one prefers the command line, then [mermaid-cli](https://github.com/mermaid-js/mermaid-cli.git) is the official CLI by the maintainers of mermaid js. This option will require that you install additional javascript libraries, which some might would not want to do. 
+If one prefers the command line, then [mermaid-cli](https://github.com/mermaid-js/mermaid-cli.git) is the official CLI by the maintainers of mermaid js. This option will require installation of additional javascript libraries, which some might want to avoid. 
 
 Installing mermaid-cli 
 ```bash
