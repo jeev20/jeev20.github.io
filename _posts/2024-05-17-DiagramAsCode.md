@@ -29,7 +29,7 @@ docker run --rm -u `id -u`:`id -g` -v ~/Path/ToDiagramCode:/data minlag/mermaid-
 ```
 
 Output:
-![[dockeroutput.png]]
+![[/assets/images/dockeroutput.png]]
 ### Using a HTML file 
 In the below example from mermaid's documentation, we define the diagram within a `<pre></pre>` tag and of `class=mermaid`. 
 ```html
@@ -49,8 +49,13 @@ In the below example from mermaid's documentation, we define the diagram within 
 </html>
 ```
 
-This html can then be served for the following output. 
-![[htmloutput.png]]
+This html can then be served and the output will be served to the DOM like so. 
+```mermaid
+graph LR
+      A --- B
+      B-->C[fa:fa-ban forbidden]
+      B-->D(fa:fa-spinner)
+```
 
 ### Using mermaid-live-editor
 #### Online 
@@ -139,8 +144,8 @@ mmdc -i input.mmd -o output.svg
 
 
 ## Kroki
-Kroki allows the user to use any of the supported drawings tools and creates an REST api which the user can integrate in their applications. The overhead of interfacing with variety of "Diagram as code" tools is avoided by using Kroki. 
-![[KrokiCheatSheet.png]]
+Kroki allows the user to use any of the supported drawings tools and creates a REST API endpoints which the user can integrate in their applications. The overhead of interfacing with variety of "Diagram as code" tools is avoided by using Kroki. 
+![[/assets/images/KrokiCheatSheet.png]]
 #### Using docker 
 This is quite straight forward the user defines the port to be mapped. Kroki is 
 ```docker
