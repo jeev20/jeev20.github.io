@@ -1,9 +1,10 @@
 ---
 title: Diagram as code
-date: 17.05.2024
+date: 17.05.2024 20:57 +0200
 categories: ["misc"]
 tags: ["mermaidjs", "kroki"]
 mermaid: true
+published: true
 ---
 
 I have been searching for a tool which can create diagrams based on declarative texts (diagram as code). A tool much like graphviz but easier to get started with and use. Two tools which fits my requirements are:
