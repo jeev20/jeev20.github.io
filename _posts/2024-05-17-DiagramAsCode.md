@@ -29,7 +29,7 @@ docker run --rm -u `id -u`:`id -g` -v ~/Path/ToDiagramCode:/data minlag/mermaid-
 ```
 
 Output:
-![[/assets/images/dockeroutput.png]]
+![OutputDocker](/assets/images/dockeroutput.png)
 ### Using a HTML file 
 In the below example from mermaid's documentation, we define the diagram within a `<pre></pre>` tag and of `class=mermaid`. 
 ```html
@@ -127,7 +127,7 @@ classDef goodEvent fill:green
 
 ### Using VSCode extension
 [Markdown Preview Mermaid Support](https://github.com/mjbvz/vscode-markdown-mermaid.git) from Matt Bierner can render any mermaid diagram definition and the UI interface allows the user to export the diagram in different image formats. 
-![alt text](/assets/images/VsCodeExtension.png)
+![OutputVSCodeExtension](/assets/images/VsCodeExtension.png)
 
 
 ### Using Mermaid CLI
@@ -145,7 +145,7 @@ mmdc -i input.mmd -o output.svg
 
 ## Kroki
 Kroki allows the user to use any of the supported drawings tools and creates a REST API endpoints which the user can integrate in their applications. The overhead of interfacing with variety of "Diagram as code" tools is avoided by using Kroki. 
-![[/assets/images/KrokiCheatSheet.png]]
+![KrokiCheatsheet](/assets/images/KrokiCheatSheet.png)
 #### Using docker 
 This is quite straight forward the user defines the port to be mapped. Kroki is 
 ```docker
