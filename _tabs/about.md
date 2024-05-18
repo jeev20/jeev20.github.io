@@ -6,13 +6,13 @@ mermaid: true
 ---
 This website is an effort to document the journey of learning new technologies. 
 
-After many years of working as a developer, I missed having a site where many of my learnings along the way could be easily accessed. A public knowledge base of learnings and just maybe I helps someone else along the way. 
+After many years of working as a developer, I missed having a site where many of my learnings along the way could be easily accessed. A public knowledge base of learnings and just maybe it helps someone else along the way as well. 
 
-Thats when I came across [jekyll](https://jekyllrb.com/) and found it the perfect match as it takes away the barrier of setting things up and lets one focus on writing and not worrying about the overheads involved in creating such a static webpage. I later found [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy#quick-start) and based this website on it. 
+Thats when I came across [jekyll](https://jekyllrb.com/) and found it to be the perfect match. Jekyll takes away the barrier of setting things up and lets me focus on writing and not worrying about the overheads involved in creating static webpages. Text files to websites great! I later found [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy#quick-start) and based this website on it. 
 
 Thank you to all the contributors of jekyll and jekyll-theme-chirpy!
 
-Along this journey, following mindmap shall be updated.
+The plan is to write about my learnings on the topics covered in this mindmap.
 
 ```mermaid
 mindmap
