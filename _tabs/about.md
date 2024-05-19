@@ -60,3 +60,5 @@ If the content in the published posts are produced by using a online/local large
 
 
 ------------------------
+
+All opinions in this blog are my own.
