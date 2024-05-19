@@ -1,2 +1,2 @@
 newpost:
-	bundle exec jekyll post $(postname)
+	bundle exec jekyll post $(name)
