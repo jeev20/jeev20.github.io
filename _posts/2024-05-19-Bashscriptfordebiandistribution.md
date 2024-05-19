@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bash Script for Ubuntu Distribution
+title: Bash script for debian distribution
 date: 2024-05-19 10:08 +0200
 categories: ["Bash"]
 tags: ["install script"]
@@ -15,10 +15,10 @@ This allows for quick headless deployment of all essential programs and decrease
 ```bash
 #!/bin/bash
 
-# Update upgrade and remove stale files
+# Update and upgrade packages finally remove stale files
 sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
 
-# Install apt packages used often
+# Install apt packages most used
 sudo apt-get remove docker docker-engine docker.io
 sudo apt install python-is-python3 -y \
 neofetch -y \
@@ -30,7 +30,7 @@ tree -y \
 docker.io -y \
 curl -y
 
-# Install rustup
+# Install rustup to install cargo and python package management
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install UV for python package management
@@ -39,6 +39,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # Install node packages
 sudo npm install -g tldr -y
 
-# Install cargo packages broot
+# Install cargo packages
 cargo install broot --force
 ```
