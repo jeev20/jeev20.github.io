@@ -12,6 +12,8 @@ After trying a bunch of static-site generators, I came across [jekyll](https://j
 
 Thank you to all the contributors of jekyll and jekyll-theme-chirpy!
 
+------------------------
+
 The plan is to write about my learnings on the topics covered in this mindmap, which will expand with new learnings.
 
 ```mermaid
@@ -50,10 +52,10 @@ mindmap
       
 ```
 
-##### Use of LLMs
+------------------------
+## Use of LLMs
 If the content in the published posts are produced by using a online/local large-language-model, a clear attribution text with the following information will be shared in the post.
 
-------------------------
 
 > This part was generated using Large Language Model (LLMMODEL) with the following prompt text: PROMTTEXT. 
 {: .prompt-info}
@@ -61,4 +63,12 @@ If the content in the published posts are produced by using a online/local large
 
 ------------------------
 
-All opinions in this blog are my own.
+
+
+## Credits
+Logo was generated using [Dummy-logo-maker](https://github.com/moiseshp/dummy-logo-maker). Thanks to [moiseshp](https://github.com/moiseshp)
+
+
+-----------------------------------
+
+All opinions written in this blog are my own.
