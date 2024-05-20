@@ -25,10 +25,10 @@ neofetch -y \
 htop -y \
 bpytop -y \
 npm -y \
-ripgrep -y \
 tree -y \
 docker.io -y \
-curl -y
+curl -y \
+ssh -y
 
 # Install rustup to install cargo and python package management
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -41,4 +41,5 @@ sudo npm install -g tldr -y
 
 # Install cargo packages
 cargo install broot --force
+broot -y
 ```
