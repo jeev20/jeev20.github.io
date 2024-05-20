@@ -58,7 +58,7 @@ Solver is independent of the python modules, as many LP solvers are openly avail
 
 #### Resources 
 
-   Introduction to LP from [Byjus](https://byjus.com/maths/linear-programming/#components)
+   Problem 1 and Problem 2 are credited to [Byjus](https://byjus.com/maths/linear-programming/#components)
 
    Short introduction to linear programming 
    {% include embed/youtube.html id='c9D04BWvpBc' %}
@@ -74,10 +74,13 @@ Solver is independent of the python modules, as many LP solvers are openly avail
 ## Example problems
 Solving some problems without help and only understanding from videos watched
 
-### Problem 1
+### Problem 1 - Vitamin blending
 *A doctor wishes to mix two types of Dishes in such a way that the vitamin contents of the mixture contain at least 8 units of vitamin A and 10 units of vitamin C. Dish 1 contains 2 units/kg of vitamin A and 1 unit/kg of vitamin C. Dish 2 contains 1 unit/kg of vitamin A and 2 units/kg of vitamin C. It costs Kr 50 per kg to purchase Dish 1 and Kr 70 per kg to purchase Dish 2. Formulate this problem as a linear programming problem to minimize the cost of such a mixture*
 
-Formulating the above problem. Before we do that we create a table to make this easier. This [video](https://www.youtube.com/watch?v=_ewPTxICHHA&list=PLbxFfU5GKZz1Tm_9RR5M_uvdOXpJJ8LC3&index=31) was of great to understand and build an intuition. 
+#### Intuition
+> Formulating the  problem. Before we do that we create a table to make this easier. 
+This [video](https://www.youtube.com/watch?v=_ewPTxICHHA&list=PLbxFfU5GKZz1Tm_9RR5M_uvdOXpJJ8LC3&index=31) was of good to understand and build an intuition. 
+{: .prompt-tip}
 
 |           | Vitamin A (units) | Vitamin C (units) | Cost (Kr)|
 |-----------|-------------|--------|---------|
@@ -93,12 +96,12 @@ For simplicity `Vitamin A = x Vitamin C = y`
 
 **Subject to constraints**:
 ```
-Vitamin A: 2*x + 1*y >= 8
-Vitamin C: 1*x + 2*y >= 10
+2*x + 1*y >= 8
+1*x + 2*y >= 10
 x >=0
 y >= 0
-```
-
+``` 
+#### Python implementation
 ```python
 # importing modules
 import pulp   
@@ -132,7 +135,7 @@ for var in vitamin_mix_lp.variables():
     print(var.name, "=", var.varValue, "units")
 ```
 
-*Output* from the above problem results in 2 units of dish 1 and 4 units of dish 2, which results in the minimum cost of 380 kroner while adhering to the set constraints. 
+**Output** from the above problem results in 2 units of dish 1 and 4 units of dish 2, which results in the minimum cost of 380 kroner while adhering to the set constraints. 
 
 ```bash
 Status: 1 (optimal solution exists)
@@ -143,4 +146,148 @@ Dish_2 = 4.0 units
 
 -------------------------
 
-### Problem 2
+### Problem 2 - Bakery case
+
+*One kind of cake requires 200g of flour and 25g of fat, and another kind of cake requires 100g of flour and 50g of fat.  Formulate this problem as a linear programming problem to find the maximum number of cakes that can be made from 5kg of flour and 1 kg of fat assuming that there is no shortage of the other ingredients used in making the cakes.*
+
+#### Intuition
+> Formulating the problem. We here are trying maximize the amount of cakes baked given the limited supplies. 
+{: .prompt-tip}
+
+|           | Flour (grams) | Fat (grams) | 
+|-----------|-------------|--------|
+|Cake A    |   200     |     25     |  
+|Cake B   |    100    |     50      |  
+|Availability  | 5000    |     1000|
+
+For simplicity `Flour = x & Fat = y`
+
+**Variables** `x, y in grams`
+
+**Objective function**: `f(x, y) = SUM((200*x + 100*y),(25*x + 50*y))` --> Maximization problem
+
+**Subject to constraints**:
+```
+200*x + 100*y <= 5000
+25*x + 50*y <= 1000
+x >=0
+y >= 0
+```
+
+#### Python implementation
+```python
+# importing modules
+import pulp   
+
+# Creating LP problem: Here we are looking to maximize the objective function.
+bakery_lp = pulp.LpProblem("bakery_lp", pulp.LpMaximize)
+
+# Creating LPvariables
+x = pulp.LpVariable("Cake A", lowBound=0, cat='Integer')
+y = pulp.LpVariable("Cake B", lowBound=0, cat='Integer')
+
+# Creating Constraints:number of cakes that can be made from 5kg of flour and 1 kg of fat
+bakery_lp += 200*x + 100*y <= 5000
+bakery_lp += 25*x + 50*y <= 1000
+bakery_lp += x >= 0
+bakery_lp += y >=0
+
+# Creating the objective function: f(x, y) = (200*x + 100*y)+(25*x + 50*y)
+bakery_lp += (200*x + 100*y)+(25*x + 50*y)
+
+# Solving the objective function
+solution = bakery_lp.solve()
+
+# Printing the results and optimal variable values
+print("Status:", solution) # 1: Optimal solution exists
+print("Optimal Solution Value:", bakery_lp.objective.value())
+for var in bakery_lp.variables():
+    print(var.name, "=", var.varValue, "units")
+```
+**Output** from the above problem results in 20 units of cake 1 and 10 units of cake 2, which results in the maximum revenue of 6000 kroner while adhering to the set constraints. Totally 30 cakes need to be baked by the baker.
+
+```bash
+Status: 1
+Optimal Solution Value: 6000 kr.
+Cake_A = 20.0 units
+Cake_B = 10.0 units
+```
+
+-------------------------
+
+### Problem 3 - Protein intake 
+This problem is obtained from [Brilliant.org](https://brilliant.org/wiki/linear-programming/)
+
+*An amateur bodybuilder is looking for supplement protein bars to build his muscle fast, and there are 2 available products: protein bar A and protein bar B.
+Each protein bar A contains 15 g of protein and 30 g of carbohydrates and has total 200 calories. On the other hand, each protein bar B contains 30 g of protein and 20 g of carbohydrates and has total 240 calories.
+According to his nutritional plan, this bodybuilder needs at least 20,000 calories from these supplements over the month, which must comprise of at least 1,800 g of protein and at least 2,200 g of carbohydrates.
+If each protein bar A costs $3 and each protein bar B costs $4, what is the least possible amount of money (in $) he can spend to meet all his one-month requirements?*
+
+
+#### Intuition
+> Formulating the problem. We here are trying maximize the amount of cakes baked given the limited supplies. 
+{: .prompt-tip}
+
+|           | Protein (grams) | Carbohydrates (grams) | Calories     | Cost ($)|
+|-----------|-------------|--------|--------|--------|
+|Protein A    |   15     |     30     |  200 |    3 |   
+|Protein B   |    30    |     20      | 240 |     4 |
+|Need  | 1800    |     2200 | 20000|    |
+
+For simplicity `Protein A = x & Protein B = y`
+
+**Variables** `x, y` 
+
+**Objective function**: `f(x, y) = (3*x + 4*y)` --> Minimization problem
+
+**Subject to constraints**:
+```
+15*x + 30*y >= 1800
+30*x + 20*y >= 2200
+200*x + 240*y >= 20000
+x >= 0
+y >= 0
+```
+
+#### Python implementation
+```python
+# importing modules
+import pulp   
+
+# Creating LP problem: Here we are looking to minimize the objective function.
+bodybuilderdiet_lp = pulp.LpProblem("bodybuilderdiet_lp", pulp.LpMinimize)
+
+# Creating LPvariables
+x = pulp.LpVariable("Protein", lowBound=0, cat='Integer')
+y = pulp.LpVariable("Carbohydrates", lowBound=0, cat='Integer')
+
+# Creating Constraints
+bodybuilderdiet_lp += 15*x + 30*y >= 1800
+bodybuilderdiet_lp += 30*x + 20*y >= 2200
+bodybuilderdiet_lp += 200*x + 240*y >= 20000
+bodybuilderdiet_lp += x >= 0
+bodybuilderdiet_lp += y >=0
+
+# Creating the objective function: f(x, y) = (3*x + 4*y)
+bodybuilderdiet_lp += 3*x + 4*y
+
+# Solving the objective function
+solution = bodybuilderdiet_lp.solve()
+
+# Printing the results and optimal variable values
+print("Status:", solution) # 1: Optimal solution exists
+print("Optimal Solution Value:", bodybuilderdiet_lp.objective.value())
+for var in bodybuilderdiet_lp.variables():
+    print(var.name, "=", var.varValue, "units")
+
+```
+
+**Output** from the above problem results in 25 units of Carbohydrates and 70 units of Protein, which results in the minimum expense of 310 dollars while adhering to the set constraints. 
+
+
+```plaintext
+Status: 1
+Optimal Solution Value: 310.0 $
+Carbohydrates = 25.0 units
+Protein = 70.0 units
+```
