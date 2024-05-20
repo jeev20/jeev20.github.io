@@ -12,7 +12,12 @@ At work I attended a presentation on an optimization problem was made by researc
 
 The field which studies such problems is called Linear Programming (LP). I remember studying this vaguely during my bachelors in industrial engineering, but since then I have forgotten the basics of it. 
 
-In short, linear programming is used to find an optimal solution given the variables of the system and adhering to the constraints which define the limitations within the system. In short, a objective function is either maximized or minimized. 
+Consider a case of staffing a hospital. Nurses and doctors are expected to working in shifts, but as the rest of us they too may have personal commitments which have to be taken into consideration when planning for resource utilization. Some of them may be specialists in one form of care so they cannot not easily be replaced by others from the resource pool. 
+
+Now such problems are where linear programming is most useful. 
+
+In the above case we are trying to maximize resource utilization while considering the dynamic nature of resource availability and skills while also adhering to constraint of minimum required resources for smooth operations. 
+
 
 ---------------------------------------------
 
@@ -30,12 +35,12 @@ end note
 note left of Constraints
     Defined limitations
 end note
-Decision_Variables --> Objective_Functions 
-note right of Objective_Functions
+Decision_Variables --> Objective_Function 
+note right of Objective_Function
     Quantitatively calculable
 end note
-Constraints --> Objective_Functions
-Objective_Functions -->Optimal_Solution:Linear Solver
+Constraints --> Objective_Function
+Objective_Function -->Optimal_Solution:Linear Solver
 note right of Optimal_Solution
     Solution given the other three components
 end note
@@ -44,23 +49,17 @@ Optimal_Solution -->[*]
 ```
 
 ----------------------------------------------
-#### Case
-Consider a case of staffing a hospital. Nurses and doctors are expected to working in shifts, but as the rest of us they too may have personal commitments which have to be taken into consideration when planning for resource utilization. Some of them may be specialists in one form of care so they cannot not easily be replaced by others from the resource pool. 
+> In summary, linear programming is used to find an optimal solution given the variables of the system and adhering to the constraints which define the limitations within the system. The end goal is to either maximize or minimize an objective function is either maximized or minimized. 
+{: .prompt-tip}
 
-Now such problems are where linear programming is most useful. 
+## Resources 
+Here are some of the resources which helped me learn the concepts of linear programming with no specific order.
 
-In the above case we are trying to maximize resource utilization while considering the dynamic nature of resource availability and skills while also adhering to constraint of minimum required resources for smooth operations. 
+I enjoyed reading this to dig deeper into the workings of LP: https://www.uky.edu/~dsianita/300/online/LP.pdf
 
-#### Modules in python
-Docplex, PluP, Pyomo and Gekko are some of the well known python modules to perform linear programming. 
+   
 
-Solver is independent of the python modules, as many LP solvers are openly available and the python modules have built and api over these solvers to make it easier to solve LP problems. 
-
-#### Resources 
-
-   Problem 1 and Problem 2 are credited to [Byjus](https://byjus.com/maths/linear-programming/#components)
-
-   Short introduction to linear programming 
+   Video tutorials on linear programming 
    {% include embed/youtube.html id='c9D04BWvpBc' %}
 
    A deep dive into concepts behind linear programming 
@@ -70,9 +69,15 @@ Solver is independent of the python modules, as many LP solvers are openly avail
 
    Using PulP in python
    {% include embed/youtube.html id='qa4trkLfvwQ' %}
-    
+
+## Modules in python
+[PluP](https://pypi.org/project/PuLP/), [Docplex](https://pypi.org/project/docplex/),  [Pyomo](https://pypi.org/project/Pyomo/) and [Gekko](https://pypi.org/project/gekko/) are some of the well known python modules used to solve linear programming problems. 
+
+LP solvers are independent of the python modules, as many LP solvers are openly available and the python modules have built an api over these solvers to make it easier to integrate in python. 
+
+
 ## Example problems
-Solving some problems without help and only understanding from videos watched
+Solving some problems without help and only understanding from videos watched was a great way to test my understanding of the concept. Problem 1 and Problem 2 are credited to [Byjus](https://byjus.com/maths/linear-programming/#components).
 
 ### Problem 1 - Vitamin blending
 *A doctor wishes to mix two types of Dishes in such a way that the vitamin contents of the mixture contain at least 8 units of vitamin A and 10 units of vitamin C. Dish 1 contains 2 units/kg of vitamin A and 1 unit/kg of vitamin C. Dish 2 contains 1 unit/kg of vitamin A and 2 units/kg of vitamin C. It costs Kr 50 per kg to purchase Dish 1 and Kr 70 per kg to purchase Dish 2. Formulate this problem as a linear programming problem to minimize the cost of such a mixture*
@@ -103,7 +108,6 @@ y >= 0
 ``` 
 #### Python implementation
 ```python
-# importing modules
 import pulp   
 
 # Creating LP problem
@@ -176,7 +180,6 @@ y >= 0
 
 #### Python implementation
 ```python
-# importing modules
 import pulp   
 
 # Creating LP problem: Here we are looking to maximize the objective function.
@@ -216,7 +219,7 @@ Cake_B = 10.0 units
 -------------------------
 
 ### Problem 3 - Protein intake 
-This problem is obtained from [Brilliant.org](https://brilliant.org/wiki/linear-programming/)
+This problem is sourced from [Brilliant.org](https://brilliant.org/wiki/linear-programming/)
 
 *An amateur bodybuilder is looking for supplement protein bars to build his muscle fast, and there are 2 available products: protein bar A and protein bar B.
 Each protein bar A contains 15 g of protein and 30 g of carbohydrates and has total 200 calories. On the other hand, each protein bar B contains 30 g of protein and 20 g of carbohydrates and has total 240 calories.
@@ -251,7 +254,6 @@ y >= 0
 
 #### Python implementation
 ```python
-# importing modules
 import pulp   
 
 # Creating LP problem: Here we are looking to minimize the objective function.

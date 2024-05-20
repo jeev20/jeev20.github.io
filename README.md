@@ -4,3 +4,8 @@ This command creates a new file with name YYYY-MM-dd-NAMEOFTHEPOST.md in the _po
 ```bash
 make newpost postname="NAMEOFTHEPOST"
 ```
+
+Running locally while drafting
+```bash
+bundle exec jekyll s --livereload --trace
+```
