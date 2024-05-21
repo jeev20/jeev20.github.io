@@ -14,7 +14,7 @@ read -p "Enter commit message: " commit_message
 current_datetime=$(date +'%Y-%m-%d %H:%M:%S')
 
 # Append the date, time, seconds, and an additional string to the commit message
-commit_message="$commit_message - $current_datetime"
+commit_message="$commit_message - $current_datetime]"
 
 # Check if the commit message is empty
 if [ -z "$commit_message" ]; then
@@ -29,8 +29,31 @@ git add .
 git commit -m "$commit_message"
 
 # Check if the commit was successful
-if [ $? -eq 0 ]; then
-    echo "Changes committed successfully."
-else
+if [ $? -ne 0 ]; then
     echo "Error: Failed to commit changes."
+    exit 1
+fi
+
+# Fetch changes from the remote repository
+git fetch origin
+
+# Merge or rebase the changes
+read -p "Do you want to merge (m) or rebase (r) the remote changes? " merge_or_rebase
+
+if [ "$merge_or_rebase" == "m" ]; then
+    git merge origin/main
+elif [ "$merge_or_rebase" == "r" ]; then
+    git rebase origin/main
+else
+    echo "Invalid option. Skipping merge/rebase."
+fi
+
+# Push the changes to the remote repository
+git push origin main
+
+# Check if the push was successful
+if [ $? -eq 0 ]; then
+    echo "Changes pushed to the remote repository successfully."
+else
+    echo "Error: Failed to push changes to the remote repository."
 fi
