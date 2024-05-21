@@ -1,4 +1,8 @@
 #!/bin/bash
+# The below code was generated using perplexity.ai with the following promt
+# A bash script that allows you to commit changes to a Git repository with a custom commit 
+# message with date time seconds and syncs / commits to the remote repo
+
 
 # Check if the script is being run inside a Git repository
 git rev-parse --is-inside-work-tree > /dev/null 2>&1
