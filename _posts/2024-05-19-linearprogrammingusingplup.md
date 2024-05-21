@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linear programming 
+title: Solving linear programming problems
 date: 2024-05-19 15:06 +0200
 categories: ["Python"]
 tags: [ "linear programming", "optimization", "pulp"]
@@ -52,23 +52,6 @@ Optimal_Solution -->[*]
 > In summary, linear programming is used to find an optimal solution given the variables of the system and adhering to the constraints which define the limitations within the system. The end goal is to either maximize or minimize an objective function is either maximized or minimized. 
 {: .prompt-tip}
 
-## Resources 
-Here are some of the resources which helped me learn the concepts of linear programming with no specific order.
-
-I enjoyed reading this to dig deeper into the workings of LP: https://www.uky.edu/~dsianita/300/online/LP.pdf
-
-   
-
-   Video tutorials on linear programming 
-   {% include embed/youtube.html id='c9D04BWvpBc' %}
-
-   A deep dive into concepts behind linear programming 
-   {% include embed/youtube.html id='E72DWgKP_1Y' %}
-
-   {% include embed/youtube.html id='qQFAvPF2OSI' %}
-
-   Using PulP in python
-   {% include embed/youtube.html id='qa4trkLfvwQ' %}
 
 ## Modules in python
 [PluP](https://pypi.org/project/PuLP/), [Docplex](https://pypi.org/project/docplex/),  [Pyomo](https://pypi.org/project/Pyomo/) and [Gekko](https://pypi.org/project/gekko/) are some of the well known python modules used to solve linear programming problems. 
@@ -293,3 +276,21 @@ Optimal Solution Value: 310.0 $
 Carbohydrates = 25.0 units
 Protein = 70.0 units
 ```
+
+## Resources 
+Here are some of the resources which helped me learn the concepts of linear programming with no specific order.
+
+I enjoyed reading this to dig deeper into the workings of LP: https://www.uky.edu/~dsianita/300/online/LP.pdf
+
+   
+
+   Video tutorials on linear programming 
+   {% include embed/youtube.html id='c9D04BWvpBc' %}
+
+   A deep dive into concepts behind linear programming 
+   {% include embed/youtube.html id='E72DWgKP_1Y' %}
+
+   {% include embed/youtube.html id='qQFAvPF2OSI' %}
+
+   Using PulP in python
+   {% include embed/youtube.html id='qa4trkLfvwQ' %}
