@@ -5,19 +5,20 @@ date: 2024-05-19 15:06 +0200
 categories: ["Python"]
 tags: [ "linear programming", "optimization", "pulp"]
 mermaid: true
-published: false
+published: true
 ---
 
-At work I attended a presentation on an optimization problem was made by researches working in the local hospital. They were looking to minimizing staffing resources given certain variables and constraints. 
+At work a presentation on an optimization problem was made by researches working in the local hospital. They were looking to minimizing staffing resources given certain variables and constraints. 
 
 The field which studies such problems is called Linear Programming (LP). I remember studying this vaguely during my bachelors in industrial engineering, but since then I have forgotten the basics of it. 
 
-Consider a case of staffing a hospital. Nurses and doctors are expected to working in shifts, but as the rest of us they too may have personal commitments which have to be taken into consideration when planning for resource utilization. Some of them may be specialists in one form of care so they cannot not easily be replaced by others from the resource pool. 
+Consider a case of staffing a hospital. Nurses and doctors are expected to working in shifts, but as the rest of us they too may have personal commitments which have to be taken into consideration when planning for resource planning. Some of them may be specialists in one form of care so they cannot not easily be replaced by others from the resource pool. 
 
-Now such problems are where linear programming is most useful. 
+Now such problems are where linear programming can be useful. 
 
-In the above case we are trying to maximize resource utilization while considering the dynamic nature of resource availability and skills while also adhering to constraint of minimum required resources for smooth operations. 
+In the above case, we are trying to maximize resource utilization while considering the dynamic nature of resource availability and skills. We also need to adhere to the constraint of minimum required resources for smooth operations. 
 
+A visual representation of components involved in linear programming. 
 
 ---------------------------------------------
 
@@ -49,7 +50,8 @@ Optimal_Solution -->[*]
 ```
 
 ----------------------------------------------
-> In summary, linear programming is used to find an optimal solution given the variables of the system and adhering to the constraints which define the limitations within the system. The end goal is to either maximize or minimize an objective function is either maximized or minimized. 
+
+> In summary, linear programming is used to find an optimal solution given the variables of the system and adhering to the constraints which define the limitations within the system. The end goal is to either maximize or minimize an objective function. 
 {: .prompt-tip}
 
 
@@ -60,7 +62,7 @@ LP solvers are independent of the python modules, as many LP solvers are openly 
 
 
 ## Example problems
-Solving some problems without help and only understanding from videos watched was a great way to test my understanding of the concept. Problem 1 and Problem 2 are credited to [Byjus](https://byjus.com/maths/linear-programming/#components).
+Solving some problems without external help. I tested my understanding after watching videos to learn the concept. Problem 1 and Problem 2 are credited to [Byjus](https://byjus.com/maths/linear-programming/#components). Although, I am not totally certain about the origin of these questions (may not be a primary source).
 
 ### Problem 1 - Vitamin blending
 *A doctor wishes to mix two types of Dishes in such a way that the vitamin contents of the mixture contain at least 8 units of vitamin A and 10 units of vitamin C. Dish 1 contains 2 units/kg of vitamin A and 1 unit/kg of vitamin C. Dish 2 contains 1 unit/kg of vitamin A and 2 units/kg of vitamin C. It costs Kr 50 per kg to purchase Dish 1 and Kr 70 per kg to purchase Dish 2. Formulate this problem as a linear programming problem to minimize the cost of such a mixture*
@@ -294,3 +296,8 @@ I enjoyed reading this to dig deeper into the workings of LP: https://www.uky.ed
 
    Using PulP in python
    {% include embed/youtube.html id='qa4trkLfvwQ' %}
+
+
+Going forward, when I come across an interesting LP problem, I will update this post. For now, LP was fun learning. I have barely scratched the surface here. 
+
+More fun to be had!  
