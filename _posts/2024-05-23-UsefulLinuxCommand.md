@@ -1,16 +1,18 @@
 ---
 layout: post
-title: Usefull linux commands
+title: Useful linux commands
 date: 2024-05-23 23:30 +0200
 mermaid: true
-published: false
+published: true
 ---
+
+The aim with this post is to centralize all my most used linux commands and their different use case descriptions using the tldr module.  
+
+Someday when I wonder what the syntax was for a command, I have a place to refer, hopefully! 
 
 ### `scp` command
 ```bash
-tldr scp
-
-  scp
+scp
 
   Secure copy.
   Copy files between hosts using Secure Copy Protocol over SSH.
@@ -42,3 +44,15 @@ tldr scp
 
 ```
 
+### where 
+```bash
+where
+
+  Reports all known instances of a command.
+  It could be an executable in the PATH environment variable, an alias, or a shell builtin.
+  More information: https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html.
+
+  - Find all instances of a command:
+    where command
+
+```

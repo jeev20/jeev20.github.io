@@ -48,7 +48,7 @@ title: UiPath Test Suite Overall Flow Diagram
 
 flowchart TD
     A[UiPath Studio]-->|Publishes test cases via CI/CD|B[UiPath Orchestrator]
-    B[1. UiPath Orchestrator] -->|Avails test sets and execution details| C[2. UiPath Test Manager]
+    B[1. UiPath Orchestrator] <-->|Sync of test sets and execution details| C[2. UiPath Test Manager]
     C --> |Triggering Test Sets|D[UiPath Testing Robot]
     B-->|Triggering test sets| D
     
@@ -64,8 +64,10 @@ flowchart TD
 title: UiPath test automation project linking
 ---
 
-flowchart LR
-    A[UiPath Studio]-->|Publishes Test Cases|B[UiPath Orchestrator]
+flowchart TD
+    A[UiPath Studio]-->|Connect test manager|B[UiPath Test Manager]
+    B -->|Access and link test case and requirements| A
+
 
 ```
 
