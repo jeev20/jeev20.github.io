@@ -3,7 +3,7 @@ layout: post
 title: UiPath Test Suite a Visual Explainer - Part 1 
 date: 2024-05-18 20:57 +0200
 categories: ["UiPath"]
-tags: ["test suite", "test manager"]
+tags: ["UiPath test suite", "UiPath test manager"]
 mermaid: true
 published: false
 ---
