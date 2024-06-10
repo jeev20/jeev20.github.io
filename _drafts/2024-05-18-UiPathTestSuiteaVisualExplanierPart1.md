@@ -58,18 +58,6 @@ flowchart TD
 ```
 
 
-## UiPath test automation project linking
-```mermaid
----
-title: UiPath test automation project linking
----
-
-flowchart TD
-    A[UiPath Studio]-->|Connect test manager|B[UiPath Test Manager]
-    B -->|Access and link test case and requirements| A
-
-
-```
 
 ## UiPath individual test case recommended structure
 

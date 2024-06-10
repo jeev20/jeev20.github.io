@@ -38,12 +38,17 @@ mindmap
         Mermaid
         SharePoint
         PowerApps
+        Godot
+        Bruno
       Programming
         Python
          Pytorch
         SQL
         PowerShell
         Git
+        GDScript
+        REST API
+        SOAP
       Visualizations
         Splunk
         PowerBI

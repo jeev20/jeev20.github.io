@@ -2,8 +2,8 @@
 layout: post
 title: Essentials installer for debian distribution
 date: 2024-05-19 10:08 +0200
-categories: ["Bash"]
-tags: ["install script"]
+categories: ["Miscellaneous"]
+tags: ["bash script"]
 mermaid: true
 published: true
 ---

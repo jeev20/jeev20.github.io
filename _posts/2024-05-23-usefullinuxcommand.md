@@ -2,7 +2,7 @@
 layout: post
 title: Essential linux commands
 date: 2024-05-23 23:30 +0200
-categories: ["Bash"]
+categories: ["Miscellaneous"]
 tags: [ "bash script", "helper"]
 mermaid: true
 published: true

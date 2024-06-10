@@ -7,3 +7,14 @@ tags: ["vector database", "chromadb", "pinecone"]
 mermaid: true
 published: false
 ---
+
+```mermaid
+
+---
+title: RAG Modelling
+---
+
+flowchart LR
+Data_sources-->DataLoader --> Tokenizer --> Embedding --> VectorStore 
+
+```
