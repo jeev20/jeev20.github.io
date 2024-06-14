@@ -29,6 +29,8 @@ mindmap
         TCAS & COLREGs
       Applied ML in safety science
     Tools
+      Cloud
+        Azure
       Automation
         UiPath
         PowerAutomate
