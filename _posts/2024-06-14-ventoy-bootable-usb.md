@@ -33,6 +33,7 @@ VentoyDrive
     │   LinuxMint 21.3
     │   Proxmox 8.2
     │   Gparted
+    |   MxLinux
 
 ```
 
