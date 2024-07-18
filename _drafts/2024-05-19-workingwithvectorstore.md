@@ -1,15 +1,31 @@
 ---
 layout: post
-title: Working with vector stores
-date: 2024-05-19 15:07 +0200
+title: How to build a local RAG application
+date: 2024-07-19 15:07 +0200
 categories: ["Python", "RAG", "LLM"]
-tags: ["vector database", "chromadb", "pinecone"]
+tags: ["vector database", "chromadb", "duckdb"]
 mermaid: true
 published: false
 ---
 
 
+
+
 ```mermaid
+
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#2196F3',
+      'primaryTextColor': '#FFFFFF',
+      'primaryBorderColor': '#1976D2',
+      'lineColor': '#FF5722',
+      'secondaryColor': '#4CAF50',
+      'tertiaryColor': '#F5F5F5'
+    }
+  }
+}%%
 
 flowchart TD
     subgraph TechStack
@@ -27,53 +43,75 @@ flowchart TD
 Module relationships
 ```mermaid
 
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#2196F3',
+      'primaryTextColor': '#FFFFFF',
+      'primaryBorderColor': '#1976D2',
+      'lineColor': '#FF5722',
+      'secondaryColor': '#4CAF50',
+      'tertiaryColor': '#F5F5F5'
+    }
+  }
+}%%
+
+
+
+
 ---
 title: Module relations
 ---
 
-flowchart TD
+flowchart TB
+
+subgraph Config
+end
 
 
-
-subgraph Retrieve Response Pipeline
+subgraph Retrieve response
     direction TB
     subgraph retrieve
         direction TB
-        sg2_retriever[retriever.py]
-        sg2_embedder[embedder.py]
+        sg2_retriever[Retrieve-ChromaDB]
+        sg2_embedder[Embedding-Ollama]
         sg2_prompt[userprompt]
         sg2_vectorstore[(vectorstore)]
-        sg2_responsefromvectorstore[[responsefromvectorstore]]
-        sg2_generate[generate.py]
+        sg2_RetrievedDocuments[[RetrievedDocuments]]
+        sg2_generate[Generate-Ollama]
         sg2_LLMResponse[[LLM response]]
         sg2_LLMModel[(LLM-Ollama)]
+        sg2_SystemPrompt[SystemPrompt]
     end
 
-    sg2_config[config.py] --> retrieve
-    sg2_prompt --> sg2_embedder --> sg2_retriever -->|Top 3| sg2_responsefromvectorstore
+    
+    sg2_prompt --> sg2_embedder --> |Semantic search|sg2_retriever -->|Top n results| sg2_RetrievedDocuments
     sg2_vectorstore --> sg2_retriever
     sg2_embedder --> sg2_generate
-    sg2_responsefromvectorstore --> sg2_generate 
+    sg2_RetrievedDocuments --> sg2_generate 
+    sg2_SystemPrompt --> sg2_generate
     sg2_generate --> sg2_LLMResponse
-    sg2_LLMModel -.-> sg2_generate
+    sg2_LLMModel --> sg2_generate
 end
 
 
 
-subgraph Ingest Data Pipeline
+subgraph Ingest data
     direction TB
     subgraph ingest
         direction TB
-        dataloader.py
-        embedder.py
+        Dataloading
+        Embedding-Ollama
         vectorstore[(vectorstore)]
     end
 
-    Config.py --> ingest
-    dataloader.py --> embedder.py --> vectorstore
+    Dataloading --> Embedding-Ollama --> vectorstore
 
 
 end
- 
 
+vectorstore -.-> sg2_vectorstore
+Config --> ingest 
+Config --> retrieve 
 ```
