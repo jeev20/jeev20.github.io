@@ -23,16 +23,7 @@ That said, it was time to test what a llamafile could do. I soon figured that ll
 According to me, the major advantage of a llamafile is that it exposes an API service in addition to a web user interface. This means that we could use the API endpoints from a llamafile and use it in Retrieval Augmented Generation (RAG) projects or any other LLM use case. The available API endpoints are described in this [link](https://github.com/Mozilla-Ocho/llamafile/blob/main/llama.cpp/server/README.md#api-endpoints).
 
 
-All this magic with llamafile is possible because of the two previous open-source projects, namely [llama.cpp](https://github.com/ggerganov/llama.cpp) and [cosmopolitan_Libc](https://github.com/jart/cosmopolitan). Kudos to the developers and maintainers! Not to forget all the credit to realize llamafile goes to the [Mozilla builders project](https://future.mozilla.org/).
 
-```mermaid
-
-flowchart TD
-
-Llama.cpp --> c[fa:fa-heart llamafile]
-Cosmopolitan_Libc --> c[fa:fa-heart llamafile]
-
-```
 
 ### Usage
 We can use llamafile's in <a name=usage>three ways</a> 
@@ -174,4 +165,21 @@ Thats all! A `llama3.llamafile` will be generated in that current folder. This c
 
 
 #### Porting the output llamafile to windows 
-If you want to use output file in Windows then add the `.exe` extension to the generated llamafile. For example, `llama3.llamafile` to `llama3.llamafile.exe`. 
+If you want to use the output file in Windows then add the `.exe` extension to the generated llamafile. For example, `llama3.llamafile` to `llama3.llamafile.exe`. 
+
+### Credits
+
+All this magic with llamafile is possible because of the two previous open-source projects, namely [llama.cpp](https://github.com/ggerganov/llama.cpp) and [cosmopolitan_Libc](https://github.com/jart/cosmopolitan). Kudos to the developers and maintainers! Not to forget all the credit to realize llamafile goes to the [Mozilla builders project](https://future.mozilla.org/).
+
+```mermaid
+
+flowchart LR
+
+subgraph Mozilla Builders Project
+c
+end
+
+Llama.cpp --> c[fa:fa-heart llamafile]
+Cosmopolitan_Libc --> c[fa:fa-heart llamafile]
+
+```
