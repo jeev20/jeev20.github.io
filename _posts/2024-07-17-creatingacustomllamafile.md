@@ -20,7 +20,7 @@ That said, it was time to test what a llamafile could do. I soon figured that ll
 1. https://docs.llamaindex.ai/en/stable/examples/llm/llamafile/
 2. https://www.llamaindex.ai/blog/using-llamaindex-and-llamafile-to-build-a-local-private-research-assistant
    
-According to me, that major advantage of a llamafile is that it exposes an API service in addition to a web user interface. This means that we could use the API endpoints from a llamafile and use it in Retrieval Augmented Generation (RAG) projects or any other LLM use case. The available API endpoints are described in this [link](https://github.com/Mozilla-Ocho/llamafile/blob/main/llama.cpp/server/README.md#api-endpoints).
+According to me, the major advantage of a llamafile is that it exposes an API service in addition to a web user interface. This means that we could use the API endpoints from a llamafile and use it in Retrieval Augmented Generation (RAG) projects or any other LLM use case. The available API endpoints are described in this [link](https://github.com/Mozilla-Ocho/llamafile/blob/main/llama.cpp/server/README.md#api-endpoints).
 
 
 All this magic with llamafile is possible because of the two previous open-source projects, namely [llama.cpp](https://github.com/ggerganov/llama.cpp) and [cosmopolitan_Libc](https://github.com/jart/cosmopolitan). Kudos to the developers and maintainers! Not to forget all the credit to realize llamafile goes to the [Mozilla builders project](https://future.mozilla.org/).
@@ -35,7 +35,7 @@ Cosmopolitan_Libc --> c[fa:fa-heart llamafile]
 ```
 
 ### Usage
-We can use llamafile's in three ways
+We can use llamafile's in <a name=usage>three ways</a> 
 
 #### 1. Using API endpoints (the API format is same as OpenAI API)
   ```bash
@@ -75,7 +75,7 @@ We can use llamafile's in three ways
 
 ------------------------------------------------
 ## Creating your own llamafiles
-All the above is great to know, but how do put it to the test by creating our own llamafile? This sections covers some of the missing steps in the [readme.md](https://github.com/Mozilla-Ocho/llamafile/blob/main/README.md) of the llamafile project. 
+All the above is great to know, but how do we put it to test by creating our own llamafile? This sections covers some of the missing steps in the [readme.md](https://github.com/Mozilla-Ocho/llamafile/blob/main/README.md) of the llamafile project. I recommend you to also read the entire `readme` as it covers some known workarounds to get things going.
 
 Lets begin! 
 
@@ -89,7 +89,7 @@ sudo make install
 ```
 
 
-The above command will then install all the necessary binaries to this folder `/usr/local/bin/llamafile` with the following terminal output.
+The above command will install all the necessary binaries to this folder `/usr/local/bin/llamafile` with the following terminal  <a name="bashooutput">output</a>.
 ```bash
 mkdir -p /usr/local/bin
 install o//llamafile/zipalign /usr/local/bin/zipalign
@@ -112,15 +112,15 @@ install -m 0644 llama.cpp/llava/llava-quantize.1 /usr/local/share/man/man1/llava
 ```
 
 ### Step 2 - Check version
-Open a new terminal window and check the version of llamafile you have 
+Open a new terminal window and check the version of llamafile you have.
 ```bash
 $ llamafile --version  
 llamafile v0.8.9
 ```
 
 
-### Step 3 - Creating args file
-The `.args` file allows you to customize the llamafile you want to generate. The following is the content of the `.args` file 
+### Step 3 - Creating the args file
+The `.args` file allows you to customize the llamafile you want to generate. The following is an example content of the `.args` file 
 
 ```bash
 -m
@@ -133,17 +133,17 @@ LLaMA3-8B_mmproj-Q4_1.gguf
 9999
 ...
 ```
-> To create another llamafile just find the appropriate model you want to use and download the `.gguf` file and follow the same steps mentioned above. The `--mmproj` is optional but the `m` (model) option is mandatory in the `.args` file
+> To create another llamafile just find the appropriate model you want to use and download the `.gguf` file from HuggingFace and follow the same steps mentioned above. The `--mmproj` is optional but the `m` (model) option is mandatory in the `.args` file
 {: .prompt-info }
 
 
 ### Step 4 - Building on the llamafile binary
-We first copy the llamafile and give it a new name 
+We first copy the llamafile and give it a new name. 
 ```bash
 cp /usr/local/bin/llamafile llama3.llamafile 
 ```
 
-The working folder should contain the following files
+The working folder should contain the following files.
 ```
 LlamafileExperiments  
 │
@@ -153,7 +153,7 @@ LlamafileExperiments
 └───llama3.llamafile 
 ```
 
-We then use the `zipalign` binary which is an alternative to zip. This library is designed to concatenate gigabytes of LLM weights to an executable. If you observe the output from Step 1, you see that the `zipalign` binary was also saved to `/usr/local/bin/zipalign`. Therefore, your terminal should recognize the `zipalign` command. Read more about zipalign by using the command `man zipalign`.
+Now use the `zipalign` binary which is an alternative to zip. This library is designed to concatenate gigabytes of LLM weights to an executable. If you observe the output from [Step 1](#bashooutput), you see that the `zipalign` binary was also saved to `/usr/local/bin/zipalign`. Therefore, your terminal should recognize the `zipalign` command. Read more about zipalign by using the command `man zipalign`.
 
 ```bash
 zipalign -j0 \
@@ -163,7 +163,7 @@ zipalign -j0 \
   .args
 ```
 
-Thats all! A `llama3.llamafile` will be generated in that current folder. This can then be run by using 
+Thats all! A `llama3.llamafile` will be generated in that current folder. This can then be run by using any of the three ways [mentioned above](#usage)
 
 ```bash
 ./llama3.llamafile
