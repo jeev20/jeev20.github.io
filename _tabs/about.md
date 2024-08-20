@@ -28,7 +28,7 @@ mindmap
         Underwater Remotely Operated Vehicles
         TCAS & COLREGs
       Applied ML in safety science
-    Tools
+    Applied Knowledge
       Cloud
         Azure
       Automation
@@ -55,6 +55,11 @@ mindmap
         Splunk
         PowerBI
         Grafana
+      Large Language Model
+        Llamafile
+        Ollama
+        Llamaindex
+        Retrieval Augmented Generation-RAG
       
       
 ```

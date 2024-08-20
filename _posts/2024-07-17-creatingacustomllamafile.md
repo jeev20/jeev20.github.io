@@ -9,13 +9,13 @@ published: true
 ---
 
 ### Background
-I recently watched the keynote/demo on llamfile which showed how local LLMs can be made simpler to use. I love [Ollama](https://ollama.com/) but the additional installation/maintenance overhead it brings can be seen as one of the negatives. That said most of these tools currently are still in their infancy and with time, they will only get easier to install, use, scale and maintain. 
+I recently watched the keynote/demo on llamfile which showed how local LLMs can be made simpler to use. I love [Ollama](https://ollama.com/) but the additional installation/maintenance overhead it brings can be seen as one of the negatives. That said, most of these tools currently are still in their infancy and with time, they will only get easier to install, use, scale and maintain. 
 
 {% include embed/youtube.html id='-mRi-B3t6fA' %}
 
 
 
-That said, it was time to test what a llamafile could do. I soon figured that llama index already has an integration for working with llamafiles and a concise blog post on how to use a llamafile to build a rudimentary RAG system. 
+I soon figured that llama index already has an integration for working with llamafiles and a concise blog post on how to use a llamafile to build a rudimentary RAG system. 
 
 1. https://docs.llamaindex.ai/en/stable/examples/llm/llamafile/
 2. https://www.llamaindex.ai/blog/using-llamaindex-and-llamafile-to-build-a-local-private-research-assistant
@@ -66,7 +66,7 @@ We can use llamafile's in <a name=usage>three ways</a>
 
 ------------------------------------------------
 ## Creating your own llamafiles
-All the above is great to know, but how do we put it to test by creating our own llamafile? This sections covers some of the missing steps in the [readme.md](https://github.com/Mozilla-Ocho/llamafile/blob/main/README.md) of the llamafile project. I recommend you to also read the entire `readme` as it covers some known workarounds to get things going.
+All the above is great to know, but how do we put it to use by creating our own llamafile? This sections covers some of the missing steps in the [readme.md](https://github.com/Mozilla-Ocho/llamafile/blob/main/README.md) of the llamafile project. I recommend you to also read the entire `readme` as it covers some known workarounds to get things going.
 
 Lets begin! 
 

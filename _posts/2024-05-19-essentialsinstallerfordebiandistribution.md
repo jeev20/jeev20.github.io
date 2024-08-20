@@ -28,7 +28,8 @@ npm -y \
 tree -y \
 docker.io -y \
 curl -y \
-ssh -y
+ssh -y \
+openssh-server -y
 
 # Install rustup to install cargo and python package management
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
