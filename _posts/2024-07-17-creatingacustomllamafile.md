@@ -26,7 +26,7 @@ According to me, the major advantage of a llamafile is that it exposes an API se
 
 
 ### Usage
-We can use llamafile's in <a name=usage>three ways</a> 
+We can use llamafile's in three ways
 
 #### 1. Using API endpoints (the API format is same as OpenAI API)
   ```bash
@@ -80,7 +80,7 @@ sudo make install
 ```
 
 
-The above command will install all the necessary binaries to this folder `/usr/local/bin/llamafile` with the following terminal  <a name="bashooutput">output</a>.
+The above command will install all the necessary binaries to this folder `/usr/local/bin/llamafile` with the following terminal output.
 ```bash
 mkdir -p /usr/local/bin
 install o//llamafile/zipalign /usr/local/bin/zipalign
@@ -144,7 +144,7 @@ LlamafileExperiments
 └───llama3.llamafile 
 ```
 
-Now use the `zipalign` binary which is an alternative to zip. This library is designed to concatenate gigabytes of LLM weights to an executable. If you observe the output from [Step 1](#bashooutput), you see that the `zipalign` binary was also saved to `/usr/local/bin/zipalign`. Therefore, your terminal should recognize the `zipalign` command. Read more about zipalign by using the command `man zipalign`.
+Now use the `zipalign` binary which is an alternative to zip. This library is designed to concatenate gigabytes of LLM weights to an executable. If you observe the output from Step 1, you see that the `zipalign` binary was also saved to `/usr/local/bin/zipalign`. Therefore, your terminal should recognize the `zipalign` command. Read more about zipalign by using the command `man zipalign`.
 
 ```bash
 zipalign -j0 \
