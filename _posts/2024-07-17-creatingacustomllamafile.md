@@ -17,9 +17,9 @@ I recently watched the keynote/demo on llamfile which showed how local LLMs in a
 
 I soon figured that llama index already has an integration for working with llamafiles and a concise blog post on how to use a llamafile to build a rudimentary RAG system. 
 
-1. https://docs.llamaindex.ai/en/stable/examples/llm/llamafile/
-2. https://www.llamaindex.ai/blog/using-llamaindex-and-llamafile-to-build-a-local-private-research-assistant
-   
+1. <a href="https://docs.llamaindex.ai/en/stable/examples/llm/llamafile/">llamafile-llamaindex</a>
+2 <a href="https://www.llamaindex.ai/blog/using-llamaindex-and-llamafile-to-build-a-local-private-research-assistant">llamafile-RAG</a>
+
 According to me, the major advantage of a llamafile is that it exposes an API service in addition to a web user interface. This means that we could use the API endpoints from a llamafile and use it in Retrieval Augmented Generation (RAG) projects or any other LLM use case. The available API endpoints are described in this [link](https://github.com/Mozilla-Ocho/llamafile/blob/main/llama.cpp/server/README.md#api-endpoints).
 
 
