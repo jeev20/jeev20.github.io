@@ -9,7 +9,7 @@ published: true
 ---
 
 ### Background
-I recently watched the keynote/demo on llamfile which showed how local LLMs can be made simpler to use. I love [Ollama](https://ollama.com/) but the additional installation/maintenance overhead it brings can be seen as one of the negatives. That said, most of these tools currently are still in their infancy and with time, they will only get easier to install, use, scale and maintain. 
+I recently watched the keynote/demo on llamfile which showed how local LLMs in a single executable. I love [Ollama](https://ollama.com/) but the additional installation/maintenance overhead it brings can be seen as one of the negatives. That said, most of these tools currently are still in their infancy and with time, they will only get easier to install, use, scale and maintain. 
 
 {% include embed/youtube.html id='-mRi-B3t6fA' %}
 
