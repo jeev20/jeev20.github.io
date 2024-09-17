@@ -28,6 +28,7 @@ mindmap
         Underwater Remotely Operated Vehicles
         TCAS & COLREGs
       Applied ML in safety science
+      Time Series Analysis
     Applied Knowledge
       Cloud
         Azure
