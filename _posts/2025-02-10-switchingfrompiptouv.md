@@ -2,17 +2,17 @@
 layout: post
 title: Switching from PIP to UV
 date: 2025-02-10 16:44 +0100
-categories: ["tooling", "uv"]
+categories: ["tooling", "uv", "python]
 tags: ["misc"]
 mermaid: true
 published: true
 ---
 
-For the past 10 years I have constantly depended on python tools such as conda, pip, virtualenv, pyenv, poetry. All these tools always made it difficult to master python tooling as I had to remember the CLI commands for each one of them separately. 
+For the past 10 years I have constantly depended on python tools such as conda, pip, virtualenv, pyenv and poetry. These tools always made it difficult to master python tooling as I had to remember the CLI commands for each one of them separately. 
 
-In mid 2024 I came across a new tool called UV via youtube suggestion. The developers built it on Rust, and back then I was very mesmerized by rust. But I did not feel comfortable switching my python workflows to UV right away. 
+In mid 2024, I came across a new tool called UV via an youtube suggestion. The developers built it on Rust, and back then I was very mesmerized by rust. But I did not feel comfortable switching my python workflows to UV right away. 
 
-Fast forward a year, the newest version of UV made it a complete no-brainer and I have decided to switch over. 
+Fast forward a year, the latest version of UV made it a complete no-brainer and I have decided to switch over. 
 
 To start a new project I let `uv` create the required boilerplate for me by using the `init` command. 
 ```bash
