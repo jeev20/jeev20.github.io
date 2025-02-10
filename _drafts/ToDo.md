@@ -3,4 +3,5 @@
 - [ ]  RAG basics and usecases 
 - [ ]  UiPath Test Suite
 - [ ]  Time Series Analysis
+- [ ]  Large Language Model (understanding from books)
 --------------------------------
