@@ -2,7 +2,7 @@
 layout: post
 title: Switching from PIP to UV
 date: 2025-02-10 16:44 +0100
-categories: ["tooling", "uv", "python]
+categories: ["tooling", "uv", "python"]
 tags: ["misc"]
 mermaid: true
 published: true
