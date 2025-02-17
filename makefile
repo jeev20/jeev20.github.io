@@ -1,11 +1,11 @@
-newpost:
+new:
 	bundle exec jekyll post $(name)
 
 dev:
 	bundle exec jekyll s --livereload --trace 
 
 publish:
-	bash ./tools/publish.sh
+	bash ./tools/publish.sh                                        
 
 build:
 	bundle exec jekyll build
