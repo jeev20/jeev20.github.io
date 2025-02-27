@@ -2,8 +2,8 @@
 layout: post
 title: Updating Ollama in an airgapped linux server
 date: 2025-02-17 15:01 +0100
-categories: ["ollama", "airgapped"]
-tags: ["llm"]
+categories: ["llm"]
+tags: ["ollama", "airgapped"]
 mermaid: true
 published: true
 ---
