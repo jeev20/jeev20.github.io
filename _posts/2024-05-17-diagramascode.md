@@ -2,7 +2,7 @@
 title: Diagram as code
 date: 17.05.2024 20:57 +0100
 lastmod: 2020-04-13 16:38:56 +0100 
-categories: ["Miscellaneous"]
+categories: ["miscellaneous"]
 tags: ["mermaidjs", "kroki"]
 mermaid: true
 published: true

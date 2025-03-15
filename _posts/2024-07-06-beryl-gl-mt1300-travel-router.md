@@ -2,7 +2,7 @@
 layout: post
 title: Beryl-GL-MT1300 Travel Router
 date: 2024-07-06 22:02 +0200
-categories: ["Home automation"]
+categories: ["home automation"]
 tags: ["router", "travel", "wireguard"]
 mermaid: true
 published: true

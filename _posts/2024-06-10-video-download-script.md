@@ -2,7 +2,7 @@
 layout: post
 title: Automating video downloads
 date: 2024-06-10 13:20 +0200
-categories: ["Home automation"]
+categories: ["home automation"]
 tags: ["yt-dlp", "jellyfin", "bash script"]
 mermaid: true
 published: true

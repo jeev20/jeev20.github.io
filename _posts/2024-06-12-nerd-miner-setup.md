@@ -2,7 +2,7 @@
 layout: post
 title: Nerd miner setup
 date: 2024-06-12 14:06 +0200
-categories: ["Blockchain"]
+categories: ["blockchain"]
 tags: ["mining", "bitcoin", "nerd miner"]
 mermaid: true
 published: true

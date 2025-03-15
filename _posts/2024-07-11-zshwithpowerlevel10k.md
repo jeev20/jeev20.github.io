@@ -2,7 +2,7 @@
 layout: post
 title: ZSH with Powerlevel10k
 date: 2024-07-11 11:44 +0200
-categories: ["Miscellaneous"]
+categories: ["miscellaneous"]
 tags: [ "bash script", "helper", "zsh", "powerlevel10K", "ohmyzsh"]
 mermaid: true
 published: true

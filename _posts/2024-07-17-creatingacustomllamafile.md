@@ -2,7 +2,7 @@
 layout: post
 title: Creating a custom llamafile 🦙
 date: 2024-07-17 16:44 +0200
-categories: ["Llamafile", "LLM"]
+categories: ["llamafile", "llm"]
 tags: ["local llm", "self hosted"]
 mermaid: true
 published: true

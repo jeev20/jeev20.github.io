@@ -2,7 +2,7 @@
 layout: post
 title: Diagram as code for UiPath projects
 date: 2024-07-25 23:28 +0200
-categories: ["mermaid", "documentation", "UiPath"]
+categories: ["mermaid", "uipath"]
 tags: ["mermaidjs", "automation"]
 mermaid: true
 published: false

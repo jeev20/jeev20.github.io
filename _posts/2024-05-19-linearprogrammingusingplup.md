@@ -2,7 +2,7 @@
 layout: post
 title: Solving linear programming problems
 date: 2024-05-19 15:06 +0200
-categories: ["Python"]
+categories: ["python"]
 tags: [ "linear programming", "optimization", "pulp"]
 mermaid: true
 published: true

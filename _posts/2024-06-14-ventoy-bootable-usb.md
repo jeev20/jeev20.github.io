@@ -2,7 +2,7 @@
 layout: post
 title: Ventoy bootable USB drive
 date: 2024-06-14 23:15 +0200
-categories: ["Miscellaneous"]
+categories: ["miscellaneous"]
 tags: ["usb", "distro hopping", "writing images"]
 mermaid: true
 published: true

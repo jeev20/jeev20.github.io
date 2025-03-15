@@ -2,8 +2,8 @@
 layout: post
 title: Content of file from Azure DevOps repository
 date: 2024-11-01 13:56 +0100
-categories: ["AzureDevops"]
-tags: ["API"]
+categories: ["azuredevops"]
+tags: ["api"]
 mermaid: true
 published: true
 ---
