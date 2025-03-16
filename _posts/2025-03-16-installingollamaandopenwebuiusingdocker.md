@@ -32,9 +32,11 @@ published: true
 {: .prompt-tip}
 
 
-I have been using Ollama as a standalone installation in my homelab which runs as a systemd service. I used OpenWebUI as the user interface to the local Ollama installation. However, the a recent version of Ollama failed to restart on my LMDE 6 operating system after a restart. 
+I have been using Ollama as a standalone installation in my homelab which ran as a systemd service. I used OpenWebUI as the user interface to the local Ollama installation. However, a recent version of Ollama failed to auto spawn on my LMDE 6 operating system after a restart. 
 
-Naturally, I had to look for an alternative with minimal maintenance need. Thankfully, OpenWebUI offers an image which bundles both Ollama and the OpenWebUI and uses the Nvidia-Container-Toolkit to utilize all installed GPUs. This means that I only have to maintain one container for both Ollama and OpenWebUI installation. Further, to automate this update process, I use watchtower to install the latest updates from the OpenWebUI team. 
+Naturally, I had to look for an alternative with minimal maintenance need. Thankfully, OpenWebUI offers an image which bundles both Ollama and the OpenWebUI and uses the Nvidia-Container-Toolkit to utilize all installed GPUs. 
+
+This means that I only have to maintain one container for both Ollama and OpenWebUI installation. Further, to automate this update process, I use watchtower to install the latest updates of the image from the OpenWebUI team. 
 
 ## Docker run can fail
 I observed that running only `sudo docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama` did not work as it required [nvidia-container-toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) to be installed first. 
@@ -59,7 +61,7 @@ sudo docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui
 sudo docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once open-webui
 ```
 
-Docker started the container and also setup the watchtower auto-update for the `open-webui`container. 
+Docker started the container and also setup the watchtower auto-update for the `open-webui` container. 
 
 I can now use the `docker exec` command to use Ollama cli within the container. I downloaded some models by using
 ```bash
