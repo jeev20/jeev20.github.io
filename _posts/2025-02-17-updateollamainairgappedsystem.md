@@ -15,16 +15,13 @@ published: true
 
 
 > TL;DR: 
-> 
+> ```bash
 > sudo rm -rf /usr/lib/ollama 
->
 > curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
-> 
 > sudo tar -C /usr -xzf ollama-linux-amd64.tgz 
->
 > ollama serve
->
 > ollama -v
+```
 {: .prompt-tip}
 
 
