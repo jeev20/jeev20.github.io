@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using all GPUs when running Ollama and OpenWebUI in docker 
-date: 2025-02-17 15:01 +0100
+date: 2025-03-16 12:01 +0100
 categories: ["llm"]
 tags: ["ollama", "openwebui"]
 mermaid: true
