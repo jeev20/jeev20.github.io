@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Searching and validating of a Norwegian Identity Number
+title: Searching and validating Norwegian Identity Numbers
 date: 2025-04-11 10:06 +0200
 categories: ["misc"]
 tags: ["norwegianid"]
