@@ -91,13 +91,13 @@ mindmap
 
 ### Non rectangular data structures
 
-* **Time Series data** records sequential measurement of a same variable with time. This kind of data is used to create statistical forecasting models. An example is a IOR sensor capturing temperature data every 2 minutes perpetually. Such data structure always need to include a time at which the record was captured. 
+* **Time Series data** records sequential measurements of a same variable with time. This kind of data is used to create statistical forecasting models. An example is a IOT sensor capturing temperature data every 2 minutes perpetually. Such data structures always need to include a time at which the record was captured. 
   
-* **Spatial data** can be used to create location based analytics. The object understand observation can be for example a house or a point of interest in a map and its spatial coordinates. 
+* **Spatial data** can be used to create location based analytics. The object under observation can be for example a house or a point of interest in a map and its spatial coordinates. 
   
-* **Graph/ Network** are used to represent abstract relationships between the object under observation. An example can be a social network of a person showing how many contacts or friends that person has and how often he/she interact with them. These types of data are useful in recommender systems and optimization problems. 
+* **Graph/ Network** are used to represent abstract relationships between the object under observation. An example can be a social network of a person showing how many contacts or friends that person has and how often he/she interacts with them. These types of data is useful in recommender systems and optimization problems. 
 
-All these three can also be combined in some use case. For example, Google maps can store spatial data in a time series manner for a person and include a graph/ network data on how the user interacts when they travel 60 kms away from their home. 
+All these three can also be combined in a single use case. For example, Google maps can store spatial data in a time series manner for a person and include a graph/ network data on how the user interacts with other spatial objects (shops, landmarks) when they travel 60 kms away from their home. 
 
 
 > **Difference in terminologies**
