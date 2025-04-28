@@ -109,7 +109,47 @@ All these three can also be combined in a single use case. For example, Google m
 > Graph in statistics can mean plots or visualization and not just connections of entities as it is in computer science or information technology.
 {: .prompt-info }
 
+```mermaid
+mindmap
+  root((Estimates of location))
+    Mean 
+        Sum of all observations divided by total number of observations. Also known as **average**
+    Trimmed mean
+        By removing the first n and the last n observations from a sorted set of observations, trimmed mean can then be calculated on the remaining observations divided by the total number of remaining observations. This helps us eliminate very high or very low values in the dataset. This can also result in a trimmed mean, which is closer to the median value.
+    Weighter mean
+        Sum of all observations multiplied by corresponding weights and divided by sum of the weights. Also known as **weighted average**
+    Median
+        The middle most observation in the ascendingly sorted dataset. Also known as 50th percentile and a robust estimate of location.
+    Weighted median
+        The value such that one-half of the sum of the weights lies below or above the sorted data
+    Percentile
+        The value which signifies the percentage of data which lies below or equal to a given data value. Can also be called as quantile.
+    Robust
+        Not sensitive to extreme observations
+    Outlier
+        Observation/s which are located in extreme ranges when compared with most of the observations
+```
 
+
+> **Difference in terminologies**
+> 
+> Datascientist measure and statisticians estimates. Statisticians account for uncertainities in the analysis whereas concrete business objectives are the focus for datascientists.
+{: .prompt-info }
+
+```python
+import pandas as pd
+from scipy.stats import trim_mean
+import numpy as np
+import wquantiles
+
+df = pd.read_csv("https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/refs/heads/master/data/state.csv")
+
+df_mean = df["Population"].mean()
+df_median = df["Population"].median()
+trimmed_mean = trim_mean(df["Population"], 0.1)
+weighted_mean = np.average(df["Murder.Rate"],weights=df["Population"])
+weighted_median = wquantiles.median(df["Murder.Rate"],weights=df["Population"])
+```
 
 ## Related literature 
 * Jon Tukey : [Exploratory Data Analysis](https://archive.org/details/exploratorydataa0000tuke_7616)  
