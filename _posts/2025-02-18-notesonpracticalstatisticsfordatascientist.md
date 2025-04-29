@@ -6,6 +6,7 @@ categories: ["datascience", "fundamentals"]
 tags: ["notes"]
 mermaid: true
 published: true
+math: true
 ---
 
 This is my personal notes of the book [Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck.](https://books.google.no/books?hl=no&lr=&id=k2XcDwAAQBAJ&oi=fnd&pg=PP1&dq=9781492072942&ots=dEKcnlVmx1&sig=A4W7tK5Um6BTbuzr3_gOvVinDRg&redir_esc=y#v=onepage&q=9781492072942&f=false) I will update this post, as I study and digest the contents of this book.
@@ -109,6 +110,8 @@ All these three can also be combined in a single use case. For example, Google m
 > Graph in statistics can mean plots or visualization and not just connections of entities as it is in computer science or information technology.
 {: .prompt-info }
 
+### Estimates of location
+
 ```mermaid
 mindmap
   root((Estimates of location))
@@ -131,6 +134,29 @@ mindmap
 ```
 
 
+$$
+\begin{equation}
+  Mean = \bar{x}= \frac{\sum_{i=1}^n x_i}{n} 
+  \label{eq:mean}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+  TrimmedMean = \bar{x}= \frac{\sum_{i=p+1}^{n-p} x_i}{n - 2p} 
+  \label{eq:trimmedmean}
+\end{equation}
+$$
+
+
+$$
+\begin{equation}
+  WeightedMean = \bar{x}_w= \frac{\sum_{i=1}^{n} w_i*x_i}{\sum_{i=1}^{n} w_i} 
+  \label{eq:weightedmean}
+\end{equation}
+$$
+
+
 > **Difference in terminologies**
 > 
 > Datascientist measure and statisticians estimates. Statisticians account for uncertainities in the analysis whereas concrete business objectives are the focus for datascientists.
@@ -150,6 +176,33 @@ trimmed_mean = trim_mean(df["Population"], 0.1)
 weighted_mean = np.average(df["Murder.Rate"],weights=df["Population"])
 weighted_median = wquantiles.median(df["Murder.Rate"],weights=df["Population"])
 ```
+
+### Estimates of variability
+Variability (aka dispersion) is the second dimension of summarizing a feature. The first one is **Location**. Dispersion measures if the data values are tightly clustered or spread out. 
+
+```mermaid
+mindmap
+  root((Estimates of variability))
+    Deviations 
+        The difference between the observed values and the estimates of locations. Also known as residuals or errors. 
+    Variance
+        The sum of squared deviations from the mean divided by n-1 where n is the number of observations. Also known as mean-squared-error
+    Standard deviation
+        The square root of variance
+    Mean absolute deviation
+        The absolute values of deviations from the mean. Also known as L1 norm or Manhattan norm
+    Median absolute deviation from the median
+        The median absolute values of the deviations from the median
+    Range
+        The difference between the largest and the smallest observations in the data set
+    Order statistics
+        Metrics based on sorted data from smallest ti biggest. Also known as ranks. 
+    Interquartile range
+        The difference between the 75th percentile and 25th percentile
+
+```
+
+
 
 ## Related literature 
 * Jon Tukey : [Exploratory Data Analysis](https://archive.org/details/exploratorydataa0000tuke_7616)  
