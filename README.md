@@ -1,1 +1,0 @@
-This is the repo for the website : https://jeev20.github.io
