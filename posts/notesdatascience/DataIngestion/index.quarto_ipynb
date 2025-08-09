@@ -1,0 +1,175 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Data ingestion\n",
+        "format: html\n",
+        "toc: true\n",
+        "lang: en\n",
+        "jupyter: python3\n",
+        "ipynb-shell-interactivity: all\n",
+        "execute:\n",
+        "  echo: false\n",
+        "date: 2025-08-09 08:02 +0200\n",
+        "categories: [\"datascience\", \"fundamentals\"]\n",
+        "tags: [\"notes\", \"dataingestion\"]\n",
+        "\n",
+        "comments:\n",
+        "  giscus:\n",
+        "    repo: jeev20/jeev20.github.io\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Getting the data\n",
+        "The location of the data depends on ones use-case. Some have it locally, others on the cloud in a storage bucket or database. There is always a way to get your data to your development environment. The way we get it will differ. \n",
+        "\n",
+        "In this notes, I use the `kagglehub` module to get a time series dataset. \n",
+        "\n",
+        "```{.python}\n",
+        "import kagglehub\n",
+        "# Download latest version\n",
+        "path = kagglehub.dataset_download(\"garystafford/environmental-sensor-data-132k\")\n",
+        "print(\"Path to dataset files:\", path)\n",
+        "```\n",
+        "\n",
+        "## Decrease data size\n",
+        "One needs to evaluate the size of the dataset and the resources available to process the data. One way og limiting the size of the data is to use effecient file formats.\n",
+        "\n",
+        "Data formatted as Comma Seperated Value (CSV) is everywhere, but it is not the most lighweight or fast format when it comes read/write from disks. So it is wise to convert large CSV files to formats which are faster and take lesser space on disk/memory. One such format is [`parquet`](https://www.databricks.com/glossary/what-is-parquet). \n",
+        "\n",
+        "We can always decrease the data size to make ingestion easier. So we use polars to convert it to paraquet format. "
+      ],
+      "id": "96a3d962"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "%%time\n",
+        "import polars as pl\n",
+        "\n",
+        "input_data_path = f\"../data/iot/iot_telemetry_data.parquet\"\n",
+        "df = pl.scan_csv(\"../data/iot/iot_telemetry_data.csv\")\n",
+        "df.sink_parquet(input_data_path)  # Saves the lazyframe as a parquet file"
+      ],
+      "id": "071695b5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "For small size datasets pandas and polars will do fine. As the dataset size increases, we need to look for effecient ways to read and prosess our data. In python, DuckDb and Pyspark are the best performing ETL libraries for large datasets. \n",
+        "\n",
+        "That said, output from both DuckDb and Pyspark are not directly compatible with visualization libraries or other third party modules, for example, `pandas-profiling`. \n",
+        "\n",
+        "So a hybrid approach is required, where the transformations are made using DuckDb or Pyspark, but the output is later converted to either polars or pandas dataframes. This allows us to efficiently perform ETL operations, but still be compatible with visualization libraries via polars or pandas formats. \n",
+        "\n",
+        "\n",
+        "\n",
+        "## Using pandas"
+      ],
+      "id": "f66a2353"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "%%time\n",
+        "import pandas as pd\n",
+        "\n",
+        "pd_df =  pd.read_parquet(input_data_path)\n",
+        "pd_df.head(2)"
+      ],
+      "id": "d0a4ff4a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Using Polars"
+      ],
+      "id": "afddca38"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "%%time\n",
+        "import polars as pl\n",
+        "\n",
+        "pl_df =  pl.scan_parquet(input_data_path)\n",
+        "pl_df.head(2).collect()"
+      ],
+      "id": "76bc3c60",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Using Duckdb"
+      ],
+      "id": "6ee3399b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "%%time\n",
+        "import duckdb \n",
+        "\n",
+        "result = duckdb.sql(f\"SELECT * FROM '{input_data_path}'\")\n",
+        "result.show()"
+      ],
+      "id": "f2d0577c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Using pyspark"
+      ],
+      "id": "d553cbe3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| warning: false\n",
+        "%%time\n",
+        "from pyspark.sql import SparkSession\n",
+        "\n",
+        "spark = SparkSession.builder.appName(\"readParquet\").getOrCreate()\n",
+        "df = spark.read.parquet(input_data_path)\n",
+        "df.show()"
+      ],
+      "id": "d315aa8e",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
