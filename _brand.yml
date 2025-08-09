@@ -1,0 +1,19 @@
+color:
+  palette:
+    dark-grey: "#222222"
+    blue: "#ddeaf1"
+  background: blue
+  foreground: dark-grey
+  primary: black
+
+logo: 
+  medium: assets/Logo.png
+
+typography:
+  fonts:
+    - family: Montserrat
+      source: google
+  base: Montserrat
+  headings: Montserrat
+
+

@@ -1,1 +1,0 @@
-uv run jupyter nbconvert 2025-03-15-JupyterNotebookTest.ipynb --to markdown

@@ -1,0 +1,101 @@
+---
+title: "About"
+image: assets/Logo.png
+about:
+  template: trestles
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/jeevhegde/
+    - icon: github
+      text: Github
+      href: https://github.com/jeev20
+
+
+---
+
+Hello, I'm Jeevith. I love automation and currently working my way into the Data Science field. My expierence spans across the field of technical safety, underwater robotics, process/test automation and data science. 
+
+
+This website is an effort to document my journey of learning new technologies. 
+
+After many years of working as a developer, I missed having a repository where I could document and access my learnings. I also hope that by sharing my know-how, I can help others along the way. 
+
+
+The plan is to write about topics covered in this mindmap, which will expand with new learnings.
+
+------------------------
+
+```{mermaid}
+mindmap
+  root((Knowledge base))
+    Project execution
+        Business analysis
+        Strategy
+    Research
+      Risk analysis
+      Autonomous systems
+        Underwater Remotely Operated Vehicles
+        TCAS & COLREGs
+      Applied ML in safety science
+    Data science
+        Exploratory data analysis
+        Time Series Analysis
+    Applied Knowledge
+      Cloud
+        Azure
+      Automation
+        UiPath
+        PowerAutomate
+        BluePrism
+        Robocorp
+      Misc
+        Mermaid
+        SharePoint
+        PowerApps
+        Godot
+        Bruno
+      Programming
+        Python
+         Pytorch
+        SQL
+        PowerShell
+        Git
+        GDScript
+        REST API
+        SOAP
+      Visualizations
+        Splunk
+        PowerBI
+        Grafana
+      Large Language Model
+        Llamafile
+        Ollama
+        Llamaindex
+        Retrieval Augmented Generation-RAG
+      
+      
+```
+
+
+-----------------------
+
+## Use of LLMs
+If the content in the published posts are produced by using a online/local large-language-model, a clear attribution text with the following information will be shared in the post.
+
+::: {.callout-note}
+
+This part was generated using Large Language Model (LLMMODEL) with the following prompt text: PROMTTEXT. 
+
+:::
+
+
+
+
+
+
+## Credits
+Logo was generated using [Dummy-logo-maker](https://github.com/moiseshp/dummy-logo-maker). Thanks to [moiseshp](https://github.com/moiseshp)
+
+
+All opinions written in this blog are my own.

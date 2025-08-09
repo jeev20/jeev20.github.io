@@ -1,0 +1,12 @@
+{
+  "hash": "f0dd303786aba484b72eeea8f3a2e40b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Essentials installer for debian distribution\ndate: 2024-05-19 \nformat: html\ntoc: true\nlang: en\njupyter: python3\nipynb-shell-interactivity: all\nexecute:\n  echo: false\ncategories: [\"script\"]\ntags: [\"bash\"]\ncomments:\n  giscus:\n    repo: jeev20/jeev20.github.io\n---\n\n\n\nI use the following script to quickly setup a new installation of a debian distribution with my commonly used packages and libraries. \n\nThis allows for quick headless deployment of all essential programs and decreases the overhead when hopping distributions! \n\n```bash\n#!/bin/bash\n\n# Update and upgrade packages finally remove stale files\nsudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y\n\n# Install apt packages most used\nsudo apt-get remove docker docker-engine docker.io\nsudo apt install python-is-python3 -y \\\nneofetch -y \\\nhtop -y \\\nbpytop -y \\\nnpm -y \\\ntree -y \\\ndocker.io -y \\\ncurl -y \\\nssh -y \\\nopenssh-server -y\n\n# Install rustup to install cargo and python package management\ncurl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y\n\n# Install UV for python package management\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n\n# Install node packages\nsudo npm install -g tldr -y\n\n# Install cargo packages\ncargo install broot --force\nbroot -y\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
