@@ -1,5 +1,6 @@
 ---
 title: Video download script
+description: "Automating downloading YouTube videos/audio for personal use"
 format: html
 toc: true
 lang: en

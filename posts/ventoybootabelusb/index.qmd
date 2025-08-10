@@ -1,5 +1,6 @@
 ---
-title: Ventoy bootabel USB
+title: Ventoy bootable USB
+description: "OS images in one USB!"
 format: html
 toc: true
 lang: en

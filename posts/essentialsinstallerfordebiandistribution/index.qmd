@@ -1,5 +1,6 @@
 ---
 title: Essentials installer for debian distribution
+description: "A script to install my frequently used applications in linux (debain)"
 date: 2024-05-19 
 format: html
 toc: true

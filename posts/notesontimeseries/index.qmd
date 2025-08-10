@@ -1,5 +1,6 @@
 ---
 title: Notes on time series analysis
+description: "Exploring components of time series"
 format: html
 toc: true
 lang: en

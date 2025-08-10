@@ -11,7 +11,7 @@ title: ""
 2020-Present:	**Helse Midt-Norge IT**	Trondheim, Norway  
 ***Senior Integration Developer (Robotic Process Automation)***
 
-* Delivered robots which saved over 16 man-years and enabled the team to save over 120 man-years in 5 years  
+* Delivered robots which saved over 50 man-years and enabled the team to save over 120 man-years in 5 years  
 * Grew the team from 2 developers to 8 developers by delivering 19 RPA automations, 5 test automation projects  
 * Held technical interviews to recruit RPA developers   
 * Developed and maintained project templates for RPA, Test Automation and developed RPA candidate evaluation tool in Microsoft Excel and PowerApps.      
@@ -62,7 +62,8 @@ title: ""
 * [Tools and methods to manage risk in autonomous subsea inspection maintenance and repair operations](https://ntnuopen.ntnu.no/ntnu-xmlui/bitstream/handle/11250/2496308/Jeevith%20Hedge_fulltext.pdf?sequence=5&isAllowed=y)
 
 2010-2012:	**Norwegian University of Science and technology**	Trondheim, Norway  
-*Master in Reliability Availability Maintainability & Safety \- RAMS*  
+*Master in Reliability Availability Maintainability & Safety - RAMS*
+
 2004-2008:     **M. S. Ramaiah Institute of Technology**  						     Bangalore, India 	        *Bachelor in Industrial Engineering and Management*
 
 ## **Other**	

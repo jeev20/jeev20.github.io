@@ -1,5 +1,6 @@
 ---
 title: ZSH with Powerlevel10k
+description: "My personal zsh configuration"
 format: html
 toc: true
 lang: en

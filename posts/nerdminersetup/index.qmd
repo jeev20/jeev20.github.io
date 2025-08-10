@@ -1,5 +1,6 @@
 ---
 title: Nerd miner setup
+description: "Bitcoin mining on edge / IOT devices (ESP32)"
 format: html
 toc: true
 lang: en

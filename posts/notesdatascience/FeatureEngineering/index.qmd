@@ -1,5 +1,6 @@
 ---
 title: Feature engineering
+description: "Understanding how to perform feature engineering"
 format: html
 toc: true
 lang: en

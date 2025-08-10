@@ -201,6 +201,7 @@ dependencies = [
     { name = "pyspark" },
     { name = "scikit-learn" },
     { name = "seaborn" },
+    { name = "wquantiles" },
 ]
 
 [package.metadata]
@@ -224,6 +225,7 @@ requires-dist = [
     { name = "pyspark", specifier = ">=4.0.0" },
     { name = "scikit-learn", specifier = ">=1.7.1" },
     { name = "seaborn", specifier = ">=0.13.2" },
+    { name = "wquantiles", specifier = ">=0.6" },
 ]
 
 [[package]]
@@ -3519,6 +3521,18 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/4d/c5/180698e0f0e6bb42b3a173ce47d0474649dfcfa9bd60c902609e5707fde6/wordcloud-1.9.4-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3a99f96efe5983c6eed17abb8766ced713ddf18b26450da74addc91570922e62", size = 171923 },
     { url = "https://files.pythonhosted.org/packages/a2/b9/94ca10d94b6f64ab55a7bacc3d9e30df339a8d3607d1919099d12da12024/wordcloud-1.9.4-pp310-pypy310_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:80773ec6a9caa2048602bc347151e3b6e68e1d8fab148dfd0d2e7d4302ce5c01", size = 172780 },
     { url = "https://files.pythonhosted.org/packages/e6/ed/35af241d0243ed82f5231a4e4dbabfdb421fba2b64fd4bdd66b413ad5c04/wordcloud-1.9.4-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:ca95392bba150190cca8df4a97854b554bdeb28007f28bf4698bd7e1af91b310", size = 295073 },
+]
+
+[[package]]
+name = "wquantiles"
+version = "0.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/eb/24/ae0216512052aee6cf68cba89f83ce011e06feff7a4cae5b03d78d078b24/wquantiles-0.6.tar.gz", hash = "sha256:a9e5b61277c8bf414394131bba4af0fc565de379ca73d6f7a336ba60184fa5c4", size = 2948 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f7/75/3cce30508bf46121b7cabce57b9cacbf8d935fa555cb3c5fca43f8dd0414/wquantiles-0.6-py3-none-any.whl", hash = "sha256:1b90d68fa05251bb96f8806a346e8d7dec9a9bb99f381ad5094707b46ab85218", size = 3291 },
 ]
 
 [[package]]

@@ -24,4 +24,5 @@ dependencies = [
     "pyspark>=4.0.0",
     "scikit-learn>=1.7.1",
     "seaborn>=0.13.2",
+    "wquantiles>=0.6",
 ]

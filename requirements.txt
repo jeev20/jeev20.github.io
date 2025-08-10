@@ -163,5 +163,6 @@ webencodings==0.5.1
 websocket-client==1.8.0
 widgetsnbextension==4.0.14
 wordcloud==1.9.4
+wquantiles==0.6
 xyzservices==2025.4.0
 ydata-profiling==4.12.2

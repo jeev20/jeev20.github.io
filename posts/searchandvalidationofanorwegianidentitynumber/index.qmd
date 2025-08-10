@@ -1,5 +1,6 @@
 ---
-title: Searching and validating Norwegian Identity Numbers
+title: Is that NiN valid?
+description: "Searching and validating Norwegian Identity Numbers"
 format: html
 toc: true
 lang: en

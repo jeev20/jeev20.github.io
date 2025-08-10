@@ -1,5 +1,6 @@
 ---
 title: Bruno API client
+description: "A local and git friendly API client"
 format: html
 toc: true
 lang: en

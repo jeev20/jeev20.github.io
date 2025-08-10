@@ -1,5 +1,6 @@
 ---
 title: Exploratory data analysis 
+description: "Exploring data using univariate, bivariate and multivariate analysis"
 date: 2025-08-09 12:02 +0200
 
 format: 

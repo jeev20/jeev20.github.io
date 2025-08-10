@@ -1,5 +1,6 @@
 ---
 title: Notes on Practical Statistics for Data Scientists 📗
+description: "Notes of the book Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck"
 format: html
 toc: true
 lang: en
@@ -16,7 +17,9 @@ comments:
 ---
 
 
-This is my personal notes of the book [Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck.](https://books.google.no/books?hl=no&lr=&id=k2XcDwAAQBAJ&oi=fnd&pg=PP1&dq=9781492072942&ots=dEKcnlVmx1&sig=A4W7tK5Um6BTbuzr3_gOvVinDRg&redir_esc=y#v=onepage&q=9781492072942&f=false) I will update this post, as I study and digest the contents of this book.
+This is my personal notes of the book [Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck.](https://books.google.no/books?hl=no&lr=&id=k2XcDwAAQBAJ&oi=fnd&pg=PP1&dq=9781492072942&ots=dEKcnlVmx1&sig=A4W7tK5Um6BTbuzr3_gOvVinDRg&redir_esc=y#v=onepage&q=9781492072942&f=false) 
+
+I will update this post, as I study and digest the contents of this book.
 
 
 ## Chapter 1 - Exploratory Data Analysis 
@@ -118,7 +121,7 @@ All these three can also be combined in a single use case. For example, Google m
 > The term **sample** to a computer scientist signifies a single row while a **sample** to a statistician means a collection of rows.
 >
 > Graph in statistics can mean plots or visualization and not just connections of entities as it is in computer science or information technology.
-{: .prompt-info }
+
 
 ### Estimates of location
 
@@ -170,9 +173,10 @@ $$
 > **Difference in terminologies**
 > 
 > Datascientist measure and statisticians estimates. Statisticians account for uncertainities in the analysis whereas concrete business objectives are the focus for datascientists.
-{: .prompt-info }
 
-```python
+
+```{python}
+#| echo: true
 import pandas as pd
 from scipy.stats import trim_mean
 import numpy as np

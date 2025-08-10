@@ -1,5 +1,6 @@
 ---
 title: Diagram as code
+description: "An introduction to diagram as code tools"
 date: 2024.05.17
 date-modified: last-modified
 categories: ["tool"]

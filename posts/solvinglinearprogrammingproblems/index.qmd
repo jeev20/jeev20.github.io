@@ -1,5 +1,6 @@
 ---
 title: Solving linear programming problems
+description: "Exploring LP in python"
 format: html
 toc: true
 lang: en

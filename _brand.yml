@@ -7,7 +7,7 @@ color:
   primary: black
 
 logo: 
-  medium: assets/Logo.png
+  medium: assets/logo.svg
 
 typography:
   fonts:

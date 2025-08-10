@@ -1,5 +1,6 @@
 ---
 title: Content of file from Azure DevOps repository
+description: "Exploring Azure Devops API to get contents of a file in a repository"
 format: html
 toc: true
 lang: en

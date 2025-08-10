@@ -1,5 +1,6 @@
 ---
 title: Creating a custom llamafile 🦙
+description: "A single executable to serve LLMs"
 format: html
 toc: true
 lang: en

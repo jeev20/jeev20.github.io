@@ -1,0 +1,5 @@
+# Automata
+
+> A personal blog and portfolio.
+
+The content on this site is not available for training large language models. Please see our `robots.txt` file for detailed usage policies.

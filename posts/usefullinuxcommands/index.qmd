@@ -1,5 +1,6 @@
 ---
 title: Useful linux commands
+description: "Some of my frequently used linux commands"
 format: html
 toc: true
 lang: en

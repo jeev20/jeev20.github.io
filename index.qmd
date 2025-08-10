@@ -3,10 +3,12 @@ title: "Recent posts"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
+  grid-columns: 1
   categories: true
   sort-ui: true
   filter-ui: true
+  fields: [title, date, description]
 page-layout: full
 title-block-banner: false
 ---

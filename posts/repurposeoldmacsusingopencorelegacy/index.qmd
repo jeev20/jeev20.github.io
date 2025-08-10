@@ -1,5 +1,6 @@
 ---
 title: Reviving an old apple mac 💻 🖥️
+description: "Old macs new operating systems" 
 format: html
 toc: true
 lang: en
@@ -48,8 +49,10 @@ I am planning to use Macbook Pro as my blogging and recording pc. This blog post
 Here are some of the video resources which helped me setup Open Core Legacy Patcher 
 
    * Installing Sequoia from Anson Alexander
-    {{< video https://www.youtube.com/embed/v=in5-3EjKFqA >}}
+    {{< video https://www.youtube.com/embed/in5-3EjKFqA?si=VNAiHL0SkVEUJ_iO >}}
 
    * OCLP basics video from Anson Alexander
-    {{< video https://www.youtube.com/embed/v=D8djeFJ1czU >}}
+    {{< video https://www.youtube.com/embed/D8djeFJ1czU?si=0B3yURaHaaJlhqc1 >}}
+
+
 

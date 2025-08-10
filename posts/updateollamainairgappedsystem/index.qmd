@@ -1,5 +1,6 @@
 ---
 title: Updating Ollama in an airgapped linux server
+description: "A walkthrough"
 format: html
 toc: true
 lang: en

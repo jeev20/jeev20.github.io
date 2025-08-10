@@ -3,7 +3,7 @@ project:
 
 website:
   title: "Automata"
-  favicon: assets/Logo.png
+  favicon: assets/logo.svg
   navbar:
     right:
       - about.qmd
@@ -29,9 +29,10 @@ format:
       - text: |
           <script data-goatcounter="https://86633.goatcounter.com/count" 
           async src="//gc.zgo.at/count.js"></script>
+    code-line-numbers: false
+    code-overflow: wrap
 
-logo: 
-  large: assets/Logo.png
+logo: assets/logo.svg
 
 typography:
   fonts:
