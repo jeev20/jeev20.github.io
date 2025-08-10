@@ -6,6 +6,7 @@
       "source": [
         "---\n",
         "title: Notes on Practical Statistics for Data Scientists 📗\n",
+        "description: \"Notes of the book Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck\"\n",
         "format: html\n",
         "toc: true\n",
         "lang: en\n",
@@ -22,7 +23,9 @@
         "---\n",
         "\n",
         "\n",
-        "This is my personal notes of the book [Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck.](https://books.google.no/books?hl=no&lr=&id=k2XcDwAAQBAJ&oi=fnd&pg=PP1&dq=9781492072942&ots=dEKcnlVmx1&sig=A4W7tK5Um6BTbuzr3_gOvVinDRg&redir_esc=y#v=onepage&q=9781492072942&f=false) I will update this post, as I study and digest the contents of this book.\n",
+        "This is my personal notes of the book [Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck.](https://books.google.no/books?hl=no&lr=&id=k2XcDwAAQBAJ&oi=fnd&pg=PP1&dq=9781492072942&ots=dEKcnlVmx1&sig=A4W7tK5Um6BTbuzr3_gOvVinDRg&redir_esc=y#v=onepage&q=9781492072942&f=false) \n",
+        "\n",
+        "I will update this post, as I study and digest the contents of this book.\n",
         "\n",
         "\n",
         "## Chapter 1 - Exploratory Data Analysis \n",
@@ -49,7 +52,7 @@
         "#### Ordinal data \n",
         "The interesting data type above is the ordinal data type where the order of the data is important. Here is an example of ordinal data type using sklearn. "
       ],
-      "id": "04c07fde"
+      "id": "805c96c2"
     },
     {
       "cell_type": "code",
@@ -62,7 +65,7 @@
         "enc.fit(X)\n",
         "enc.categories_"
       ],
-      "id": "fdc9079c",
+      "id": "f58932a9",
       "execution_count": null,
       "outputs": []
     },
@@ -73,7 +76,7 @@
         "#| echo: true\n",
         "enc.transform([['Female', 3], ['Male', 1]])"
       ],
-      "id": "a7b5c1c0",
+      "id": "ac2d8842",
       "execution_count": null,
       "outputs": []
     },
@@ -94,7 +97,7 @@
         "    Number column: 1 is the first category → encoded as 0\n",
         "    Result: [1., 0.]\n"
       ],
-      "id": "ca9e5c67"
+      "id": "ce19c1ec"
     },
     {
       "cell_type": "code",
@@ -103,7 +106,7 @@
         "#| echo: true\n",
         "enc.inverse_transform([[1, 1], [0, 2]])"
       ],
-      "id": "78620ac5",
+      "id": "7f00d568",
       "execution_count": null,
       "outputs": []
     },
@@ -201,7 +204,7 @@
         "> \n",
         "> Datascientist measure and statisticians estimates. Statisticians account for uncertainities in the analysis whereas concrete business objectives are the focus for datascientists.\n"
       ],
-      "id": "d0dabca9"
+      "id": "19a71758"
     },
     {
       "cell_type": "code",
@@ -221,7 +224,7 @@
         "weighted_mean = np.average(df[\"Murder.Rate\"],weights=df[\"Population\"])\n",
         "weighted_median = wquantiles.median(df[\"Murder.Rate\"],weights=df[\"Population\"])"
       ],
-      "id": "b76e555b",
+      "id": "a521a421",
       "execution_count": null,
       "outputs": []
     },
@@ -263,7 +266,7 @@
         "\n",
         "* Bruce, P., Bruce, A., & Gedeck, P. (2020). [Practical statistics for data scientists: 50+ essential concepts using R and Python](https://books.google.no/books?hl=no&lr=&id=k2XcDwAAQBAJ&oi=fnd&pg=PP1&dq=9781492072942&ots=dEKcnlVmx1&sig=A4W7tK5Um6BTbuzr3_gOvVinDRg&redir_esc=y#v=onepage&q=9781492072942&f=false). O'Reilly Media."
       ],
-      "id": "ad92946c"
+      "id": "5abd40dc"
     }
   ],
   "metadata": {

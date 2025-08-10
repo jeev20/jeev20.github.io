@@ -2,7 +2,7 @@
 title: "About"
 image: assets/Logo.png
 about:
-  template: jolla
+  template: trestles
   links:
     - icon: linkedin
       text: LinkedIn
@@ -10,6 +10,8 @@ about:
     - icon: github
       text: Github
       href: https://github.com/jeev20
+    - text: "{{< iconify material-symbols:account-box >}} CV"
+      href: assets/resume.qmd
 
 
 ---
@@ -24,7 +26,6 @@ After many years of working as a developer, I missed having a repository where I
 
 The plan is to write about topics covered in this mindmap, which will expand with new learnings.
 
-------------------------
 
 ```{mermaid}
 mindmap
@@ -80,22 +81,22 @@ mindmap
 
 -----------------------
 
-## Use of LLMs
-If the content in the published posts are produced by using a online/local large-language-model, a clear attribution text with the following information will be shared in the post.
+#### Use of LLMs
+If the content in the published posts are produced using an online/local large-language-model, a clear attribution text will be provided as follows.
 
-::: {.callout-note}
+::: {.callout}
 
-This part was generated using Large Language Model (LLMMODEL) with the following prompt text: PROMTTEXT. 
+This code/text/image was generated using Large Language Model. 
 
 :::
 
 
 
 
+---------------------
 
-
-## Credits
-Logo was generated using [Dummy-logo-maker](https://github.com/moiseshp/dummy-logo-maker). Thanks to [moiseshp](https://github.com/moiseshp)
+#### Credits
+Logo was generated using [Dummy-logo-maker](https://github.com/moiseshp/dummy-logo-maker). Thanks to [moiseshp](https://github.com/moiseshp)!
 
 
 All opinions written in this blog are my own.

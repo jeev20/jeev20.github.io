@@ -1,52 +1,62 @@
 ---
 title: ""
+format:
+    html:
+        toc: true
+        toc_float: true
+    pdf:
+        toc: false
+        geometry: left=1.2cm, right=1.2cm, top=0.4cm, bottom=0.4cm
+        fontsize: 10pt 
 ---
 
 
-# **Jeevith Hegde, Ph.D.**  
+**Jeevith Hegde, Ph.D.**  
 [linkedin.com/in/jeevhegde](https://www.linkedin.com/in/jeevhegde/) |  [github.com/jeev20](https://github.com/jeev20)
 
-## **Experience**
+### **Experience**
 
 2020-Present:	**Helse Midt-Norge IT**	Trondheim, Norway  
 ***Senior Integration Developer (Robotic Process Automation)***
 
-* Delivered robots which saved over 50 man-years and enabled the team to save over 120 man-years in 5 years  
-* Grew the team from 2 developers to 8 developers by delivering 19 RPA automations, 5 test automation projects  
-* Held technical interviews to recruit RPA developers   
-* Developed and maintained project templates for RPA, Test Automation and developed RPA candidate evaluation tool in Microsoft Excel and PowerApps.      
-* Designed training material for new hires ensuring smooth technical onboarding (project ready within 3 weeks)   
-* Implemented routines for project management, technical solution design, development best practices, CI/CD pipelines, quality assurance of robots and operational maintenance of robots.   
+* Delivered robots which saved over 50 man-years and enabled the team to save over 120 man-years in 5 years
+* Grew the team from 2 developers to 8 developers by delivering over 25 RPA processes and 5 test automation projects
+* Created and maintained Power Automate and Power App templates to be consumed by all Power Platform Makers in the organization
+* Delivered 3 AI projects image classification, inteligent document processing and Retrieval Augmented Generation (RAG) using local LLM's
+* Held technical interviews to recruit RPA developers to the team
+* Developed and maintained templates for RPA, Test Automation and Applied AI projects
+* Developed RPA candidate evaluation tool in Microsoft Excel and PowerApps
+* Designed training material for new hires ensuring smooth technical onboarding (project ready within 3 weeks)
+* Implemented routines for project management, technical solution design, development best practices, CI/CD pipelines, quality assurance of robots and operational maintenance of robots.
 * Implemented routines to visualize gains from RPA/Test automation both in Splunk and PowerBI and ensured they were accessible to both upper management and internal customers.   
 
 2019-2020:	**Ren Røros Intelligent Automation**	Trondheim, Norway  
 ***Senior Automation Engineer***
 
-* Automation of customer order processing using Rossum and analysis of electricity prices in BluePrism  
-* Development of Power BI dashboards and Power BI reports for customers  
+* Automation of customer order processing using Rossum and analysis of electricity prices in BluePrism
+* Development of Power BI dashboards and Power BI reports for customers
 * Chatbot development for customers using Simplifai Studio and supervision of two master’s students in RPA
 
 2019-2020:	**Searo AS (acquired by IKM AS)**	Trondheim, Norway  
 ***Founder***
 
-* Strategy development and responsible for applications for funding to Norwegian research institutions 
+* Strategy development and responsible for applications for funding to Norwegian research institutions
 
 2014-2019:	**Norwegian University of Science and technology**	Trondheim, Norway  
 ***Postdoctoral Fellow***
 
-* Development of methods to support technical risk assessments using artificial intelligence and machine learning  
+* Development of methods to support technical risk assessments using artificial intelligence and machine learning
 * Lecture assignments, supervision of master’s students and drafted proposals for funding
 
 ***Ph.D. Candidate*** (2014-2018)
 
-* Development of underwater traffic rules for safe autonomous ROV IMR operations  
+* Development of underwater traffic rules for safe autonomous ROV IMR operations
 * Implementation of a user interface promoting situational awareness between human and autonomous ROVs
 
 2012-2014:	**FMC Kongsberg Subsea AS**	Kongsberg, Norway  
                        ***Graduate Engineer \- Reliability and Safety,***
 
 * Worked on concepts for the next generation Workover and HIPPS subsea safety systems
-
 * Performed FMEDA and system level SIL calculations in the Snorre B workover project
 
 2008-2009:	**Godrej & Boyce Manufacturing Company Limited**	Trondheim, Norway  
@@ -54,7 +64,7 @@ title: ""
 
 * Responsible for market research, marketing and sale of Manitou and Godrej material handling equipment
 
-## **Education**
+### **Education**
 
 2014-2018:	**Norwegian University of Science and technology**	Trondheim, Norway  
 *PhD in Marine Engineering*
@@ -66,15 +76,28 @@ title: ""
 
 2004-2008:     **M. S. Ramaiah Institute of Technology**  						     Bangalore, India 	        *Bachelor in Industrial Engineering and Management*
 
-## **Other**	
-
-* Languages: English (native), Kannada (native), Hindi (professional), Norwegian (professional)  
-* Technical Skills: UiPath, BluePrism, Robocorp, PowerApps, Power Automate, Python (Data science, Machine Learning), PowerShell, Bash, SQL, Azure Devops, Git, PowerBI, Grafana, Splunk, Godot,, Office 365, BlockChain  
-* Certifications: UiRPA, UiARD, UiABA, AI-900, AZ-900, Robocorp, BluePrism Developer & Solution Designer, PowerBI, Splunk  
-* Awards: UiPath MVP 2022, 2023 and 2024, UiPath HyperHack 2022 1st prize winner 
-* Research publications can be accessed [here](https://scholar.google.com/citations?user=QL98iX4AAAAJ&hl=en) 
 
 
------------------
+### Languages
+English (native), Kannada (native), Hindi (professional), Norwegian (professional)
+
+
+### Technical Skills
+Python (Data science, Machine Learning),UiPath, BluePrism, Robocorp, PowerApps, Power Automate, PowerShell, Bash, SQL, Azure Devops, Git, PowerBI, Grafana, Splunk, Godot,, Office 365, BlockChain
+
+### Certifications
+UiRPA, UiARD, UiABA, AI-900, AZ-900, Robocorp, BluePrism Developer & Solution Designer, PowerBI, Splunk  
+
+
+### Awards
+UiPath MVP 2022, 2023 and 2024, UiPath <br>
+
+HyperHack 2022 1st prize winner 
+
+### Publications
+Research publications can be accessed [here](https://scholar.google.com/citations?user=QL98iX4AAAAJ&hl=en) 
+
+
+--------------------------------------------------------------------------
 
 *Last updated : August 2025*

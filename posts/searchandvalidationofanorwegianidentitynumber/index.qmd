@@ -89,9 +89,15 @@ In the case of 020161260**07**, we see that the last 2 digits match with c1c2(**
 > To make it easier to read sometimes the NiN can also be written with a space in between the date and individual numbers like so 
 020161 26007. Therefore the parsing logic we build needs to consider this variation as well.
 
+::: {.callout}
+
+The following three code snippets were generated using Large Language Model (Microsoft - Co-Pilot)
+
+:::
 
 
 To check if a text string contains one or more valid NiN's we can generate three simple methods. 
+
 ### 1. Check the first 6 digits are valid 
 
 ```{python}

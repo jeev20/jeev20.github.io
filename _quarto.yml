@@ -6,16 +6,11 @@ website:
   favicon: assets/logo.svg
   navbar:
     right:
-      - about.qmd
-      - text: "Resume"
-        href: assets/resume.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: linkedin
-        href: https://www.linkedin.com/jeevhegde
+      - text: About
+        href: about.qmd
   page-footer:
     center:
-      - text: "Written in Quarto!"
+      - text: "Made with Quarto {{< quarto >}}"
         href: "https://quarto.org"
   
       
@@ -42,3 +37,12 @@ typography:
   headings: Montserrat
 
 
+extensions:
+  iconify:
+    set: "octicon"
+    width: "1.2em"
+    height: "1.2em"
+    flip: "horizontal"
+    rotate: "0deg"
+    inline: true
+    mode: "svg"

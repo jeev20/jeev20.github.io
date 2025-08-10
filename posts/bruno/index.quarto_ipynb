@@ -1,0 +1,70 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Bruno API client\n",
+        "description: \"A local and git friendly API client\"\n",
+        "format: html\n",
+        "toc: true\n",
+        "lang: en\n",
+        "jupyter: python3\n",
+        "ipynb-shell-interactivity: all\n",
+        "execute:\n",
+        "  echo: false\n",
+        "date: 2024-06-02\n",
+        "categories: [\"api client\"]\n",
+        "tags: [ \"api testing\", \"integration\"]\n",
+        "comments:\n",
+        "  giscus:\n",
+        "    repo: jeev20/jeev20.github.io\n",
+        "---\n",
+        "\n",
+        "I recently opened up Postman to access an old collection. To my surprise, Postman has now fully gone the cloud way and syncs all collections to the cloud. \n",
+        "\n",
+        "This means that if I somehow forgot to remove my tokens or credentials, they can potential be synced to Postman servers!\n",
+        "\n",
+        "The scratchpad within Postman is also limited now and is next to useless. I did also try insomnia, and it seems they too have fallen for the same honeypot!\n",
+        "\n",
+        "There has to be a better API client, and my search today ended with bruno.\n",
+        "\n",
+        "## [bruno](https://www.usebruno.com) \n",
+        "A great alternative to postman or insomnia. \n",
+        "\n",
+        "bruno is written in electron the same framework used by Visual Studio Code and the code is open-source with a MIT license.  \n",
+        "\n",
+        "The founders [manifesto](https://www.usebruno.com/manifesto) is a treat to read for any open-source enthusiast. \n",
+        "\n",
+        "Bruno is offered both as a free version and a paid version.\n",
+        "\n",
+        "\n",
+        "The paid version cost `$19` for 2 machines for a span of 2 years. After which the renewal is set to 60% of the `$19` to cover development of the project. The feature set is great for my use-case and I admire Anoop's honesty. I bought the Golden Edition (Individual License) today (2.6.2024)\n",
+        "\n",
+        "::: {.callout}\n",
+        "\n",
+        "I wish bruno and Anoop great success. It is so refreshing to see when a great product meets a transparent and simple founder. \n",
+        "\n",
+        "::: \n",
+        "\n",
+        "Here are some YouTube videos to get started with bruno.\n",
+        "\n",
+        "{{< video https://www.youtube.com/embed/R3F6Gu7tG8M >}}\n",
+        "\n",
+        "{{< video https://www.youtube.com/embed/7bSMFpbcPiY >}}\n"
+      ],
+      "id": "0828600b"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/home/wslap/Documents/jeev20.github.io/.venv/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

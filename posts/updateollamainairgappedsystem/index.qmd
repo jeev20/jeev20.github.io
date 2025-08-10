@@ -56,6 +56,7 @@ export OLLAMA_MODELS="/home/$user/OllamaModels"
 ```
 
 Another way to set `OLLAMA_MODELS` path is to edit the `/etc/systemd/system/ollama.service` file as show in this [walkthrough](https://github.com/ollama/ollama/blob/main/docs/linux.md)
+
 ## Step 2 - Download the specific version 
 
 `curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz`command downloads the latest version of Ollama to the current folder.
