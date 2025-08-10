@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2024-07-06">
+<meta name="description" content="A travel router makes using untrusted wi-fi networks safe and easy">
 
 <title>Beryl GL MT-1300 travel router – Automata</title>
 <style>
@@ -31,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../assets/Logo.png" rel="icon" type="image/png">
+<link href="../../assets/logo.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -42,8 +43,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4e71525800e33355016a0c87f9808730.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-3749f2374fa4c5a093f8d9d568cc31b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-9f67f2566b6a6b7bea1b11f7b0f93e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-bf9172eb516291cd9ce9946d78afe83b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -248,7 +249,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../assets/Logo.png" alt="" class="navbar-logo">
+    <img src="../../assets/logo.svg" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Automata</span>
@@ -291,7 +292,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Beryl GL MT-1300 travel router</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          A travel router makes using untrusted wi-fi networks safe and easy
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">automation</div>
               </div>
                   </div>
@@ -337,7 +343,18 @@ ul.task-list li input[type="checkbox"] {
 <p>After weeks of researching for the ideal travel router in March of this year, I decided to buy the <a href="https://www.gl-inet.com/products/gl-mt1300/">Beryl GL MT1300 travel</a> router from <a href="https://www.gl-inet.com/">Gl-inet</a>.</p>
 <section id="requirements-for-a-travel-router" class="level3">
 <h3 class="anchored" data-anchor-id="requirements-for-a-travel-router">Requirements for a travel router</h3>
-<p>My requirements were quite basic: * Wi-fi 6 or higher * Function as a repeater/range extender so that I could also use it also at home when not traveling * Function as a VPN client (Tailscale preferably) * A functional UI for administration * Open source firmware which can ensure long-term updates for the device * Toggle switch to activate the VPN client * Can be connected to internet via a RJ45 cable or via Wi-fi * A positive if it also came with compatible power plugs * Positive reviews and security reviews</p>
+<p>My requirements were quite basic:</p>
+<ul>
+<li>Wi-fi 6 or higher</li>
+<li>Function as a repeater/range extender so that I could also use it also at home when not traveling</li>
+<li>Function as a VPN client (Tailscale preferably)</li>
+<li>A functional UI for administration</li>
+<li>Open source firmware which can ensure long-term updates for the device</li>
+<li>Toggle switch to activate the VPN client</li>
+<li>Can be connected to internet via a RJ45 cable or via Wi-fi</li>
+<li>A positive if it also came with compatible power plugs</li>
+<li>Positive reviews and security reviews</li>
+</ul>
 </section>
 <section id="travel-router-networking" class="level3">
 <h3 class="anchored" data-anchor-id="travel-router-networking">Travel router networking</h3>
@@ -374,19 +391,16 @@ RemoteDeviceN &lt;-.-&gt; Beryl-GL-MT1300
 </div>
 </div>
 <p>The plan was to use my existing VPN on my ASUS router and connect to the it via the travel router’s VPN client functions.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container">
 <p>This meant that all devices connected to the travel router in the remote location can browse the internet via the VPN (Tailscale).</p>
 <p>I could also avoid creating separate Tailscale configurations for all devices/users who need access.</p>
 <p>Additionally, since the VPN client runs on the travel router, the mobile device would avoid draining the battery as it usually would when a VPN is connected. Fantastic!</p>
+</div>
 </div>
 </div>
 <p>The only preparation required from my end was to connect all the devices to the travel routers wi-fi SSID while connected to the home network (before the trip).</p>

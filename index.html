@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assets/Logo.png" rel="icon" type="image/png">
+<link href="./assets/logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -43,8 +43,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4e71525800e33355016a0c87f9808730.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-3749f2374fa4c5a093f8d9d568cc31b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9f67f2566b6a6b7bea1b11f7b0f93e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-bf9172eb516291cd9ce9946d78afe83b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,9 +82,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      valueNames: ['listing-title','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -304,7 +305,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/Logo.png" alt="" class="navbar-logo">
+    <img src="./assets/logo.svg" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Automata</span>
@@ -376,7 +377,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
@@ -392,9 +393,6 @@ window.Quarto = {
       <option value="listing-date-sort" data-direction="desc">
         Date - Newest
       </option>
-      <option value="listing-author" data-direction="asc">
-        Author
-      </option>
     </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
@@ -402,613 +400,408 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754740920000" data-listing-file-modified-sort="1754781028960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="649">
-<div class="thumbnail"><a href="./posts/notesdatascience/FeatureEngineering/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/notesdatascience/FeatureEngineering/index_files/figure-html/cell-12-output-1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/notesdatascience/FeatureEngineering/index.html" class="no-external">Feature engineering</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YXNjaWVuY2U='); return false;">datascience</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGFtZW50YWxz'); return false;">fundamentals</div>
-
+<div class="list grid quarto-listing-cols-1">
+<div class="g-col-1" data-index="0" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754740920000" data-listing-file-modified-sort="1754840374223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="649">
+<a href="./posts/notesdatascience/FeatureEngineering/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Feature engineering
+</h5>
+<div class="card-text listing-description delink">
+<p>Understanding how to perform feature engineering</p>
 </div>
-<div class="delink listing-description"><a href="./posts/notesdatascience/FeatureEngineering/index.html" class="no-external">
-This is my notes on feature engineering. The idea is to populate this article with all possible relevant knowledge I can get on my hands on and then use it as a reference in…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/notesdatascience/FeatureEngineering/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Aug 9, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754733720000" data-listing-file-modified-sort="1754781028960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="972">
-<div class="thumbnail"><a href="./posts/notesdatascience/EDA/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/notesdatascience/EDA/index_files/figure-html/cell-11-output-1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/notesdatascience/EDA/index.html" class="no-external">Exploratory data analysis</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YXNjaWVuY2U='); return false;">datascience</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGFtZW50YWxz'); return false;">fundamentals</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/notesdatascience/EDA/index.html" class="no-external">
-According to Campusx-YouTube these are some of the suggested questions to answer when a new dataset is obtained.
-</a></div>
+<div class="g-col-1" data-index="1" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754733720000" data-listing-file-modified-sort="1754840374223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="972">
+<a href="./posts/notesdatascience/EDA/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Exploratory data analysis
+</h5>
+<div class="card-text listing-description delink">
+<p>Exploring data using univariate, bivariate and multivariate analysis</p>
 </div>
-<div class="metadata">
-<a href="./posts/notesdatascience/EDA/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Aug 9, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754719320000" data-listing-file-modified-sort="1754781028959" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
-<div class="thumbnail"><a href="./posts/notesdatascience/DataIngestion/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/notesdatascience/DataIngestion/index.html" class="no-external">Data ingestion</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YXNjaWVuY2U='); return false;">datascience</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGFtZW50YWxz'); return false;">fundamentals</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/notesdatascience/DataIngestion/index.html" class="no-external">
-The location of the data depends on ones use-case. Some have it locally, others on the cloud in a storage bucket or database. There is always a way to get your data to your…
-</a></div>
+<div class="g-col-1" data-index="2" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754719320000" data-listing-file-modified-sort="1754840374223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
+<a href="./posts/notesdatascience/DataIngestion/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Data ingestion
+</h5>
+<div class="card-text listing-description delink">
+<p>Loading data using different python modules</p>
 </div>
-<div class="metadata">
-<a href="./posts/notesdatascience/DataIngestion/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Aug 9, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="bWFjYm9va3Bybw==" data-listing-date-sort="1745055720000" data-listing-file-modified-sort="1754781029105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="508">
-<div class="thumbnail"><a href="./posts/repurposeoldmacsusingopencorelegacy/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/repurposeoldmacsusingopencorelegacy/index.html" class="no-external">Reviving an old apple mac 💻 🖥️</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWFjYm9va3Bybw=='); return false;">macbookpro</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/repurposeoldmacsusingopencorelegacy/index.html" class="no-external">
-This easter break, I learnt about a brilliant open source project called the Open Core Legacy Patcher (OCLP), which aims to run newer versions of mac os on old apple…
-</a></div>
+<div class="g-col-1" data-index="3" data-categories="bWFjYm9va3Bybw==" data-listing-date-sort="1745055720000" data-listing-file-modified-sort="1754840374367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="508">
+<a href="./posts/repurposeoldmacsusingopencorelegacy/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Reviving an old apple mac 💻 🖥️
+</h5>
+<div class="card-text listing-description delink">
+<p>Old macs new operating systems</p>
 </div>
-<div class="metadata">
-<a href="./posts/repurposeoldmacsusingopencorelegacy/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Apr 19, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1744675200000" data-listing-file-modified-sort="1754781029104" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1433">
-<div class="thumbnail"><a href="./posts/notesonpracticalstatisticsfordatascientist/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/notesonpracticalstatisticsfordatascientist/index.html" class="no-external">Notes on Practical Statistics for Data Scientists 📗</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YXNjaWVuY2U='); return false;">datascience</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGFtZW50YWxz'); return false;">fundamentals</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/notesonpracticalstatisticsfordatascientist/index.html" class="no-external">
-This is my personal notes of the book Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck. I will…
-</a></div>
+<div class="g-col-1" data-index="4" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1744675200000" data-listing-file-modified-sort="1754840374367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1431">
+<a href="./posts/notesonpracticalstatisticsfordatascientist/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Notes on Practical Statistics for Data Scientists 📗
+</h5>
+<div class="card-text listing-description delink">
+<p>Notes of the book Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck</p>
 </div>
-<div class="metadata">
-<a href="./posts/notesonpracticalstatisticsfordatascientist/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Apr 15, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1744358760000" data-listing-file-modified-sort="1754781029105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1449">
-<div class="thumbnail"><a href="./posts/searchandvalidationofanorwegianidentitynumber/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/searchandvalidationofanorwegianidentitynumber/index.html" class="no-external">Searching and validating Norwegian Identity Numbers</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGlvbg=='); return false;">automation</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/searchandvalidationofanorwegianidentitynumber/index.html" class="no-external">
-Norwegian Identity Number (NiN) is a interesting unique identifier. In this post, I would like to show how to parse an input text and validate a NiN using Python.
-</a></div>
+<div class="g-col-1" data-index="5" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1744358760000" data-listing-file-modified-sort="1754840374367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1449">
+<a href="./posts/searchandvalidationofanorwegianidentitynumber/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Is that NiN valid?
+</h5>
+<div class="card-text listing-description delink">
+<p>Searching and validating Norwegian Identity Numbers</p>
 </div>
-<div class="metadata">
-<a href="./posts/searchandvalidationofanorwegianidentitynumber/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Apr 11, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="bGxt" data-listing-date-sort="1742119260000" data-listing-file-modified-sort="1754781028899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="396">
-<div class="thumbnail"><a href="./posts/installingollamaandopenwebuiusingdocker/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/installingollamaandopenwebuiusingdocker/index.html" class="no-external">Using all GPUs when running Ollama and OpenWebUI in docker</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bGxt'); return false;">llm</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/installingollamaandopenwebuiusingdocker/index.html" class="no-external">
-Case: Run both Ollama and OpenWebUI in a single docker container and use all available GPUs in the host machine
-</a></div>
+<div class="g-col-1" data-index="6" data-categories="bGxt" data-listing-date-sort="1742119260000" data-listing-file-modified-sort="1754840374162" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="396">
+<a href="./posts/installingollamaandopenwebuiusingdocker/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Using all GPUs when running Ollama and OpenWebUI in docker
+</h5>
+<div class="card-text listing-description delink">
+<p>Bundled install of ollama and Open-Webui using docker</p>
 </div>
-<div class="metadata">
-<a href="./posts/installingollamaandopenwebuiusingdocker/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Mar 16, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="bGxt" data-listing-date-sort="1739800860000" data-listing-file-modified-sort="1754781029105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="276">
-<div class="thumbnail"><a href="./posts/updateollamainairgappedsystem/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/updateollamainairgappedsystem/index.html" class="no-external">Updating Ollama in an airgapped linux server</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bGxt'); return false;">llm</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/updateollamainairgappedsystem/index.html" class="no-external">
-Case: Updating Ollama installation in a local server without internet access
-</a></div>
+<div class="g-col-1" data-index="7" data-categories="bGxt" data-listing-date-sort="1739800860000" data-listing-file-modified-sort="1754840374367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="276">
+<a href="./posts/updateollamainairgappedsystem/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Updating Ollama in an airgapped linux server
+</h5>
+<div class="card-text listing-description delink">
+<p>A walkthrough</p>
 </div>
-<div class="metadata">
-<a href="./posts/updateollamainairgappedsystem/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Feb 17, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="dG9vbA==" data-listing-date-sort="1739202240000" data-listing-file-modified-sort="1754781029105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="519">
-<div class="thumbnail"><a href="./posts/switchingfrompiptouv/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/switchingfrompiptouv/index.html" class="no-external">Switching from PIP to UV</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('dG9vbA=='); return false;">tool</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/switchingfrompiptouv/index.html" class="no-external">
-For the past 10 years I have constantly depended on python tools such as conda, pip, virtualenv, pyenv and poetry. These tools always made it difficult to master python…
-</a></div>
+<div class="g-col-1" data-index="8" data-categories="dG9vbA==" data-listing-date-sort="1739202240000" data-listing-file-modified-sort="1754840374367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="519">
+<a href="./posts/switchingfrompiptouv/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Switching from PIP to UV
+</h5>
+<div class="card-text listing-description delink">
+<p>Upgrading my python workflow</p>
 </div>
-<div class="metadata">
-<a href="./posts/switchingfrompiptouv/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Feb 10, 2025
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="YXp1cmVkZXZvcHM=" data-listing-date-sort="1730465760000" data-listing-file-modified-sort="1754781028899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="399">
-<div class="thumbnail"><a href="./posts/gettingfilecontentfromazuredevops/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/gettingfilecontentfromazuredevops/index.html" class="no-external">Content of file from Azure DevOps repository</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YXp1cmVkZXZvcHM='); return false;">azuredevops</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/gettingfilecontentfromazuredevops/index.html" class="no-external">
-At work this week I came across a hurdle which took me a lot of searching and asking perplexity (OpenAi) large language model for a solution. Sadly without any correct…
-</a></div>
+<div class="g-col-1" data-index="9" data-categories="YXp1cmVkZXZvcHM=" data-listing-date-sort="1730465760000" data-listing-file-modified-sort="1754840374162" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="399">
+<a href="./posts/gettingfilecontentfromazuredevops/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Content of file from Azure DevOps repository
+</h5>
+<div class="card-text listing-description delink">
+<p>Exploring Azure Devops API to get contents of a file in a repository</p>
 </div>
-<div class="metadata">
-<a href="./posts/gettingfilecontentfromazuredevops/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Nov 1, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1726573440000" data-listing-file-modified-sort="1754781029104" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="959">
-<div class="thumbnail"><a href="./posts/notesontimeseries/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/notesontimeseries/index.html" class="no-external">Notes on time series analysis</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YXNjaWVuY2U='); return false;">datascience</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGFtZW50YWxz'); return false;">fundamentals</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/notesontimeseries/index.html" class="no-external">
-Observed values of the same variable collected at regular time intervals.
-</a></div>
+<div class="g-col-1" data-index="10" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1726573440000" data-listing-file-modified-sort="1754840374367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="959">
+<a href="./posts/notesontimeseries/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Notes on time series analysis
+</h5>
+<div class="card-text listing-description delink">
+<p>Exploring components of time series</p>
 </div>
-<div class="metadata">
-<a href="./posts/notesontimeseries/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Sep 17, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="bGxt" data-listing-date-sort="1721227440000" data-listing-file-modified-sort="1754781028894" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="940">
-<div class="thumbnail"><a href="./posts/creatingacustomllamafile/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/creatingacustomllamafile/images/llamafilegui.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/creatingacustomllamafile/index.html" class="no-external">Creating a custom llamafile 🦙</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bGxt'); return false;">llm</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/creatingacustomllamafile/index.html" class="no-external">
-I recently watched the keynote/demo on llamfile which showed how local LLMs in a single executable. Ollama is great but the additional installation/maintenance overhead it…
-</a></div>
+<div class="g-col-1" data-index="11" data-categories="bGxt" data-listing-date-sort="1721227440000" data-listing-file-modified-sort="1754840374157" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="940">
+<a href="./posts/creatingacustomllamafile/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Creating a custom llamafile 🦙
+</h5>
+<div class="card-text listing-description delink">
+<p>A single executable to serve LLMs</p>
 </div>
-<div class="metadata">
-<a href="./posts/creatingacustomllamafile/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jul 17, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="c2NyaXB0cw==" data-listing-date-sort="1720691040000" data-listing-file-modified-sort="1754781029106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
-<div class="thumbnail"><a href="./posts/zshwithpowerlevel10k/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/zshwithpowerlevel10k/images/zshp10k.png" alt="ZSHP10K"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/zshwithpowerlevel10k/index.html" class="no-external">ZSH with Powerlevel10k</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2NyaXB0cw=='); return false;">scripts</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/zshwithpowerlevel10k/index.html" class="no-external">
-<strong>TL;DR</strong>
-</a></div>
+<div class="g-col-1" data-index="12" data-categories="c2NyaXB0cw==" data-listing-date-sort="1720691040000" data-listing-file-modified-sort="1754840374368" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
+<a href="./posts/zshwithpowerlevel10k/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+ZSH with Powerlevel10k
+</h5>
+<div class="card-text listing-description delink">
+<p>My personal zsh configuration</p>
 </div>
-<div class="metadata">
-<a href="./posts/zshwithpowerlevel10k/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jul 11, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1720296120000" data-listing-file-modified-sort="1754781028893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="406">
-<div class="thumbnail"><a href="./posts/berylglmt1300travelrouter/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/berylglmt1300travelrouter/index.html" class="no-external">Beryl GL MT-1300 travel router</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGlvbg=='); return false;">automation</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/berylglmt1300travelrouter/index.html" class="no-external">
-After weeks of researching for the ideal travel router in March of this year, I decided to buy the Beryl GL MT1300 travel router from Gl-inet.
-</a></div>
+<div class="g-col-1" data-index="13" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1720296120000" data-listing-file-modified-sort="1754840374157" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="406">
+<a href="./posts/berylglmt1300travelrouter/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Beryl GL MT-1300 travel router
+</h5>
+<div class="card-text listing-description delink">
+<p>A travel router makes using untrusted wi-fi networks safe and easy</p>
 </div>
-<div class="metadata">
-<a href="./posts/berylglmt1300travelrouter/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jul 6, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="dG9vbA==" data-listing-date-sort="1718399700000" data-listing-file-modified-sort="1754781029105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="301">
-<div class="thumbnail"><a href="./posts/ventoybootabelusb/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ventoybootabelusb/index.html" class="no-external">Ventoy bootabel USB</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('dG9vbA=='); return false;">tool</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/ventoybootabelusb/index.html" class="no-external">
-During the past 10 years, I probably have written OS images to pendrives over 300 times. This to either fresh install or reinstall OS on windows, linux, mac and on…
-</a></div>
+<div class="g-col-1" data-index="14" data-categories="dG9vbA==" data-listing-date-sort="1718399700000" data-listing-file-modified-sort="1754840374368" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="301">
+<a href="./posts/ventoybootabelusb/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Ventoy bootable USB
+</h5>
+<div class="card-text listing-description delink">
+<p>OS images in one USB!</p>
 </div>
-<div class="metadata">
-<a href="./posts/ventoybootabelusb/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jun 14, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="YmxvY2tjaGFpbg==" data-listing-date-sort="1718150400000" data-listing-file-modified-sort="1754781028959" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="232">
-<div class="thumbnail"><a href="./posts/nerdminersetup/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/nerdminersetup/images/ESP32Cluster.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/nerdminersetup/index.html" class="no-external">Nerd miner setup</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YmxvY2tjaGFpbg=='); return false;">blockchain</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/nerdminersetup/index.html" class="no-external">
-About two months ago, I found out about an open-source project called NerdMiner and the curiosity led me to try the project out myself.
-</a></div>
+<div class="g-col-1" data-index="15" data-categories="YmxvY2tjaGFpbg==" data-listing-date-sort="1718150400000" data-listing-file-modified-sort="1754840374223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="232">
+<a href="./posts/nerdminersetup/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Nerd miner setup
+</h5>
+<div class="card-text listing-description delink">
+<p>Bitcoin mining on edge / IOT devices (ESP32)</p>
 </div>
-<div class="metadata">
-<a href="./posts/nerdminersetup/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jun 12, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1717977600000" data-listing-file-modified-sort="1754781029105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
-<div class="thumbnail"><a href="./posts/videodownloadscript/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/videodownloadscript/index.html" class="no-external">Video download script</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGlvbg=='); return false;">automation</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/videodownloadscript/index.html" class="no-external">
-Being a dad comes with opportunities to automate mundane chores. To curate a sensible kids video collection, I have to download select videos from YouTube. To organize this…
-</a></div>
+<div class="g-col-1" data-index="16" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1717977600000" data-listing-file-modified-sort="1754840374368" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
+<a href="./posts/videodownloadscript/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Video download script
+</h5>
+<div class="card-text listing-description delink">
+<p>Automating downloading YouTube videos/audio for personal use</p>
 </div>
-<div class="metadata">
-<a href="./posts/videodownloadscript/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jun 10, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="YXBpJTIwY2xpZW50" data-listing-date-sort="1717286400000" data-listing-file-modified-sort="1754781028893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="236">
-<div class="thumbnail"><a href="./posts/bruno/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/bruno/index.html" class="no-external">Bruno API client</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YXBpJTIwY2xpZW50'); return false;">api client</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/bruno/index.html" class="no-external">
-I recently opened up Postman to access an old collection. To my surprise, Postman has now fully gone the cloud way and syncs all collections to the cloud.
-</a></div>
+<div class="g-col-1" data-index="17" data-categories="YXBpJTIwY2xpZW50" data-listing-date-sort="1717286400000" data-listing-file-modified-sort="1754840374157" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="236">
+<a href="./posts/bruno/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bruno API client
+</h5>
+<div class="card-text listing-description delink">
+<p>A local and git friendly API client</p>
 </div>
-<div class="metadata">
-<a href="./posts/bruno/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jun 2, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="c2NyaXB0cw==" data-listing-date-sort="1716422400000" data-listing-file-modified-sort="1754781029105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="851">
-<div class="thumbnail"><a href="./posts/usefullinuxcommands/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/usefullinuxcommands/index.html" class="no-external">Useful linux commands</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2NyaXB0cw=='); return false;">scripts</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/usefullinuxcommands/index.html" class="no-external">
-The aim with this post is to centralize all my most used linux commands and their different use case descriptions using the tldr module.
-</a></div>
+<div class="g-col-1" data-index="18" data-categories="c2NyaXB0cw==" data-listing-date-sort="1716422400000" data-listing-file-modified-sort="1754840374367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="851">
+<a href="./posts/usefullinuxcommands/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Useful linux commands
+</h5>
+<div class="card-text listing-description delink">
+<p>Some of my frequently used linux commands</p>
 </div>
-<div class="metadata">
-<a href="./posts/usefullinuxcommands/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 May 23, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="b3B0aW1pemF0aW9u" data-listing-date-sort="1716076800000" data-listing-file-modified-sort="1754781029105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1782">
-<div class="thumbnail"><a href="./posts/solvinglinearprogrammingproblems/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/solvinglinearprogrammingproblems/index.html" class="no-external">Solving linear programming problems</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('b3B0aW1pemF0aW9u'); return false;">optimization</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/solvinglinearprogrammingproblems/index.html" class="no-external">
-At work a presentation on an optimization problem was made by researches working in the local hospital. They were looking to minimizing staffing resources given certain…
-</a></div>
+<div class="g-col-1" data-index="19" data-categories="b3B0aW1pemF0aW9u" data-listing-date-sort="1716076800000" data-listing-file-modified-sort="1754840374367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1782">
+<a href="./posts/solvinglinearprogrammingproblems/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Solving linear programming problems
+</h5>
+<div class="card-text listing-description delink">
+<p>Exploring LP in python</p>
 </div>
-<div class="metadata">
-<a href="./posts/solvinglinearprogrammingproblems/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 May 19, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="c2NyaXB0cw==" data-listing-date-sort="1716076800000" data-listing-file-modified-sort="1754781028899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
-<div class="thumbnail"><a href="./posts/essentialsinstallerfordebiandistribution/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/essentialsinstallerfordebiandistribution/index.html" class="no-external">Essentials installer for debian distribution</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2NyaXB0cw=='); return false;">scripts</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/essentialsinstallerfordebiandistribution/index.html" class="no-external">
-I use the following script to quickly setup a new installation of a debian distribution with my commonly used packages and libraries.
-</a></div>
+<div class="g-col-1" data-index="20" data-categories="c2NyaXB0cw==" data-listing-date-sort="1716076800000" data-listing-file-modified-sort="1754840374162" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
+<a href="./posts/essentialsinstallerfordebiandistribution/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Essentials installer for debian distribution
+</h5>
+<div class="card-text listing-description delink">
+<p>A script to install my frequently used applications in linux (debain)</p>
 </div>
-<div class="metadata">
-<a href="./posts/essentialsinstallerfordebiandistribution/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 May 19, 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="dG9vbA==" data-listing-date-sort="1715904000000" data-listing-file-modified-sort="1754781028899" data-listing-date-modified-sort="1754781028000" data-listing-reading-time-sort="5" data-listing-word-count-sort="855">
-<div class="thumbnail"><a href="./posts/diagramascode/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/diagramascode/images/dockeroutput.png" alt="OutputDocker"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/diagramascode/index.html" class="no-external">Diagram as code</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('dG9vbA=='); return false;">tool</div>
-
+</div></a>
 </div>
-<div class="delink listing-description"><a href="./posts/diagramascode/index.html" class="no-external">
-I have been searching for a tool which can create diagrams based on declarative texts (diagram as code). A tool much like graphviz but easier to get started with and use.…
-</a></div>
+<div class="g-col-1" data-index="21" data-categories="dG9vbA==" data-listing-date-sort="1715904000000" data-listing-file-modified-sort="1754840374162" data-listing-date-modified-sort="1754840374000" data-listing-reading-time-sort="5" data-listing-word-count-sort="855">
+<a href="./posts/diagramascode/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Diagram as code
+</h5>
+<div class="card-text listing-description delink">
+<p>An introduction to diagram as code tools</p>
 </div>
-<div class="metadata">
-<a href="./posts/diagramascode/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 May 17, 2024
 </div>
-</a>
 </div>
+</div>
+</div></a>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

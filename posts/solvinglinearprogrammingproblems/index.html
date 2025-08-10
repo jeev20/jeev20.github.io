@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2024-05-19">
+<meta name="description" content="Exploring LP in python">
 
 <title>Solving linear programming problems – Automata</title>
 <style>
@@ -66,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../assets/Logo.png" rel="icon" type="image/png">
+<link href="../../assets/logo.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -77,8 +78,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4e71525800e33355016a0c87f9808730.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-3749f2374fa4c5a093f8d9d568cc31b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-9f67f2566b6a6b7bea1b11f7b0f93e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-bf9172eb516291cd9ce9946d78afe83b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -283,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../assets/Logo.png" alt="" class="navbar-logo">
+    <img src="../../assets/logo.svg" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Automata</span>
@@ -326,7 +327,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Solving linear programming problems</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Exploring LP in python
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">optimization</div>
               </div>
                   </div>
@@ -487,7 +493,7 @@ y &gt;= 0</code></pre>
 </section>
 <section id="python-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="python-implementation">Python implementation</h4>
-<div id="b677a3cd" class="cell" data-execution_count="1">
+<div id="8e9d10d8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pulp   </span>
@@ -524,7 +530,7 @@ y &gt;= 0</code></pre>
 Version: 2.10.3 
 Build Date: Dec 15 2019 
 
-command line - /home/wslap/Documents/Automata/.venv/lib/python3.10/site-packages/pulp/apis/../solverdir/cbc/linux/i64/cbc /tmp/e238c63264be4cfc93d408923a074fa8-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/e238c63264be4cfc93d408923a074fa8-pulp.sol (default strategy 1)
+command line - /home/wslap/Documents/jeev20.github.io/.venv/lib/python3.10/site-packages/pulp/apis/../solverdir/cbc/linux/i64/cbc /tmp/0dba693602c244eb9fb5a6a5b2f69975-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/0dba693602c244eb9fb5a6a5b2f69975-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 9 COLUMNS
@@ -566,8 +572,8 @@ Status: 1
 Optimal Solution Value: 380.0 Kr.
 Dish_1 = 2.0 units
 Dish_2 = 4.0 units
-CPU times: user 419 μs, sys: 977 μs, total: 1.4 ms
-Wall time: 4.91 ms</code></pre>
+CPU times: user 74.6 ms, sys: 4.93 ms, total: 79.5 ms
+Wall time: 93.2 ms</code></pre>
 </div>
 </div>
 <p><strong>Output</strong> from the above problem results in 2 units of dish 1 and 4 units of dish 2, which results in the minimum cost of 380 kroner while adhering to the set constraints.</p>
@@ -623,7 +629,7 @@ y &gt;= 0</code></pre>
 </section>
 <section id="python-implementation-1" class="level4">
 <h4 class="anchored" data-anchor-id="python-implementation-1">Python implementation</h4>
-<div id="d10887f0" class="cell" data-execution_count="2">
+<div id="08128f22" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pulp   </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -656,7 +662,7 @@ y &gt;= 0</code></pre>
 Version: 2.10.3 
 Build Date: Dec 15 2019 
 
-command line - /home/wslap/Documents/Automata/.venv/lib/python3.10/site-packages/pulp/apis/../solverdir/cbc/linux/i64/cbc /tmp/452836a41a3147e080317e989404b701-pulp.mps -max -timeMode elapsed -branch -printingOptions all -solution /tmp/452836a41a3147e080317e989404b701-pulp.sol (default strategy 1)
+command line - /home/wslap/Documents/jeev20.github.io/.venv/lib/python3.10/site-packages/pulp/apis/../solverdir/cbc/linux/i64/cbc /tmp/1d5a0e8ed12f443487a3047dacf98672-pulp.mps -max -timeMode elapsed -branch -printingOptions all -solution /tmp/1d5a0e8ed12f443487a3047dacf98672-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 9 COLUMNS
@@ -697,8 +703,8 @@ Status: 1
 Optimal Solution Value: 6000.0
 Cake_A = 20.0 units
 Cake_B = 10.0 units
-CPU times: user 1.35 ms, sys: 0 ns, total: 1.35 ms
-Wall time: 4.35 ms</code></pre>
+CPU times: user 1.55 ms, sys: 0 ns, total: 1.55 ms
+Wall time: 19.9 ms</code></pre>
 </div>
 </div>
 <p><strong>Output</strong> from the above problem results in 20 units of cake 1 and 10 units of cake 2, which results in the maximum revenue of 6000 kroner while adhering to the set constraints. Totally 30 cakes need to be baked by the baker.</p>
@@ -771,7 +777,7 @@ y &gt;= 0</code></pre>
 </section>
 <section id="python-implementation-2" class="level4">
 <h4 class="anchored" data-anchor-id="python-implementation-2">Python implementation</h4>
-<div id="ebad4956" class="cell" data-execution_count="3">
+<div id="8410c294" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pulp   </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -805,7 +811,7 @@ y &gt;= 0</code></pre>
 Version: 2.10.3 
 Build Date: Dec 15 2019 
 
-command line - /home/wslap/Documents/Automata/.venv/lib/python3.10/site-packages/pulp/apis/../solverdir/cbc/linux/i64/cbc /tmp/ac520e441766402e9fe64da20b64f64c-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/ac520e441766402e9fe64da20b64f64c-pulp.sol (default strategy 1)
+command line - /home/wslap/Documents/jeev20.github.io/.venv/lib/python3.10/site-packages/pulp/apis/../solverdir/cbc/linux/i64/cbc /tmp/45898add32254e48883beeb499460506-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/45898add32254e48883beeb499460506-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 10 COLUMNS
@@ -847,8 +853,8 @@ Status: 1
 Optimal Solution Value: 310.0
 Carbohydrates = 25.0 units
 Protein = 70.0 units
-CPU times: user 1.27 ms, sys: 28 μs, total: 1.3 ms
-Wall time: 4.52 ms</code></pre>
+CPU times: user 599 μs, sys: 988 μs, total: 1.59 ms
+Wall time: 4.84 ms</code></pre>
 </div>
 </div>
 <p><strong>Output</strong> from the above problem results in 25 units of Carbohydrates and 70 units of Protein, which results in the minimum expense of 310 dollars while adhering to the set constraints.</p>

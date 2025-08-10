@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-08-11">
+<meta name="dcterms.date" content="2025-08-09">
+<meta name="description" content="Loading data using different python modules">
 
 <title>Data ingestion – Automata</title>
 <style>
@@ -66,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../assets/Logo.png" rel="icon" type="image/png">
+<link href="../../../assets/logo.svg" rel="icon" type="image/svg+xml">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -77,8 +78,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-4e71525800e33355016a0c87f9808730.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-3749f2374fa4c5a093f8d9d568cc31b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-9f67f2566b6a6b7bea1b11f7b0f93e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-bf9172eb516291cd9ce9946d78afe83b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -283,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../assets/Logo.png" alt="" class="navbar-logo">
+    <img src="../../../assets/logo.svg" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Automata</span>
@@ -326,7 +327,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Data ingestion</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Loading data using different python modules
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">datascience</div>
                 <div class="quarto-category">fundamentals</div>
               </div>
@@ -340,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 11, 2025</p>
+        <p class="date">August 9, 2025</p>
       </div>
     </div>
     
@@ -387,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>One needs to evaluate the size of the dataset and the resources available to process the data. One way og limiting the size of the data is to use effecient file formats.</p>
 <p>Data formatted as Comma Seperated Value (CSV) is everywhere, but it is not the most lighweight or fast format when it comes read/write from disks. So it is wise to convert large CSV files to formats which are faster and take lesser space on disk/memory. One such format is <a href="https://www.databricks.com/glossary/what-is-parquet"><code>parquet</code></a>.</p>
 <p>We can always decrease the data size to make ingestion easier. So we use polars to convert it to paraquet format.</p>
-<div id="590e56dc" class="cell" data-execution_count="1">
+<div id="a4919528" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -395,8 +401,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.scan_csv(<span class="st">"../data/iot/iot_telemetry_data.csv"</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df.sink_parquet(input_data_path)  <span class="co"># Saves the lazyframe as a parquet file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>CPU times: user 478 ms, sys: 76.3 ms, total: 554 ms
-Wall time: 133 ms</code></pre>
+<pre><code>CPU times: user 720 ms, sys: 83.5 ms, total: 803 ms
+Wall time: 387 ms</code></pre>
 </div>
 </div>
 <p>For small size datasets pandas and polars will do fine. As the dataset size increases, we need to look for effecient ways to read and prosess our data. In python, DuckDb and Pyspark are the best performing ETL libraries for large datasets.</p>
@@ -405,15 +411,15 @@ Wall time: 133 ms</code></pre>
 </section>
 <section id="using-pandas" class="level2">
 <h2 class="anchored" data-anchor-id="using-pandas">Using pandas</h2>
-<div id="ad86310e" class="cell" data-execution_count="2">
+<div id="65cb969c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>pd_df <span class="op">=</span>  pd.read_parquet(input_data_path)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>pd_df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>CPU times: user 115 ms, sys: 31.9 ms, total: 147 ms
-Wall time: 49.4 ms</code></pre>
+<pre><code>CPU times: user 139 ms, sys: 35.5 ms, total: 175 ms
+Wall time: 78.4 ms</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -468,15 +474,15 @@ Wall time: 49.4 ms</code></pre>
 </section>
 <section id="using-polars" class="level2">
 <h2 class="anchored" data-anchor-id="using-polars">Using Polars</h2>
-<div id="2a161169" class="cell" data-execution_count="3">
+<div id="51895e0d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>pl_df <span class="op">=</span>  pl.scan_parquet(input_data_path)</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>pl_df.head(<span class="dv">2</span>).collect()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>CPU times: user 9.31 ms, sys: 1.02 ms, total: 10.3 ms
-Wall time: 9.55 ms</code></pre>
+<pre><code>CPU times: user 9.14 ms, sys: 1.99 ms, total: 11.1 ms
+Wall time: 21.5 ms</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div><style>
@@ -543,7 +549,7 @@ Wall time: 9.55 ms</code></pre>
 </section>
 <section id="using-duckdb" class="level2">
 <h2 class="anchored" data-anchor-id="using-duckdb">Using Duckdb</h2>
-<div id="b03a7416" class="cell" data-execution_count="4">
+<div id="a3416c89" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -581,14 +587,14 @@ Wall time: 9.55 ms</code></pre>
 │ ? rows (&gt;9999 rows, 20 shown)                                                                                                                                    9 columns │
 └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
-CPU times: user 93 ms, sys: 4.04 ms, total: 97 ms
-Wall time: 97 ms</code></pre>
+CPU times: user 160 ms, sys: 19.1 ms, total: 179 ms
+Wall time: 197 ms</code></pre>
 </div>
 </div>
 </section>
 <section id="using-pyspark" class="level2">
 <h2 class="anchored" data-anchor-id="using-pyspark">Using pyspark</h2>
-<div id="de4f4eda" class="cell" data-execution_count="5">
+<div id="9eb064b1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -621,8 +627,8 @@ Wall time: 97 ms</code></pre>
 |1.5945121312478008E9|b8:27:eb:bf:9d:51|0.004956119201656337|             50.9|false|0.007651023905784...| false|0.020411844733363067|              22.6|
 +--------------------+-----------------+--------------------+-----------------+-----+--------------------+------+--------------------+------------------+
 only showing top 20 rows
-CPU times: user 66.5 ms, sys: 28.6 ms, total: 95.2 ms
-Wall time: 12.9 s</code></pre>
+CPU times: user 279 ms, sys: 36.5 ms, total: 315 ms
+Wall time: 11.5 s</code></pre>
 </div>
 </div>
 

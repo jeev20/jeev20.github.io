@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2025-04-11">
+<meta name="description" content="Searching and validating Norwegian Identity Numbers">
 
-<title>Searching and validating Norwegian Identity Numbers – Automata</title>
+<title>Is that NiN valid? – Automata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../assets/Logo.png" rel="icon" type="image/png">
+<link href="../../assets/logo.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -77,8 +78,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4e71525800e33355016a0c87f9808730.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-3749f2374fa4c5a093f8d9d568cc31b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-9f67f2566b6a6b7bea1b11f7b0f93e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-bf9172eb516291cd9ce9946d78afe83b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -283,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../assets/Logo.png" alt="" class="navbar-logo">
+    <img src="../../assets/logo.svg" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Automata</span>
@@ -325,8 +326,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Searching and validating Norwegian Identity Numbers</h1>
-                                <div class="quarto-categories">
+      <h1 class="title">Is that NiN valid?</h1>
+                  <div>
+        <div class="description">
+          Searching and validating Norwegian Identity Numbers
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">automation</div>
               </div>
                   </div>
@@ -440,7 +446,7 @@ ControlDigits --&gt;|"sum(dotproduct)MOD11&lt;br&gt;if result==0:&lt;br&gt;c2=0&
 <p>To make it easier to read sometimes the NiN can also be written with a space in between the date and individual numbers like so 020161 26007. Therefore the parsing logic we build needs to consider this variation as well.</p>
 </blockquote>
 <p>To check if a text string contains one or more valid NiN’s we can generate three simple methods. ### 1. Check the first 6 digits are valid</p>
-<div id="f9cecb40" class="cell" data-execution_count="1">
+<div id="437f004c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_valid_date(date_str) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Validates whether a given string follows the specified date format.</span></span>
@@ -482,7 +488,7 @@ ControlDigits --&gt;|"sum(dotproduct)MOD11&lt;br&gt;if result==0:&lt;br&gt;c2=0&
 </div>
 <section id="check-if-the-control-numbers-are-valid-in-the-input-string" class="level3">
 <h3 class="anchored" data-anchor-id="check-if-the-control-numbers-are-valid-in-the-input-string">2. Check if the control numbers are valid in the input string</h3>
-<div id="47204c64" class="cell" data-execution_count="2">
+<div id="e83c1594" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> check_nin_control_numbers(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Validates a Norwegian National Identification Number (NIN) based on control digits.</span></span>
@@ -519,7 +525,7 @@ ControlDigits --&gt;|"sum(dotproduct)MOD11&lt;br&gt;if result==0:&lt;br&gt;c2=0&
 </section>
 <section id="using-regex-to-extract-potential-11-digit-numbers-with-or-without-spaces-after-6th-digit-and-we-invoke-the-above-to-methods" class="level3">
 <h3 class="anchored" data-anchor-id="using-regex-to-extract-potential-11-digit-numbers-with-or-without-spaces-after-6th-digit-and-we-invoke-the-above-to-methods">3. Using regex to extract potential 11 digit numbers (with or without spaces after 6th digit) and we invoke the above to methods</h3>
-<div id="47a7b0d8" class="cell" data-execution_count="3">
+<div id="80933983" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_norwegian_ss_number(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">str</span>]:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Finds and extracts Norwegian Social Security Numbers (SSNs) from a given text.</span></span>

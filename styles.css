@@ -1,1 +1,17 @@
 /* css styles */
+
+.quarto-grid-item .card-title {
+  font-weight: bold;
+}
+
+.quarto-grid-item .card-text {
+  margin-top: 15px;
+}
+
+.quarto-grid-item {
+  border-radius: 25px !important;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+
