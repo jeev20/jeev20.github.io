@@ -80,6 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-9f67f2566b6a6b7bea1b11f7b0f93e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-bf9172eb516291cd9ce9946d78afe83b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -297,20 +298,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../assets/resume.html"> 
-<span class="menu-text">Resume</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/jeevhegde"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -359,6 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#step-1---remove-previous-install" id="toc-step-1---remove-previous-install" class="nav-link active" data-scroll-target="#step-1---remove-previous-install">Step 1 - Remove previous install</a></li>
+  <li><a href="#step-2---download-the-specific-version" id="toc-step-2---download-the-specific-version" class="nav-link" data-scroll-target="#step-2---download-the-specific-version">Step 2 - Download the specific version</a></li>
   <li><a href="#step-3---extract-contents-and-copy" id="toc-step-3---extract-contents-and-copy" class="nav-link" data-scroll-target="#step-3---extract-contents-and-copy">Step 3 - Extract contents and copy</a></li>
   <li><a href="#step-4---check-the-installation" id="toc-step-4---check-the-installation" class="nav-link" data-scroll-target="#step-4---check-the-installation">Step 4 - Check the installation</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -392,7 +380,10 @@ Linux: /usr/share/ollama/.ollama/models
 Windows: C:\Users\%username%\.ollama\models</code></pre>
 <p>The following command would set OLLAMA_MODELS to the users home folder <code>/home/$user/OllamaModels</code></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OLLAMA_MODELS</span><span class="op">=</span><span class="st">"/home/</span><span class="va">$user</span><span class="st">/OllamaModels"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Another way to set <code>OLLAMA_MODELS</code> path is to edit the <code>/etc/systemd/system/ollama.service</code> file as show in this <a href="https://github.com/ollama/ollama/blob/main/docs/linux.md">walkthrough</a> ## Step 2 - Download the specific version</p>
+<p>Another way to set <code>OLLAMA_MODELS</code> path is to edit the <code>/etc/systemd/system/ollama.service</code> file as show in this <a href="https://github.com/ollama/ollama/blob/main/docs/linux.md">walkthrough</a></p>
+</section>
+<section id="step-2---download-the-specific-version" class="level2">
+<h2 class="anchored" data-anchor-id="step-2---download-the-specific-version">Step 2 - Download the specific version</h2>
 <p><code>curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz</code>command downloads the latest version of Ollama to the current folder. One can also download the same via the github releases page: <a href="https://github.com/ollama/ollama/releases">Ollama Releases</a></p>
 </section>
 <section id="step-3---extract-contents-and-copy" class="level2">
@@ -868,7 +859,7 @@ Windows: C:\Users\%username%\.ollama\models</code></pre>
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
     <a class="nav-link" href="https://quarto.org">
-<p>Written in Quarto!</p>
+<p>Made with Quarto <iconify-icon role="img" inline="" icon="simple-icons:quarto" style="color:#74aadb;" aria-label="Quarto icon" title="Quarto icon" width="1.2em" height="1.2em" flip="horizontal" rotate="0deg" mode="svg"></iconify-icon></p>
 </a>
   </li>  
 </ul>

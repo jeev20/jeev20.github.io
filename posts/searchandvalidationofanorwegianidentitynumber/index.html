@@ -80,6 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-9f67f2566b6a6b7bea1b11f7b0f93e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-bf9172eb516291cd9ce9946d78afe83b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -300,20 +301,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../assets/resume.html"> 
-<span class="menu-text">Resume</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/jeevhegde"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -367,6 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#building-a-parser" id="toc-building-a-parser" class="nav-link" data-scroll-target="#building-a-parser">Building a parser</a>
   <ul class="collapse">
+  <li><a href="#check-the-first-6-digits-are-valid" id="toc-check-the-first-6-digits-are-valid" class="nav-link" data-scroll-target="#check-the-first-6-digits-are-valid">1. Check the first 6 digits are valid</a></li>
   <li><a href="#check-if-the-control-numbers-are-valid-in-the-input-string" id="toc-check-if-the-control-numbers-are-valid-in-the-input-string" class="nav-link" data-scroll-target="#check-if-the-control-numbers-are-valid-in-the-input-string">2. Check if the control numbers are valid in the input string</a></li>
   <li><a href="#using-regex-to-extract-potential-11-digit-numbers-with-or-without-spaces-after-6th-digit-and-we-invoke-the-above-to-methods" id="toc-using-regex-to-extract-potential-11-digit-numbers-with-or-without-spaces-after-6th-digit-and-we-invoke-the-above-to-methods" class="nav-link" data-scroll-target="#using-regex-to-extract-potential-11-digit-numbers-with-or-without-spaces-after-6th-digit-and-we-invoke-the-above-to-methods">3. Using regex to extract potential 11 digit numbers (with or without spaces after 6th digit) and we invoke the above to methods</a></li>
   </ul></li>
@@ -445,8 +433,20 @@ ControlDigits --&gt;|"sum(dotproduct)MOD11&lt;br&gt;if result==0:&lt;br&gt;c2=0&
 <blockquote class="blockquote">
 <p>To make it easier to read sometimes the NiN can also be written with a space in between the date and individual numbers like so 020161 26007. Therefore the parsing logic we build needs to consider this variation as well.</p>
 </blockquote>
-<p>To check if a text string contains one or more valid NiN’s we can generate three simple methods. ### 1. Check the first 6 digits are valid</p>
-<div id="437f004c" class="cell" data-execution_count="1">
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The following three code snippets were generated using Large Language Model (Microsoft - Co-Pilot)</p>
+</div>
+</div>
+</div>
+<p>To check if a text string contains one or more valid NiN’s we can generate three simple methods.</p>
+<section id="check-the-first-6-digits-are-valid" class="level3">
+<h3 class="anchored" data-anchor-id="check-the-first-6-digits-are-valid">1. Check the first 6 digits are valid</h3>
+<div id="3bd7cf36" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_valid_date(date_str) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Validates whether a given string follows the specified date format.</span></span>
@@ -486,9 +486,10 @@ ControlDigits --&gt;|"sum(dotproduct)MOD11&lt;br&gt;if result==0:&lt;br&gt;c2=0&
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="check-if-the-control-numbers-are-valid-in-the-input-string" class="level3">
 <h3 class="anchored" data-anchor-id="check-if-the-control-numbers-are-valid-in-the-input-string">2. Check if the control numbers are valid in the input string</h3>
-<div id="e83c1594" class="cell" data-execution_count="2">
+<div id="80f89027" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> check_nin_control_numbers(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Validates a Norwegian National Identification Number (NIN) based on control digits.</span></span>
@@ -525,7 +526,7 @@ ControlDigits --&gt;|"sum(dotproduct)MOD11&lt;br&gt;if result==0:&lt;br&gt;c2=0&
 </section>
 <section id="using-regex-to-extract-potential-11-digit-numbers-with-or-without-spaces-after-6th-digit-and-we-invoke-the-above-to-methods" class="level3">
 <h3 class="anchored" data-anchor-id="using-regex-to-extract-potential-11-digit-numbers-with-or-without-spaces-after-6th-digit-and-we-invoke-the-above-to-methods">3. Using regex to extract potential 11 digit numbers (with or without spaces after 6th digit) and we invoke the above to methods</h3>
-<div id="80933983" class="cell" data-execution_count="3">
+<div id="132ad95b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_norwegian_ss_number(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">str</span>]:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Finds and extracts Norwegian Social Security Numbers (SSNs) from a given text.</span></span>
@@ -1064,7 +1065,7 @@ Caution
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
     <a class="nav-link" href="https://quarto.org">
-<p>Written in Quarto!</p>
+<p>Made with Quarto <iconify-icon role="img" inline="" icon="simple-icons:quarto" style="color:#74aadb;" aria-label="Quarto icon" title="Quarto icon" width="1.2em" height="1.2em" flip="horizontal" rotate="0deg" mode="svg"></iconify-icon></p>
 </a>
   </li>  
 </ul>
