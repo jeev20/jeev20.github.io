@@ -1,8 +1,8 @@
 ---
-title: "About"
-image: assets/Logo.png
+title: ""
+image: assets/logo.svg
 about:
-  template: trestles
+  template: jolla
   links:
     - icon: linkedin
       text: LinkedIn
@@ -16,15 +16,13 @@ about:
 
 ---
 
-Hello, I'm Jeevith. I love automation and currently working my way into the Data Science field. My expierence spans across the field of technical safety, underwater robotics, process/test automation and data science. 
+Hello, I'm Jeevith. I love automation and am currently working to be a creative data scientist. My experience spans across the field of technical safety, underwater robotics, process/test automation and data analysis. 
 
 
 This website is an effort to document my journey of learning new technologies. 
 
-After many years of working as a developer, I missed having a repository where I could document and access my learnings. I also hope that by sharing my know-how, I can help others along the way. 
 
-
-The plan is to write about topics covered in this mindmap, which will expand with new learnings.
+I plan to write about topics shown in the mindmap, which will also expand with new learnings.
 
 
 ```{mermaid}
@@ -96,7 +94,11 @@ This code/text/image was generated using Large Language Model.
 ---------------------
 
 #### Credits
-Logo was generated using [Dummy-logo-maker](https://github.com/moiseshp/dummy-logo-maker). Thanks to [moiseshp](https://github.com/moiseshp)!
+Thanks [moiseshp](https://github.com/moiseshp) for [Dummy-logo-maker](https://github.com/moiseshp/dummy-logo-maker)
+<br>Theme scss files were obtained from [Hamel Husain](https://github.com/hamelsmu/hamel-site/tree/master)
+
+---------------------
+<br>
+*All opinions written in this blog are my own.*
 
 
-All opinions written in this blog are my own.

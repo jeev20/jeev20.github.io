@@ -6,8 +6,7 @@ color:
   foreground: dark-grey
   primary: black
 
-logo: 
-  medium: assets/logo.svg
+
 
 typography:
   fonts:

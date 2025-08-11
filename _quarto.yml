@@ -3,22 +3,27 @@ project:
 
 website:
   title: "Automata"
+  description: Notes on technology
   favicon: assets/logo.svg
+  site-url: "https://jeev20.github.io"
   navbar:
+    background: dark
     right:
-      - text: About
+      - text: "About"
         href: about.qmd
   page-footer:
     center:
-      - text: "Made with Quarto {{< quarto >}}"
+      - text: "Made with {{< quarto >}}uarto"
         href: "https://quarto.org"
+  
+  
   
       
 format:
   html:
     theme:
-      dark: darkly
-      light: simplex
+      dark: [cosmo, theme-dark.scss]
+      light: cosmo
     css: styles.css
     include-in-header: 
       - text: |
@@ -26,6 +31,13 @@ format:
           async src="//gc.zgo.at/count.js"></script>
     code-line-numbers: false
     code-overflow: wrap
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 300px
+      gutter-width: 1.5rem
+
+
 
 logo: assets/logo.svg
 

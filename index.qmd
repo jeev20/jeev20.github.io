@@ -1,14 +1,13 @@
 ---
-title: "Recent posts"
+title: "Blog posts"
 listing:
   contents: posts
   sort: "date desc"
-  type: grid
-  grid-columns: 1
+  type: table
   categories: true
-  sort-ui: true
-  filter-ui: true
-  fields: [title, date, description]
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title]
 page-layout: full
 title-block-banner: false
 ---

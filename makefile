@@ -5,6 +5,8 @@ post:
 	mkdir -p posts/$(name)/images && \
 	printf '%s\n' '---' \
 	'title: $(name)' \
+	'description: $(name)' \
+	'date: $(date)' \
 	'format: html' \
 	'toc: true' \
 	'lang: en' \
@@ -12,7 +14,6 @@ post:
 	'ipynb-shell-interactivity: all' \
 	'execute:' \
 	'  echo: false' \
-	'date: $(date)' \
 	'categories: ["UNTITLED"]' \
 	'tags: ["TAG"]' \
 	'comments:' \
