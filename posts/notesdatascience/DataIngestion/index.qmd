@@ -37,7 +37,7 @@ One needs to evaluate the size of the dataset and the resources available to pro
 Data formatted as Comma Seperated Value (CSV) is everywhere, but it is not the most lighweight or fast format when it comes read/write from disks. So it is wise to convert large CSV files to formats which are faster and take lesser space on disk/memory. One such format is [`parquet`](https://www.databricks.com/glossary/what-is-parquet). 
 
 We can always decrease the data size to make ingestion easier. So we use polars to convert it to paraquet format. 
-```{python}
+```{.python}
 #| echo: true
 %%time
 import polars as pl
