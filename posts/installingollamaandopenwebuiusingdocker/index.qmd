@@ -1,6 +1,7 @@
 ---
 title: Using all GPUs when running Ollama and OpenWebUI in docker 
 description: "Bundled install of ollama and Open-Webui using docker"
+author: "Jeevith Hegde"
 format: html
 toc: true
 lang: en

@@ -1,6 +1,7 @@
 ---
 title: Switching from PIP to UV
 description: "Upgrading my python workflow"
+author: "Jeevith Hegde"
 format: html
 toc: true
 lang: en

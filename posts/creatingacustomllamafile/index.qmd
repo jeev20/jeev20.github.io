@@ -1,6 +1,7 @@
 ---
 title: Creating a custom llamafile 🦙
 description: "A single executable to serve LLMs"
+author: "Jeevith Hegde"
 format: html
 toc: true
 lang: en

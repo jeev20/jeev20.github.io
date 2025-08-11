@@ -6,6 +6,7 @@ post:
 	printf '%s\n' '---' \
 	'title: $(name)' \
 	'description: $(name)' \
+	'author: "Jeevith Hegde"' \
 	'date: $(date)' \
 	'format: html' \
 	'toc: true' \

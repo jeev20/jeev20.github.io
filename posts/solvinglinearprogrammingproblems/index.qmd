@@ -1,6 +1,7 @@
 ---
 title: Solving linear programming problems
 description: "Exploring LP in python"
+author: "Jeevith Hegde"
 format: html
 toc: true
 lang: en

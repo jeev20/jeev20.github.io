@@ -1,6 +1,7 @@
 ---
 title: Notes on Practical Statistics for Data Scientists 📗
 description: "Notes of the book Practical Statistics for Data Scientists - 50+ Essential Concepts Using R and Python by Peter Bruce, Andrew Bruce, Peter Gedeck"
+author: "Jeevith Hegde"
 format: html
 toc: true
 lang: en

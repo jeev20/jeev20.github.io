@@ -1,6 +1,7 @@
 ---
 title: Beryl GL MT-1300 travel router
 description: "A travel router makes using untrusted wi-fi networks safe and easy"
+author: "Jeevith Hegde"
 format: html
 toc: true
 lang: en

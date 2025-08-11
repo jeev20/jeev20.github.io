@@ -1,6 +1,7 @@
 ---
 title: Updating Ollama in an airgapped linux server
 description: "A walkthrough"
+author: "Jeevith Hegde"
 format: html
 toc: true
 lang: en

@@ -1,6 +1,7 @@
 ---
 title: Video download script
 description: "Automating downloading YouTube videos/audio for personal use"
+author: "Jeevith Hegde"
 format: html
 toc: true
 lang: en
