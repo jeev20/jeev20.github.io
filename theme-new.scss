@@ -42,3 +42,18 @@ $text-muted: #6a737b;
 #quarto-announcement a {
   color: $white;
 }
+
+/*-- Code cell styling --*/
+.sourceCode.cell-code {
+  font-family: monospace;
+  overflow-x: auto;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+
+.cell-output {
+  border-radius: 12px;
+  padding: 12px;
+}
+

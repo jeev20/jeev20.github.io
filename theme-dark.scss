@@ -46,6 +46,27 @@ $navbar-bg: shade-color($gray-800, 10%);
 
 // Code blocks
 $code-block-bg-alpha: -.9;
+$code-block-bg: true;
+
+
+
+.sourceCode.cell-code {
+  background-color: rgb(26, 27, 26);
+  font-family: monospace;
+  overflow-x: auto;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+
+.cell-output {
+  background-color: rgb(26, 27, 26);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+
+
 
 // Bootstrap popovers
 $popover-bg: #242424;
