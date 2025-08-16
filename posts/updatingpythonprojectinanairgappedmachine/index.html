@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeevith Hegde">
-<meta name="dcterms.date" content="2024-06-14">
-<meta name="description" content="OS images in one USB!">
+<meta name="dcterms.date" content="2025-07-04">
+<meta name="description" content="Shows how a python project can be updated in an airgapped machine">
 
-<title>Ventoy bootable USB – Automata</title>
+<title>Update python project in an airgapped machine – Automata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -273,14 +308,14 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Ventoy bootable USB</h1>
+      <h1 class="title">Update python project in an airgapped machine</h1>
                   <div>
         <div class="description">
-          OS images in one USB!
+          Shows how a python project can be updated in an airgapped machine
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">tool</div>
+                <div class="quarto-category">python</div>
               </div>
                   </div>
   </div>
@@ -298,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 14, 2024</p>
+        <p class="date">July 4, 2025</p>
       </div>
     </div>
     
@@ -309,8 +344,15 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#in-the-development-machine" id="toc-in-the-development-machine" class="nav-link active" data-scroll-target="#in-the-development-machine">In the development machine</a></li>
+  <li><a href="#in-the-airgapped-machine" id="toc-in-the-airgapped-machine" class="nav-link" data-scroll-target="#in-the-airgapped-machine">In the airgapped machine</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -320,43 +362,62 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>During the past 10 years, I probably have written OS images to pendrives over 300 times. This to either fresh install or reinstall OS on windows, linux, mac and on raspberrypi computers. However, in 2024 I came to know of a tool called <a href="https://www.ventoy.net/en/index.html">Ventoy</a>! This could have saved me a lot of time and effort in the past.</p>
-<p>Ventoy is a open source tool to create bootable usb drives which supports images in ISO/WIM/IMG/VHD(x)/EFI formats.</p>
-<p>Unlike traditional way of creating an USB bootable drive for each OS image, a Ventoy USB drive can contain all different kind of OS images in one pendrive. It can even organize them as you wish. On boot, you are greeted with a simple GUI where you get the option to choose the image you want to boot into.</p>
-<p>I went from using over 8 pendrives to just 1. The simplicity it has brought in my “distro-hopping” workflow is just bliss. I have organized the images files as shown below.</p>
-<pre><code>VentoyDrive  
-│
-└───Windows
-│   │   Windows 10
-│   │   Windows 11
-│   
-└───Linux
-    │   Ubuntu 22.4
-    │   Ubuntu 24.4
-    │   Kubuntu.24.4
-    │   PopOS 22.4
-    │   LMDE 6
-    │   LinuxMint 21.3
-    │   Proxmox 8.2
-    │   Gparted
-    |   MxLinux
-</code></pre>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Another great feature of ventoy is that in addition to the OS image files, you are free to use the Ventoy USB drive as a normal USB drive.</p>
-<p>With a large enough pendrive, ventoy can act as both a bootable usb drive and a regular usb storage device. Fantastic!</p>
+<div class="callout-body-container">
+<p><strong>Scenario</strong></p>
+<p>Updating production python code in an airgapped machine with a different python version and without access to uv.</p>
+<p><em>How do we update the project in production?</em></p>
 </div>
 </div>
+</div>
+<section id="in-the-development-machine" class="level2">
+<h2 class="anchored" data-anchor-id="in-the-development-machine">In the development machine</h2>
+<p>Test that your python script works as expected. Follow the below steps when you want to update the source in airgapped machine.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>uv sync</code> ensures that the dependencies are correctly installed to a local virtual enviornment.</p>
+<p>We will also need to save all the dependencies to a <code>requirements.txt</code> file as we do not have UV installed in the airgapped machine.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> pip freeze <span class="op">&gt;</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sometimes the <code>requirements.txt</code> needs to be double checked in this case uv insert an -e file line, which pip does not understand in the airgapped machine.</p>
+<p>The below bash script was modified by Microsoft Copilot. This allows us to download all the requirements locally such that we can use them in the airgapped system. We ask pip to download the dependency for 3.12.3 python version as it is the python version in the airgapped machine.</p>
+<p>This script will take a while to download all relevant wheels.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> offline_packages</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">IFS</span><span class="op">=</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">package</span> <span class="kw">||</span> <span class="bu">[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$package</span><span class="st">"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">case</span> <span class="st">"</span><span class="va">$package</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">''</span><span class="kw">|</span><span class="dt">\#</span><span class="pp">*</span><span class="kw">)</span> <span class="cf">continue</span> <span class="cf">;;</span>  <span class="co"># Skip empty lines and comments</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">esac</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="st">"Downloading </span><span class="va">$package</span><span class="st"> for Python 3.12..."</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pip</span> download <span class="st">"</span><span class="va">$package</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">--python-version</span> 3.12.3 <span class="dt">\</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">--platform</span> manylinux2014_x86_64 <span class="dt">\</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">--only-binary</span><span class="op">=</span>:all: <span class="dt">\</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">--implementation</span> cp <span class="dt">\</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">--abi</span> cp312 <span class="dt">\</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">-d</span> offline_packages/</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span> <span class="op">&lt;</span> requirements.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we move the <code>whl</code> files to the airgapped machine. Secure copy (<code>scp</code>) allows us to send files and folders to airgapped machine without any issues. If the project folder is in the root folder, it is important that you have <code>sudo</code> access to the machine.</p>
+<p>Since the project folder contains the <code>offline_packages</code> folder and the <code>requirements.txt</code>, we can move the entire project folder.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> scp <span class="at">-r</span> YOURDEVPROJECTFOLDER/   USER@SERVER:/home/PATHTOPROJECT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="in-the-airgapped-machine" class="level2">
+<h2 class="anchored" data-anchor-id="in-the-airgapped-machine">In the airgapped machine</h2>
+<p>Navigate to the project folder and remove old virtual enviornment (folder)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> THEVIRTUALENVIRONMENTFOLDER</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This creates a new virtual enviornment and activates it. Ensure you have <code>virtualenv</code> installed.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">virtualenv</span> env <span class="kw">&amp;&amp;</span> <span class="bu">source</span> env/bin/activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We add all the required packages to the virtual env. Here we tell pip where to look for packages (<code>offline_packages</code> folder)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--no-index</span> <span class="at">--find-links</span><span class="op">=</span>offline_packages/ <span class="at">-r</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This way pip knows that all the required packages can be found in the <code>offline_packages</code> folder.</p>
+<p>Now we test the if the virtual enviornment i correctly installed and all project dependencies are added. Since we do not have <code>uv</code> in the airgapped machine. We use</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> src/OURSCRIPT.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hurray! The scipt should now work as it does in the dev machine.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -790,7 +851,7 @@ Note
     script.dataset.repo = "jeev20/jeev20.github.io";
     script.dataset.repoId = "R_kgDOL9EtQw";
     script.dataset.category = "General";
-    script.dataset.categoryId = "";
+    script.dataset.categoryId = "DIC_kwDOL9EtQ84CfcOd";
     script.dataset.mapping = "title";
     script.dataset.reactionsEnabled = "1";
     script.dataset.emitMetadata = "0";
