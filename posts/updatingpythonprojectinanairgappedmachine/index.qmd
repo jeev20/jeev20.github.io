@@ -1,0 +1,109 @@
+---
+title: Update python project in an airgapped machine
+description: Shows how a python project can be updated in an airgapped machine
+author: "Jeevith Hegde"
+date: 2025-07-04 22:25 +0200
+format: html
+toc: true
+lang: en
+jupyter: python3
+ipynb-shell-interactivity: all
+execute:
+  echo: false
+categories: ["python"]
+tags: ["uv", "pip"]
+comments:
+  giscus:
+    repo: jeev20/jeev20.github.io
+---
+
+
+
+:::{.callout}
+**Scenario**
+
+Updating production python code in an airgapped machine with a different python version and without access to uv. 
+
+*How do we update the project in production?*
+:::
+
+## In the development machine
+
+Test that your python script works as expected. Follow the below steps when you want to update the source in airgapped machine. 
+
+```{.bash}
+uv sync
+```
+
+`uv sync` ensures that the dependencies are correctly installed to a local virtual enviornment. 
+
+We will also need to save all the dependencies to a `requirements.txt` file as we do not have UV installed in the airgapped machine. 
+
+```{.bash}
+uv pip freeze > requirements.txt
+```
+
+Sometimes the `requirements.txt` needs to be double checked in this case uv insert an -e file line, which pip does not understand in the airgapped machine. 
+
+
+
+The below bash script was modified by Microsoft Copilot. This allows us to download all the requirements locally such that we can use them in the airgapped system. We ask pip to download the dependency for 3.12.3 python version as it is the python version in the airgapped machine. 
+
+This script will take a while to download all relevant wheels. 
+```{.bash}
+mkdir -p offline_packages
+
+while IFS= read -r package || [ -n "$package" ]; do
+  case "$package" in
+    ''|\#*) continue ;;  # Skip empty lines and comments
+  esac
+  echo "Downloading $package for Python 3.12..."
+  pip download "$package" \
+    --python-version 3.12.3 \
+    --platform manylinux2014_x86_64 \
+    --only-binary=:all: \
+    --implementation cp \
+    --abi cp312 \
+    -d offline_packages/
+done < requirements.txt 
+```
+
+
+Now we move the `whl` files to the airgapped machine. Secure copy (`scp`) allows us to send files and folders to airgapped machine without any issues. If the project folder is in the root folder, it is important that you have `sudo` access to the machine. 
+
+Since the project folder contains the `offline_packages` folder and the `requirements.txt`, we can move the entire project folder. 
+
+```{.bash}
+sudo scp -r YOURDEVPROJECTFOLDER/   USER@SERVER:/home/PATHTOPROJECT
+```
+
+
+## In the airgapped machine
+
+Navigate to the project folder and remove old virtual enviornment (folder) 
+
+```{.bash}
+rm -r THEVIRTUALENVIRONMENTFOLDER
+```
+
+This creates a new virtual enviornment and activates it. Ensure you have `virtualenv` installed.
+
+```{.bash}
+virtualenv env && source env/bin/activate
+```
+
+We add all the required packages to the virtual env. Here we tell pip where to look for packages (`offline_packages` folder)
+
+```{.bash}
+pip install --no-index --find-links=offline_packages/ -r requirements.txt
+```
+This way pip knows that all the required packages can be found in the `offline_packages` folder.
+
+
+Now we test the if the virtual enviornment i correctly installed and all project dependencies are added. Since we do not have `uv` in the airgapped machine. We use 
+
+```{.bash}
+python3 src/OURSCRIPT.py
+```
+Hurray! The scipt should now work as it does in the dev machine.
+
