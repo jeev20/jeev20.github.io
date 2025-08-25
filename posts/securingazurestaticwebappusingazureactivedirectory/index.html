@@ -515,6 +515,20 @@ Note
 <li>Click on <code>Add</code> write <code>AZURE_CLIENT_ID</code> as key and paste the value of <code>Application ID</code> from the previous step.</li>
 <li>Click on <code>Add</code> write <code>AZURE_CLIENT_SECRET_APP_SETTING_NAME</code> as key and paste the value of the secret from the previous step. <img src="images/EnvironmentVariables.png" class="img-fluid"></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have also had success by just adding the value to the <code>AZURE_CLIENT_ID</code>= <code>Application ID</code> and leaving the <code>AZURE_CLIENT_SECRET_APP_SETTING_NAME =</code> value empty.</p>
+<p>In my opinion, this is a better way to configure your static app since you do not need to add the secret’s value as an environment variable.</p>
+</div>
+</div>
 <p>Now we have provided values to the placeholders in the <code>staticwebapp.config.json</code> file.</p>
 </section>
 </section>
