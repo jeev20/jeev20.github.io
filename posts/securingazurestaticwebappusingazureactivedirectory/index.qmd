@@ -172,6 +172,13 @@ At the end of this step, your code should be uploaded to one of the source contr
 * Click on `Add` write `AZURE_CLIENT_SECRET_APP_SETTING_NAME` as key and paste the value of the secret from the previous step.
   ![](images/EnvironmentVariables.png)
 
+
+:::{.callout-note}
+I have also had success by just adding the value to the `AZURE_CLIENT_ID`= `Application ID` and leaving the `AZURE_CLIENT_SECRET_APP_SETTING_NAME = ` value empty. 
+
+In my opinion, this is a better way to configure your static app since you do not need to add the secret's value as an environment variable. 
+:::
+
 Now we have provided values to the placeholders in the `staticwebapp.config.json` file.
 
 
