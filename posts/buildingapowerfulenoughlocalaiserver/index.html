@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jeevith Hegde">
-<meta name="dcterms.date" content="2024-05-19">
-<meta name="description" content="A script to install my frequently used applications in linux (debain)">
+<meta name="dcterms.date" content="2025-05-15">
 
-<title>Essentials installer for debian distribution – Automata</title>
+<title>Building a local AI server – Automata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -308,14 +306,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Essentials installer for debian distribution</h1>
-                  <div>
-        <div class="description">
-          A script to install my frequently used applications in linux (debain)
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">scripts</div>
+      <h1 class="title">Building a local AI server</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">ai server</div>
               </div>
                   </div>
   </div>
@@ -323,17 +316,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Jeevith Hegde </p>
-            </div>
-    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 19, 2024</p>
+        <p class="date">May 15, 2025</p>
       </div>
     </div>
     
@@ -344,8 +331,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements">Requirements</a>
+  <ul class="collapse">
+  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware">Hardware</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  </ul></li>
+  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server">Server</a>
+  <ul class="collapse">
+  <li><a href="#scheduling" id="toc-scheduling" class="nav-link" data-scroll-target="#scheduling">Scheduling</a></li>
+  <li><a href="#updates" id="toc-updates" class="nav-link" data-scroll-target="#updates">Updates</a></li>
+  <li><a href="#combining-ollama-and-open-webui" id="toc-combining-ollama-and-open-webui" class="nav-link" data-scroll-target="#combining-ollama-and-open-webui">Combining Ollama and Open-WebUi</a></li>
+  <li><a href="#docker-exec" id="toc-docker-exec" class="nav-link" data-scroll-target="#docker-exec">Docker exec</a></li>
+  <li><a href="#remote-access" id="toc-remote-access" class="nav-link" data-scroll-target="#remote-access">Remote access</a></li>
+  </ul></li>
+  <li><a href="#usage-and-experience" id="toc-usage-and-experience" class="nav-link" data-scroll-target="#usage-and-experience">Usage and experience</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -355,40 +361,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>I use the following script to quickly setup a new installation of a debian distribution with my commonly used packages and libraries.</p>
-<p>This allows for quick headless deployment of all essential programs and decreases the overhead when hopping distributions!</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Update and upgrade packages finally remove stale files</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt upgrade <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt autoremove <span class="at">-y</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Install apt packages most used</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get remove docker docker-engine docker.io</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python-is-python3 <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>neofetch <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>htop <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>bpytop <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>npm <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>tree <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>docker.io <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>curl <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>ssh <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>openssh-server <span class="at">-y</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Install rustup to install cargo and python package management</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">--proto</span> <span class="st">'=https'</span> <span class="at">--tlsv1.2</span> <span class="at">-sSf</span> https://sh.rustup.rs <span class="kw">|</span> <span class="fu">sh</span> <span class="at">-s</span> <span class="at">--</span> <span class="at">-y</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Install UV for python package management</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-LsSf</span> https://astral.sh/uv/install.sh <span class="kw">|</span> <span class="fu">sh</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Install node packages</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> npm install <span class="at">-g</span> tldr <span class="at">-y</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Install cargo packages</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ex">cargo</span> install broot <span class="at">--force</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ex">broot</span> <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I have been an avid tinkerer with home pc’s. I enjoy building and configuring them. Naturally, as LLM’s become a developer necessity, I wanted to build an economical yet a performant LLM server for my home-lab.</p>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<section id="hardware" class="level3">
+<h3 class="anchored" data-anchor-id="hardware">Hardware</h3>
+<p>My requirements were quite basic:</p>
+<ul>
+<li>A minimum of 16GB VRAM (preferably Nvidia)</li>
+<li>A minimum of 16GB RAM</li>
+<li>A minimum of 6 cores / 12 threads Ryzen CPU</li>
+<li>A motherboard with 2 PCI GPU slots (does not need to be 16 lanes PCI)</li>
+<li>A minimum of 600 watt power supply</li>
+<li>A wi-fi smart-plug with scheduling capabilities</li>
+<li>A motherboard which support power-on after power restoration</li>
+</ul>
+</section>
+<section id="software" class="level3">
+<h3 class="anchored" data-anchor-id="software">Software</h3>
+<ul>
+<li>Linux OS with a long-term support and used by a lot of users</li>
+<li>Linux OS with Tailscale native support (systemd)</li>
+<li>Linux OS with easy installation of Docker, Nvidia Container Toolkit and Cuda Toolkit</li>
+<li>Linux OS with OpenSSH server to manage server remotely</li>
+<li>Linux OS with crontab to schedule running of scripts</li>
+</ul>
+</section>
+</section>
+<section id="server" class="level2">
+<h2 class="anchored" data-anchor-id="server">Server</h2>
+<p>I ended up purchasing a second-hand PC with all the above requirements and then purchased two used RTX 3060 GPUs with 12 GB Vram each. The combined 24 GB of Vram is plenty enough for my use cases. In the future, this may be upgraded to either a 32 GB or higher.</p>
+<p>The RAM capacity (16 GB) is somewhat low for this use-case and I plan to upgrade it in the future.</p>
+<p>The PC costed me 1500 NOK and 5200 NOK for the 2 GPUs. The total cost was 6700 NOK, which is equivalent to 666 USD. I am sure it is a fantastic price for the performance it offers.</p>
+<p>To ensure stable internet connectivity, I choose to connect the server directly to a Unify router via the internet cable, which is part of a mesh network.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/LLMServer.jpg" class="img-fluid figure-img"></p>
+<figcaption>LLM Server - a sleeper build</figcaption>
+</figure>
+</div>
+<p>Although it would have been great to connect to the main router, my main router is placed up in the attic which can get quite cold in the winters. Also, I do not wish to go up there when I have to access this server.</p>
+<section id="scheduling" class="level3">
+<h3 class="anchored" data-anchor-id="scheduling">Scheduling</h3>
+<p>I have a cron job set up to switch of the server at around 01:00 everynight. Simulatneously, a smart wi-fi switch off from the power socket. However, to wake up the server in the morning, I use a smart switch to power on and in the server bios, I set “wake on power up” setting.</p>
+<p>This ensures that when the smart switch is in the on position, the server starts up.</p>
+<p>This method to optimize power useage has been working without any hicups for several months now and I recommend this to anyone looking to get into home-labing.</p>
+</section>
+<section id="updates" class="level3">
+<h3 class="anchored" data-anchor-id="updates">Updates</h3>
+<p>As everything runs on an Ubuntu LTS 24.04, I have very litte proactive updates to make manually.</p>
+</section>
+<section id="combining-ollama-and-open-webui" class="level3">
+<h3 class="anchored" data-anchor-id="combining-ollama-and-open-webui">Combining Ollama and Open-WebUi</h3>
+<p>From the Open-Webui repository, I choose to run this configuration</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker run <span class="at">-d</span> <span class="at">-p</span> 3000:8080 <span class="at">-p</span> 11434:11434 <span class="at">--gpus</span><span class="op">=</span>all   <span class="at">-v</span> ollama:/root/.ollama   <span class="at">-v</span> open-webui:/app/backend/data   <span class="at">--name</span> open-webui <span class="at">--restart</span> always   <span class="at">-e</span> OLLAMA_HOST=0.0.0.0   ghcr.io/open-webui/open-webui:ollama</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To keep this installation upto date, I use <code>watchtower</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker run <span class="at">--rm</span> <span class="at">--volume</span> /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower <span class="at">--run-once</span> open-webui</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="docker-exec" class="level3">
+<h3 class="anchored" data-anchor-id="docker-exec">Docker exec</h3>
+<p>Offcourse, an LLM server should be able to fetch the newest open-source models. I do this via an easy ollama command.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker exec open-webui ollama pull gpt-oss:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="remote-access" class="level3">
+<h3 class="anchored" data-anchor-id="remote-access">Remote access</h3>
+<p>In order to have acces to my LLM server outside my home network, I use <a href="https://tailscale.com/">Tailscale</a>. Tailscale is an amazing technology which allows to create encrypted tunnels across devices.</p>
+<p>My phone is also part of the this <code>tailnet</code>, which allows it to connect to my LLM server from any public internet network. Tailscale automatically updates to the latest version when I run <code>apt update &amp;&amp; apt upgrade</code> ensuring minimal updating overhead.</p>
+</section>
+</section>
+<section id="usage-and-experience" class="level2">
+<h2 class="anchored" data-anchor-id="usage-and-experience">Usage and experience</h2>
+<p>Overall, I am quite happy with how this server performs. I use this server for both machine learning tasks and LLM experiments. Since Github Copilot has an agent mode which can be configured with ollama, this server serves the models to VS Code when I need it.</p>
+<p>I have also configured this server as the LLM provider in my <a href="https://marimo.io/">Marimo</a> notebooks.</p>
+<p>I am looking forward to many wonderful evenings of exploring LLMs and machine learning on this nifty little server.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

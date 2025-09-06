@@ -2,13 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.7.34">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-03">
+<meta name="author" content="Jeevith Hegde">
+<meta name="dcterms.date" content="2025-08-25">
+<meta name="description" content="A walkthorugh of using embedd option to create dashboards">
 
-<title>Building a local AI server – Automata</title>
+<title>Programatically adding tabsets in Quarto – Automata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,12 +40,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-7e1384e24dc9625e5e9b6b522d6a2705.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-4f3c0aa872346a4cc622a86b607826cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f6a81b93165cd012d22f5e61c9eaef84.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f70bb8025b6919a17d92bbf183b709e1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -271,25 +273,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements">Requirements</a>
-  <ul class="collapse">
-  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware">Hardware</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
-  </ul></li>
-  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server">Server</a></li>
-  <li><a href="#scheduling" id="toc-scheduling" class="nav-link" data-scroll-target="#scheduling">Scheduling</a></li>
-  <li><a href="#updates" id="toc-updates" class="nav-link" data-scroll-target="#updates">Updates</a></li>
-  <li><a href="#docker" id="toc-docker" class="nav-link" data-scroll-target="#docker">Docker</a></li>
-  <li><a href="#ollama-and-openwebui-bundle" id="toc-ollama-and-openwebui-bundle" class="nav-link" data-scroll-target="#ollama-and-openwebui-bundle">Ollama and OpenWebUi Bundle</a></li>
-  <li><a href="#docker-exec" id="toc-docker-exec" class="nav-link" data-scroll-target="#docker-exec">Docker exec</a></li>
-  <li><a href="#power-automation" id="toc-power-automation" class="nav-link" data-scroll-target="#power-automation">Power automation</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -297,21 +282,32 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Building a local AI server</h1>
+<h1 class="title">Programatically adding tabsets in Quarto</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">ai</div>
+    <div class="quarto-category">quarto</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    A walkthorugh of using embedd option to create dashboards
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeevith Hegde </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 3, 2025</p>
+      <p class="date">August 25, 2025</p>
     </div>
   </div>
   
@@ -323,58 +319,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I have been a avid tinkerer with home pc’s. I enjoy building pc. Now that LLM’s are a necessity for a developer, I wanted to build a great performant system for myself.</p>
-<section id="requirements" class="level2">
-<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
-<section id="hardware" class="level3">
-<h3 class="anchored" data-anchor-id="hardware">Hardware</h3>
-<p>My requirements were quite basic:</p>
-<ul>
-<li>A minimum of 16GB VRAM (preferably Nvidia)</li>
-<li>A minimum of 16GB RAM</li>
-<li>A minimum of 6 cores / 12 threads Ryzen CPU</li>
-<li>A motherboard with 2 PCI GPU slots (does not need to be 16 lanes PCI)</li>
-<li>A minimum of 600 watt power supply</li>
-<li>A wi-fi smart-plug with scheduling capabilities</li>
-<li>A motherboard which support power-on after power restoration</li>
-</ul>
-</section>
-<section id="software" class="level3">
-<h3 class="anchored" data-anchor-id="software">Software</h3>
-<ul>
-<li>Linux OS with a long-term support and used by a lot of users</li>
-<li>Linux OS with Tailscale native support (systemd)</li>
-<li>Linux OS with easy installation of Docker, Nvidia Container Toolkit and Cuda Toolkit</li>
-<li>Linux OS with OpenSSH server to manage server remotely</li>
-<li>Linux OS with crontab to schedule running of scripts</li>
-</ul>
-</section>
-</section>
-<section id="server" class="level2">
-<h2 class="anchored" data-anchor-id="server">Server</h2>
-<p>I ended up purchasing a second-hand PC with all the above requirements and then purchased two RTX 3060 GPUs with 12 GB Vram each. The RAM capacity is somewhat low for this use-case and I plan to upgrade it in the future.</p>
-</section>
-<section id="scheduling" class="level2">
-<h2 class="anchored" data-anchor-id="scheduling">Scheduling</h2>
-</section>
-<section id="updates" class="level2">
-<h2 class="anchored" data-anchor-id="updates">Updates</h2>
-<p>As everything runs on an Ubuntu LTS 24.04.</p>
-</section>
-<section id="docker" class="level2">
-<h2 class="anchored" data-anchor-id="docker">Docker</h2>
-</section>
-<section id="ollama-and-openwebui-bundle" class="level2">
-<h2 class="anchored" data-anchor-id="ollama-and-openwebui-bundle">Ollama and OpenWebUi Bundle</h2>
-</section>
-<section id="docker-exec" class="level2">
-<h2 class="anchored" data-anchor-id="docker-exec">Docker exec</h2>
-</section>
-<section id="power-automation" class="level2">
-<h2 class="anchored" data-anchor-id="power-automation">Power automation</h2>
+<p>Test</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
