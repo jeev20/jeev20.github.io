@@ -1,0 +1,430 @@
+---
+title: Fine tuning Phi4 model with Unsloth
+description: Fine-tuning with synthetic dataset
+author: "Jeevith Hegde"
+date: 2025-09-29 13:51 +0200
+format: html
+toc: true
+lang: en
+jupyter: python3
+ipynb-shell-interactivity: all
+execute:
+  echo: false
+categories: ["llm fine-tuning"]
+tags: ["fine-tuning", "aihardware", "machine learning hardware"]
+comments:
+  giscus:
+    repo: jeev20/jeev20.github.io
+---
+
+# Background
+
+Using base llm's even with forced structured outputs, still wont be consistent with required outputs. Using RAG or Prompt engineering for a text extraction usecase does not work well either. For a contextual text extraction usecase there are currently four possible ways with their advantages and disadvantages. 
+
+**1. Prompt engineering to get the base llm to reply with json strings**
+
+  This approach is to write very precise prompts (system and user prompts) and try to force the base model to generate responses similar to the required format. This works very poorly for edgecases. 
+
+**2. Using retrival augmented generation (RAG)**
+
+  Although a great way to build context aware systems, RAG is rather poorly suited when the content of the entire text has to be read to extract required text. RAG can ignore parts of the document if the query engine is not robust, if not all relevant text is extracted, then we may not parse the important part of the input text.  
+
+**3. Prompt engineering + structured output using pydantic class of the required output**
+
+  Here we combine both prompt engineering and force the model to only return required response. Pydantic classes define the output schema, which also validates if the generated response. This is the second best way to create text extraction workflows using llms. 
+
+
+
+**4. Instruction based fine-tuning the base llm model** ⭐
+  
+  Here we take a small part of the model and retrain that part with our custom dataset, which resembles our real usecase. In addition, after fine-tuning, we are not bound to create detailed system or user prompts. The fine-tuned model already would have learnt to extract relevant fields. A pydantic class can still be used to validated the generated output, but we would have fundamentally changed the output
+
+# Approach
+In past two weeks, I have been exploring the field of fine-tuning of large language models using various SOTA frameworks. I have explored fine-tuning using [unsloth](https://unsloth.ai/), [transformers](https://huggingface.co/docs/transformers/training) and [axolotl](https://axolotl.ai/). I found axolotl to be quite complex but it had ability to distribute training across multiple GPUs. Transformers module was second most complex as there were many different approaches which could be used in this library. 
+
+I finally settled with Unsloth, clearly because it was easy to start with and had many turnkey jupyter notebooks to use. That said, a big negative is that the api for multi-gpu fine-tuning is still not roboust enough in 2025. Without a hefty GPU on my [LLM server](https://jeev20.github.io/posts/buildingapowerfulenoughlocalaiserver/), unsloth would just keep crashing with the usual `cuda out of memory` error. I previously had two RTX 3060 each with 12 Gb VRAM. 
+
+My server now is upgraded with a RTX 3090 which has a massive 24GB of Vram. This opened up many oppurtunities to learn fine-tuning of llm using unsloth. I finally understood and implemented fine-tuned model on a reallife use case. The model I learnt fine-tuning on was phi4 by microsoft and modified by Unsloth which also works well for structured output generation. The idea was to implement a task-specific tuning for a usecase at work. 
+
+I studied the jupyter notebook from [unsloth showing fine-tuning of phi4 model](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Phi_4-Conversational.ipynb#scrollTo=AX734MS139kk) and modified parts of it. 
+
+# Synthetic data creation
+
+::: {.callout}
+
+To ensure my training data had good volume and variation, I used Google's **Gemini Pro 2.5** to help create a python script to programatically generate synthetic data with a given format. 
+
+:::
+
+These key-value pairs would then be used to fine-tune the model.  
+I choose to keep things simple and opted for a well known `jsonl`format. `jsonl` format is similar to `json` but each line is a valid `json` string without an trailing comma.
+
+To create a look-alike dataset I used the `faker` module in python and created the `jsonl` file programatically. This allows me to scale the training dataset to any number I wish. For example, to create 10000 datapoints, I use the following command:
+
+<details>
+
+<summary>synthetic_data_generator.py</summary>
+
+```{.python}
+import json
+import random
+import argparse
+from faker import Faker
+from datetime import datetime, timedelta
+
+# Initialize Faker for English (US) data
+fake = Faker('en_US')
+
+# Predefined lists for variability
+ROLES = ['Patient', 'User', 'Client', 'Customer', 'Employee', 'Child', 'Neighbor', 'Driver', 'Participant']
+HEALTH_INFO_TYPES = ['Diagnosis', 'Assessment', 'Follow-up', 'Specialist-assessment', 'Hospital-stay', 'Medication', 'Blood-sample', 'Progress-report', 'Root-canal', 'Therapy-session', 'Vaccination', 'Check-up', 'Symptoms']
+CATEGORIES = [
+    ['race or ethnic origin'],
+    ['political opinions'],
+    ['religion'],
+    ['philosophical beliefs'],
+    ['trade union membership'],
+    ['genetic data'],
+    ['biometric data'],
+    ['health information'],
+    ['sexual relations'],
+    ['sexual orientation'],
+    []
+]
+GENDERS = ['Male', 'Female']
+
+def generate_valid_ssn():
+    """
+    Generates a valid US Social Security Number (SSN).
+    """
+    return fake.ssn()
+
+def generate_english_text(num_paragraphs=5):
+    """
+    Generates paragraphs of plausible, English text without adding new PII.
+    """
+    text_parts = []
+    for _ in range(num_paragraphs):
+        paragraph = []
+        for _ in range(random.randint(5, 10)):
+            templates = [
+                f"The report from {fake.city()} mentions that {fake.catch_phrase()}.",
+                f"The project, led by {fake.company()}, focuses on {fake.bs()}.",
+                f"The assessment is based on data from {fake.day_of_week()} {fake.day_of_month()}, {fake.month_name()}.",
+                f"The results show a clear trend according to {fake.bs()}.",
+                f"A solution for {fake.bs()} was discussed during the meeting.",
+                f"Future focus will be on {fake.bs()}."
+            ]
+            paragraph.append(random.choice(templates))
+        text_parts.append(" ".join(paragraph))
+    return "\n\n".join(text_parts)
+
+def format_ssn(ssn):
+    """
+    Formats a US SSN in one of three ways.
+    """
+    formats = [
+        lambda s: s,
+        lambda s: f"{s[:3]}-{s[3:5]}-{s[5:]}",
+        lambda s: f"SSN: {s}"
+    ]
+    return random.choice(formats)(ssn)
+
+def generate_person_data():
+    """Generates a dictionary for a single person."""
+    person = {
+        "name": fake.name(),
+        "address": fake.address().replace('\n', ', '),
+        "gender": random.choice(GENDERS),
+        "phone_number": fake.phone_number(),
+        "age": str(random.randint(15, 85)),
+        "ssn": generate_valid_ssn(),
+        "role": random.choice(ROLES),
+        "health_info_type": random.choice(HEALTH_INFO_TYPES),
+        "personal_data_categories": random.choice(CATEGORIES)
+    }
+    keys_to_null = random.sample([k for k in person.keys() if k != 'name'], k=random.randint(0, 4))
+    for key in keys_to_null:
+        person[key] = None
+    if person.get('personal_data_categories') is None:
+        person['personal_data_categories'] = []
+    return person
+
+def generate_multi_person_data():
+    """Generates a data point with multiple people."""
+    num_people = random.randint(2, 4)
+    persons_list = [generate_person_data() for _ in range(num_people)]
+    
+    human_text_parts = ["Medical record concerning multiple individuals."]
+    for i, person in enumerate(persons_list):
+        human_text_parts.append(f"\n\n--- Person {i+1}: {person.get('name') or 'Unknown Name'} ---")
+        if person.get('ssn'):
+            human_text_parts.append(f"SSN: {format_ssn(person['ssn'])}.")
+        if person.get('age'):
+            human_text_parts.append(f"Age: {person['age']} years.")
+        if person.get('address'):
+            human_text_parts.append(f"Address: {person['address']}.")
+        if person.get('personal_data_categories'):
+            category = person['personal_data_categories'][0] if person['personal_data_categories'] else 'unspecified'
+            human_text_parts.append(f"The record contains sensitive information about the person's {category}.")
+
+    long_text = generate_english_text(num_paragraphs=2).split('\n\n')
+    human_text_parts.append("\n\n**Joint Assessment**")
+    human_text_parts.append(long_text[0])
+    human_text_parts.append("\n**Observations**")
+    human_text_parts.append(long_text[1])
+    
+    human_text = "\n".join(human_text_parts)
+    gpt_json = {"PersonSensitiveInformation": persons_list}
+    return human_text, gpt_json
+
+def generate_data_point():
+    """
+    Generates a single synthetic data point, which includes a human-readable text
+    and a corresponding structured JSON output for a GPT-like model.
+    """
+    SHORT_IRRELEVANT_QUESTIONS = [
+        "What time is it?",
+        "Can you tell me a joke?",
+        "What is the capital of the United States?",
+        "How is the weather today?",
+        "Thanks for the help.",
+        "OK.",
+        "Alright.",
+        "Who are you?",
+        "What can you do?",
+        "Tell me something interesting."
+    ]
+
+    if random.random() < 0.25:  # 25% chance for multiple people
+        human_text, gpt_json = generate_multi_person_data()
+    else:
+        choice_type = random.choices(['full_partial', 'no_sensitive_info', 'irrelevant', 'short_irrelevant'], [0.48, 0.20, 0.25, 0.07])[0]
+
+        if choice_type == 'irrelevant':
+            human_text = generate_english_text(num_paragraphs=3)
+            gpt_json = {"PersonSensitiveInformation": [{"name": None, "address": None, "gender": None, "phone_number": None, "age": None, "ssn": None, "role": "Unknown", "health_info_type": None, "personal_data_categories": []}]}
+        elif choice_type == 'short_irrelevant':
+            human_text = random.choice(SHORT_IRRELEVANT_QUESTIONS)
+            gpt_json = {"PersonSensitiveInformation": [{"name": None, "address": None, "gender": None, "phone_number": None, "age": None, "ssn": None, "role": "Unknown", "health_info_type":None, "personal_data_categories": []}]}
+        elif choice_type == 'no_sensitive_info':
+            human_text = "Medical record for a patient who wishes to remain anonymous. No personally identifiable information is recorded.\n" + generate_english_text(num_paragraphs=3)
+            gpt_json = {"PersonSensitiveInformation": [{"name": None, "address": None, "gender": None, "phone_number": None, "age": None, "ssn": None, "role": "Patient", "health_info_type": None, "personal_data_categories": []}]}
+        else: # full_partial
+            person = generate_person_data()
+            human_text_parts = [f"Patient record for {person['name'] or 'a named person'}."]
+
+            if person.get('ssn'):
+                formatted_ssn = format_ssn(person['ssn'])
+                human_text_parts.append(f"SSN: {formatted_ssn}.")
+            if person.get('age'):
+                human_text_parts.append(f"The patient is a {person['age']} year old {person['gender'].lower() if person.get('gender') else 'person'}.")
+            if person.get('address'):
+                human_text_parts.append(f"Registered home address is {person['address']}.")
+            if person.get('phone_number'):
+                human_text_parts.append(f"For quick communication, the mobile number is {person['phone_number']}.")
+            if person.get('role'):
+                human_text_parts.append(f"In this record, their role is as a {person['role']}.")
+
+            if person.get('personal_data_categories'):
+                category = person['personal_data_categories'][0] if person['personal_data_categories'] else 'unspecified'
+                human_text_parts.append(f"The record contains sensitive information regarding the person's {category}.")
+
+            long_text = generate_english_text(num_paragraphs=3).split('\n\n')
+            
+            human_text_parts.append("\n\n**General Assessment**")
+            human_text_parts.append(long_text[0])
+            human_text_parts.append("\n**History**")
+            human_text_parts.append(f"Previous illnesses include {fake.bs()} and {fake.bs()}.")
+            human_text_parts.append(long_text[1])
+            human_text_parts.append("\n**Current Status**")
+            if person.get('health_info_type'):
+                human_text_parts.append(f"The main focus for this journal entry is a recent {person['health_info_type']}.")
+            human_text_parts.append(long_text[2])
+            human_text_parts.append("\n**Treatment Plan and Confidentiality**")
+            human_text_parts.append("It is important that all information is treated confidentially. The patient has given their consent for information exchange between involved healthcare personnel.")
+            human_text_parts.append(f"The record was entered by Dr. {fake.last_name()}, {fake.company()}.")
+
+            human_text = "\n".join(human_text_parts)
+            gpt_json = {"PersonSensitiveInformation": [person]}
+
+    conversation = {
+        "conversations": [
+            {"from": "human", "value": human_text},
+            {"from": "gpt", "value": json.dumps(gpt_json, ensure_ascii=False)}
+        ]
+    }
+    return json.dumps(conversation, ensure_ascii=False)
+
+def main():
+    """
+    Main function to generate a specified number of synthetic data points.
+    """
+    parser = argparse.ArgumentParser(description="Generate synthetic data for LLM fine-tuning.")
+    parser.add_argument("n", type=int, help="Number of data points to generate.")
+    args = parser.parse_args()
+
+    for _ in range(args.n):
+        print(generate_data_point())
+
+if __name__ == "__main__":
+    main()
+
+```
+</details>
+
+
+```python  
+training_samples = 10000
+!uv run synth_data_creator.py {training_samples} > input_dataset/synth_training_data_{training_samples}.jsonl
+``` 
+
+
+
+<details><summary>An example datapoint from the dataset</summary>
+
+
+```json
+{
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Patient journal for Ola Nordmann. Date of birth: April 12, 1990. The patient is a 35-year-old man. He is registered with a residential address at Storgata 1, 0155 Oslo. For quick communication, his mobile number is 91234567. The complete national ID number is 12049012345. In this journal, Ola Nordmann's role is as a patient. The main focus of this journal entry is a recent diagnosis. This information is categorized under health information. The patient's medical history includes previous treatment for heart and vascular diseases, and the new diagnosis is related to this. It is important that all information is handled confidentially and in accordance with current privacy legislation. The patient has given his consent for healthcare professionals involved in treatment to exchange necessary information. The further treatment plan will be developed in collaboration with the patient to ensure a common understanding and agreement on the way forward. It is crucial for the treatment outcome that the patient feels heard and respected. A follow-up appointment is scheduled in three months to assess the effect of the measures implemented. The patient has also been informed about lifestyle changes that may have a positive impact on his health condition, including diet and physical activity. He has expressed motivation to follow the given recommendations. The journal is maintained by Dr. Hansen, Oslo University Hospital, and is dated August 15, 2025. Further notes from conversations and examinations will be added continuously. There are no other categories of personal information that are relevant to this specific journal entry. All processing of personal information takes place in accordance with GDPR and national guidelines for the healthcare sector. It is important to emphasize that the patient's dignity and privacy are of the highest priority in all our activities. Future consultations will be based on the information documented here, and it is therefore essential that the journal is accurate and up-to-date. The patient has the right to access his own journal and can request correction of any errors. This is a fundamental patient right that we are committed to respecting."
+        },
+        {
+            "from": "gpt",
+            "value": "{\"PersonSensitiveInformasjon\":[{\"name\":\"Ola Nordmann\",\"address\":\"Storgata 1, 0155 Oslo\",\"gender\":\"Male\",\"mobile_number\":\"91234567\",\"age\":\"35\",\"national_id_number\":\"12049012345\",\"role\":\"Patient\",\"type_of_health_information\":\"Diagnosis\",\"categories_of_personal_information\":[\"health information\"]}]}"
+        }
+    ]
+}
+
+```
+</details>
+
+The above input dataset is later converted to a usuable format by using unsloths `standardize_sharegpt` module.
+```python
+from unsloth.chat_templates import standardize_sharegpt
+
+dataset = standardize_sharegpt(dataset)
+dataset = dataset.map(
+    formatting_prompts_func,
+    batched=True,
+)
+```
+This results in the following format which is further used by training logic. 
+
+```bash
+<|im_start|>user<|im_sep|>Patient journal for Ola Nordmann. Date of birth: April 12, 1990. The patient is a 35-year-old man. He is registered with a residential address at Storgata 1, 0155 Oslo. For quick communication, his mobile number is 91234567. The complete national ID number is 12049012345. In this journal, Ola Nordmann's role is as a patient. The main focus of this journal entry is a recent diagnosis. This information is categorized under health information. The patient's medical history includes previous treatment for heart and vascular diseases, and the new diagnosis is related to this. It is important that all information is handled confidentially and in accordance with current privacy legislation. The patient has given his consent for healthcare professionals involved in treatment to exchange necessary information. The further treatment plan will be developed in collaboration with the patient to ensure a common understanding and agreement on the way forward. It is crucial for the treatment outcome that the patient feels heard and respected. A follow-up appointment is scheduled in three months to assess the effect of the measures implemented. The patient has also been informed about lifestyle changes that may have a positive impact on his health condition, including diet and physical activity. He has expressed motivation to follow the given recommendations. The journal is maintained by Dr. Hansen, Oslo University Hospital, and is dated August 15, 2025. Further notes from conversations and examinations will be added continuously. There are no other categories of personal information that are relevant to this specific journal entry. All processing of personal information takes place in accordance with GDPR and national guidelines for the healthcare sector. It is important to emphasize that the patient's dignity and privacy are of the highest priority in all our activities. Future consultations will be based on the information documented here, and it is therefore essential that the journal is accurate and up-to-date. The patient has the right to access his own journal and can request correction of any errors. This is a fundamental patient right that we are committed to respecting.<|im_end|><|im_start|>assistant<|im_sep|>{\"PersonSensitiveInformasjon\":[{\"name\":\"Ola Nordmann\",\"address\":\"Storgata 1, 0155 Oslo\",\"gender\":\"Male\",\"mobile_number\":\"91234567\",\"age\":\"35\",\"national_id_number\":\"12049012345\",\"role\":\"Patient\",\"type_of_health_information\":\"Diagnosis\",\"categories_of_personal_information\":[\"health information\"]}]}<|im_end|>
+```
+
+
+# Llama.cpp saving from Huggingface to GGUF format
+Once the training was complete, I kept running into a bug in Unsloth which kept pointing at llama.ccp to be the cause. The error I kept getting was:  
+
+::: {.callout-important}
+
+RuntimeError: Unsloth: The file 'llama.cpp/llama-quantize' or `llama.cpp/quantize` does not exist.
+
+We've also double checked the building directory under 'llama.cpp/build/bin/'.
+
+But we expect this file to exist! Check if the file exists under llama.cpp and investigate the building process of llama.cpp (make/cmake)!
+
+:::
+
+
+I observed that if we have previous outputs/models and llama.cpp folder the notebook fails to run. So I delete these two folders first. 
+
+```python
+import shutil
+import os
+
+# List of folder paths you want to delete
+folders_to_delete = ["model", "llama.cpp"]
+
+for folder in folders_to_delete:
+    if os.path.exists(folder) and os.path.isdir(folder):
+        shutil.rmtree(folder)
+        print(f"Deleted: {folder}")
+    else:
+        print(f"Folder not found or not a directory: {folder}")
+```
+
+Then I run this in the notebook cell as well
+
+```bash
+!sudo apt-get install libcurl4-openssl-dev
+
+!git clone --recursive https://github.com/ggerganov/llama.cpp
+
+!cd llama.cpp && cmake -B build && cmake --build build --config Release
+```
+After the build, I observe the file  `llama.cpp/build/bin/llama-quantize` exits and Unsloth can use this to create the GFUF file.
+
+
+## Using llamafile for quick fine-tuned model inference
+I like the llamafile project a lot and use it to quickly run the `.gguf` model. You can read more about how to use [llamafile here.](https://jeev20.github.io/posts/creatingacustomllamafile/)
+
+```bash
+
+./llamafile-0.9.3 -ngl 9999 --gpu nvidia  --temp 0 -m unsloth.Q4_K_M.gguf --cli -p 'Journal note concerning several people.\n\n\n--- Person 1: Rita-Karoline Mathisen ---\nNational ID number: 05 03 78 26997.\nAge: 37 years.\nAddress: Isaksenholtet 015, 6433 Ali.\n\n\n--- Person 2: Lise Eide ---\nNational ID number: 09088128149.\nAge: 64.\nAddress: Johnsentoppen 8, 3724 Leiffjell.\n\n\n--- Person 3: Frode Tangen ---\nNational ID number: 291165 44472.\nAddress: Alilia 3F, 0202 Erlingfoss.\n\nReport source: Sivmark\nAssessment Topic: Reactive multi-tasking hierarchy\nProject Lead: Ahmed-Evensen & co.\nFocus: evolving front-end initiatives\nAssessment Date: February 1st\nTrend: unleashing out-of-the-box systems\nSolution Discussed: meshing efficient relationships\nFuture Focus: leveraging intuitive technologies\n\nReport source: Trondborg\nAssessment Topic: Fully-configurable contextually-based groupware\nProject Lead: Sørensen and Sønner\nFocus: streamlining dynamic deliverables\nAssessment Date: September 6th\nTrend: branding efficient interfaces\nSolution Discussed: driving real-time initiatives\nFuture Focus: redefining customized e-business\n\nReport source: Lien\nAssessment Topic: Ameliorated coherent circuit\nProject Lead: Hagen and Sønner\nFocus: leveraging synergistic applications\nAssessment Date: December 29th\nTrend: enhancing 24/365 relationships\nSolution Discussed: synergizing global systems\nFuture Focus: empowering vertical mindshare\n\nReport source: Unnistad\nAssessment Topic: Organized optimal policy\nProject Lead: Strøm-Iversen BA\nFocus: productizing global web-readiness\nAssessment Date: June 10th\nTrend: strategizing B2B e-commerce\nSolution Discussed: e-enabling cutting-edge paradigms\nFuture Focus: redefining strategic schemas\n\nReport source: Vik\nAssessment Topic: Right-sized multi-state emulation\nProject Lead: Ali and Sønner\nFocus: harnessing extensible info-mediaries\nAssessment Date: October 08\nTrend: visualizing magnetic technologies\nSolution Discussed: whiteboarding intuitive ROI\nFuture Focus: facilitating compelling web-readiness\n\nReport source: Trondsund\nAssessment Topic: Sharable regional flexibility\nProject Lead: Berge, Engen and Hauge\nFocus: utilizing front-end vortals\nAssessment Date: February 24th\nTrend: deploying dynamic eyeballs\nSolution Discussed: productizing granular niches\nFuture Focus: transforming collaborative e-business\n\nReport source: Wenchesund\nAssessment Topic: Right-sized well-modulated emulation\nProject Lead: Abrahamsen-Ødegård\nFocus: incentivizing turn-key vortals\nAssessment Date: January 05\nTrend: visualizing end-to-end e-services\nSolution Discussed: delivering 24/7 deliverables\nFuture Focus: optimizing B2B markets.\n\nObservations\n\nReport source: Alexanderby\nAssessment Topic: Phased 24hour info-mediaries\nProject Lead: Gundersen and Sønner\nFocus: driving out-of-the-box methodologies\nAssessment Date: December 16th\nTrend: transitioning out-of-the-box channels\nSolution Discussed: unleashing rich technologies\nFuture Focus: extending strategic niches\n\nReport source: Egilfjell\nAssessment Topic: Expanded bi-directional productivity\nProject Lead: Solheim BA\nFocus: generating magnetic schemas\nAssessment Date: February 06\nTrend: enabling mission-critical web-readiness\nSolution Discussed: re-intermediating ubiquitous solutions\nFuture Focus: integrating ubiquitous platforms\n\nReport source: Pervær\nAssessment Topic: Customer-focused holistic software\nProject Lead: Aasen & co.\nFocus: synergizing end-to-end e-tailers\nAssessment Date: August 06\nTrend: matrixing integrated e-services\nSolution Discussed: integrating ubiquitous e-services\nFuture Focus: envisioning intuitive eyeballs\n\nReport source: Lien\nAssessment Topic: Integrated modular core\nProject Lead: Næss, Aune and Nilsen\nFocus: evolving wireless paradigms\nAssessment Date: February 25th\nTrend: re-contextualizing strategic schemas\nSolution Discussed: architecting back-end bandwidth\nFuture Focus: engineering cutting-edge action-items\n\nReport source: Torbjørnstrøm\nAssessment Topic: Persevering 5thgeneration customer loyalty\nProject Lead: Hansen & co.\nFocus: aggregating customized systems\nAssessment Date: April 07\nTrend: aggregating sticky web services\nSolution Discussed: re-contextualizing distributed interfaces\nFuture Focus: syndicating e-business architectures'
+```
+
+The response is for multi persons found in the text. 
+
+```bash
+{
+    "SensitiveInformation": [
+      {
+        "name": "Rita-Karoline Mathisen",
+        "address": "Isaksenholtet 015, 6433 Ali",
+        "gender": "Female",
+        "mobile_number": "45 05 05 63",
+        "age": "37",
+        "national_id_number": "05037826997",
+        "role": "Customer",
+        "type_of_health_information": "Diagnosis",
+        "categories_of_personal_information": [
+          "sexual relationships"
+        ]
+      },
+      {
+        "name": "Lise Eide",
+        "address": "Johnsentoppen 8, 3724 Leiffjell",
+        "gender": "Female",
+        "mobile_number": "98 05 05 63",
+        "age": "64",
+        "national_id_number": "09088128149",
+        "role": "Customer",
+        "type_of_health_information": "Diagnosis",
+        "categories_of_personal_information": [
+          "philosophical beliefs"
+        ]
+      },
+      {
+        "name": "Frode Tangen",
+        "address": "Alilia 3F, 0202 Erlingfoss",
+        "gender": "Female",
+        "mobile_number": "98 05 05 63",
+        "age": null,
+        "national_id_number": "29116544472",
+        "role": "Customer",
+        "type_of_health_information": "Diagnosis",
+        "categories_of_personal_information": [
+          "philosophical beliefs"
+        ]
+      }
+    ]
+}
+```
+
+# Goal achieved
+So we started with Phi4 model and now fine-tuned it to only respond with a json string which we want. Another advantage is that I did not need to specify a system or a user prompt to get the correct structured output. 
+
+I can use this learning to replicate the same process to any open-source LLM (text to text). I now want to learn fine-tuning of other modals, starting with image-to-text LLM fine-tuning.  
+
+
+
+
+{{< embed phi4_FineTuningCustomData.ipynb >}}
+
+

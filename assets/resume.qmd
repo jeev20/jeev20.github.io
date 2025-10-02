@@ -16,19 +16,28 @@ format:
 
 ### **Experience**
 
-2020-Present:	**Helse Midt-Norge IT**	Trondheim, Norway  
+2025-Present:  **Helse Midt-Norge IT** Trondheim, Norway  
+***Automation and AI Advisor***
+
+* Built and deployed AI solutions for suitable usecases across departments and usecases
+* Advised leaders to evaluate future competence needs to adopt AI within the organization
+* Created and maintained Power Automate and Power App templates to be consumed by all Power Platform Makers in the organization
+* Supported teams / departments as a subject matter expert in Automation and AI
+* Communicated success / opportunity user stories in Automation and AI to internal and external stakeholders
+
+2020-2025:	**Helse Midt-Norge IT**	Trondheim, Norway  
 ***Senior Integration Developer (Robotic Process Automation)***
 
-* Delivered robots which saved over 50 man-years and enabled the team to save over 120 man-years in 5 years
+* Delivered software robots which saved over 50 man-years and enabled the team to save over 130 man-years in 5 years 
 * Grew the team from 2 developers to 8 developers by delivering over 25 RPA processes and 5 test automation projects
-* Created and maintained Power Automate and Power App templates to be consumed by all Power Platform Makers in the organization
 * Delivered 3 AI projects image classification, inteligent document processing and Retrieval Augmented Generation (RAG) using local LLM's
 * Held technical interviews to recruit RPA developers to the team
 * Developed and maintained templates for RPA, Test Automation and Applied AI projects
 * Developed RPA candidate evaluation tool in Microsoft Excel and PowerApps
 * Designed training material for new hires ensuring smooth technical onboarding (project ready within 3 weeks)
 * Implemented routines for project management, technical solution design, development best practices, CI/CD pipelines, quality assurance of robots and operational maintenance of robots.
-* Implemented routines to visualize gains from RPA/Test automation both in Splunk and PowerBI and ensured they were accessible to both upper management and internal customers.   
+* Implemented routines to visualize gains from RPA/Test automation both in Splunk and PowerBI and ensured they were accessible to both upper management and internal customers.
+* Produced over 30 internal training videos to help skill up automation and Power-Platform developers 
 
 2019-2020:	**Ren Røros Intelligent Automation**	Trondheim, Norway  
 ***Senior Automation Engineer***
@@ -74,7 +83,8 @@ format:
 2010-2012:	**Norwegian University of Science and technology**	Trondheim, Norway  
 *Master in Reliability Availability Maintainability & Safety - RAMS*
 
-2004-2008:     **M. S. Ramaiah Institute of Technology**  						     Bangalore, India 	        *Bachelor in Industrial Engineering and Management*
+2004-2008:     **M. S. Ramaiah Institute of Technology**    Bangalore, India 	        
+*Bachelor in Industrial Engineering and Management*
 
 
 
@@ -83,7 +93,7 @@ English (native), Kannada (native), Hindi (professional), Norwegian (professiona
 
 
 ### Technical Skills
-Python (Data science, Machine Learning),UiPath, BluePrism, Robocorp, PowerApps, Power Automate, PowerShell, Bash, SQL, Azure Devops, Git, PowerBI, Grafana, Splunk, Godot,, Office 365, BlockChain
+Python (Data science, Machine Learning),UiPath, BluePrism, Robocorp, PowerApps, Power Automate, PowerShell, Bash, SQL, Azure Devops, Git, PowerBI, Grafana, Splunk, Godot, Office 365, BlockChain, Quarto.
 
 ### Certifications
 UiRPA, UiARD, UiABA, AI-900, AZ-900, Robocorp, BluePrism Developer & Solution Designer, PowerBI, Splunk  
@@ -100,4 +110,4 @@ Research publications can be accessed [here](https://scholar.google.com/citation
 
 --------------------------------------------------------------------------
 
-*Last updated : August 2025*
+*Last updated : October 2 2025*
