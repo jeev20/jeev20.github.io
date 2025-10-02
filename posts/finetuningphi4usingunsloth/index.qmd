@@ -425,6 +425,6 @@ I can use this learning to replicate the same process to any open-source LLM (te
 
 
 
-{{< embed phi4_FineTuningCustomData.ipynb >}}
+{{< embed _phi4_FineTuningCustomData.ipynb >}}
 
 
