@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeevith Hegde">
+<meta name="dcterms.date" content="2025-10-04">
+<meta name="description" content="creatingaservicefileinlinux">
 
-<title>Blog posts – Automata</title>
+<title>creatingaservicefileinlinux – Automata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +26,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/logo.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ee68a881213748d284c1f4aaa6603bc2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e03193ba07bae987181549cb47783c22.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/logo.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ee68a881213748d284c1f4aaa6603bc2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-e03193ba07bae987181549cb47783c22.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,68 +75,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script data-goatcounter="https://86633.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
@@ -305,9 +248,9 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Automata</span>
     </a>
   </div>
@@ -318,7 +261,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -330,26 +273,46 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(27)</span></div><div class="category" data-category="YWklMjBzZXJ2ZXI=">ai server <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXBpJTIwY2xpZW50">api client <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXV0b21hdGlvbg==">automation <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YXp1cmVkZXZvcHM=">azuredevops <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmxvY2tjaGFpbg==">blockchain <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YXNjaWVuY2U=">datascience <span class="quarto-category-count">(5)</span></div><div class="category" data-category="ZnVuZGFtZW50YWxz">fundamentals <span class="quarto-category-count">(5)</span></div><div class="category" data-category="bGxt">llm <span class="quarto-category-count">(3)</span></div><div class="category" data-category="bGxtJTIwZmluZS10dW5pbmc=">llm fine-tuning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjYm9va3Bybw==">macbookpro <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3B0aW1pemF0aW9u">optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZHVjdGl2aXR5">productivity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NyaXB0cw==">scripts <span class="quarto-category-count">(3)</span></div><div class="category" data-category="c3RhdGljd2ViYXBw">staticwebapp <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9vbA==">tool <span class="quarto-category-count">(3)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog posts</h1>
+<h1 class="title">creatingaservicefileinlinux</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">UNTITLED</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    creatingaservicefileinlinux
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title-meta column-page-left">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeevith Hegde </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 4, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -362,298 +325,7 @@ window.Quarto = {
 
 
 
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Title
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-categories="cHJvZHVjdGl2aXR5" data-listing-date-sort="1759597740000" data-listing-file-modified-sort="1759602502868" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="721" data-listing-title-sort="Stream deck makes me time" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 4, 2025</span>
-</td>
-<td>
-<a href="./posts/Streamdecksavesmetime/index.html" class="title listing-title">Stream deck makes me time</a>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="bGxtJTIwZmluZS10dW5pbmc=" data-listing-date-sort="1759146660000" data-listing-file-modified-sort="1759602502875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-word-count-sort="4468" data-listing-title-sort="Fine tuning Phi4 model with Unsloth" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 29, 2025</span>
-</td>
-<td>
-<a href="./posts/finetuningphi4usingunsloth/index.html" class="title listing-title">Fine tuning Phi4 model with Unsloth</a>
-</td>
-
-</tr>
-
-<tr data-index="2" data-categories="c3RhdGljd2ViYXBw" data-listing-date-sort="1755495300000" data-listing-file-modified-sort="1759602502952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1630" data-listing-title-sort="Securing Azure Static Webapp using Azure Active Directory" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 18, 2025</span>
-</td>
-<td>
-<a href="./posts/securingazurestaticwebappusingazureactivedirectory/index.html" class="title listing-title">Securing Azure Static Webapp using Azure Active Directory</a>
-</td>
-
-</tr>
-
-<tr data-index="3" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754740920000" data-listing-file-modified-sort="1759602502936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="649" data-listing-title-sort="Feature engineering" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 9, 2025</span>
-</td>
-<td>
-<a href="./posts/notesdatascience/FeatureEngineering/index.html" class="title listing-title">Feature engineering</a>
-</td>
-
-</tr>
-
-<tr data-index="4" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754733720000" data-listing-file-modified-sort="1759602502936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="972" data-listing-title-sort="Exploratory data analysis" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 9, 2025</span>
-</td>
-<td>
-<a href="./posts/notesdatascience/EDA/index.html" class="title listing-title">Exploratory data analysis</a>
-</td>
-
-</tr>
-
-<tr data-index="5" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1754719320000" data-listing-file-modified-sort="1759602502936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347" data-listing-title-sort="Data ingestion" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 9, 2025</span>
-</td>
-<td>
-<a href="./posts/notesdatascience/DataIngestion/index.html" class="title listing-title">Data ingestion</a>
-</td>
-
-</tr>
-
-<tr data-index="6" data-categories="cHl0aG9u" data-listing-date-sort="1751660700000" data-listing-file-modified-sort="1759602502952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="443" data-listing-title-sort="Update python project in an airgapped machine" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jul 4, 2025</span>
-</td>
-<td>
-<a href="./posts/updatingpythonprojectinanairgappedmachine/index.html" class="title listing-title">Update python project in an airgapped machine</a>
-</td>
-
-</tr>
-
-<tr data-index="7" data-categories="YWklMjBzZXJ2ZXI=" data-listing-date-sort="1747284600000" data-listing-file-modified-sort="1759602502869" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="702" data-listing-title-sort="Building a local AI server" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">May 15, 2025</span>
-</td>
-<td>
-<a href="./posts/buildingapowerfulenoughlocalaiserver/index.html" class="title listing-title">Building a local AI server</a>
-</td>
-
-</tr>
-
-<tr data-index="8" data-categories="bWFjYm9va3Bybw==" data-listing-date-sort="1745055720000" data-listing-file-modified-sort="1759602502947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="508" data-listing-title-sort="Reviving an old apple mac 💻 🖥️" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Apr 19, 2025</span>
-</td>
-<td>
-<a href="./posts/repurposeoldmacsusingopencorelegacy/index.html" class="title listing-title">Reviving an old apple mac 💻 🖥️</a>
-</td>
-
-</tr>
-
-<tr data-index="9" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1744675200000" data-listing-file-modified-sort="1759602502947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1431" data-listing-title-sort="Notes on Practical Statistics for Data Scientists 📗" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Apr 15, 2025</span>
-</td>
-<td>
-<a href="./posts/notesonpracticalstatisticsfordatascientist/index.html" class="title listing-title">Notes on Practical Statistics for Data Scientists 📗</a>
-</td>
-
-</tr>
-
-<tr data-index="10" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1744358760000" data-listing-file-modified-sort="1759602502947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1463" data-listing-title-sort="Is that NiN valid?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Apr 11, 2025</span>
-</td>
-<td>
-<a href="./posts/searchandvalidationofanorwegianidentitynumber/index.html" class="title listing-title">Is that NiN valid?</a>
-</td>
-
-</tr>
-
-<tr data-index="11" data-categories="bGxt" data-listing-date-sort="1742119260000" data-listing-file-modified-sort="1759602502875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="396" data-listing-title-sort="Using all GPUs when running Ollama and OpenWebUI in docker" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Mar 16, 2025</span>
-</td>
-<td>
-<a href="./posts/installingollamaandopenwebuiusingdocker/index.html" class="title listing-title">Using all GPUs when running Ollama and OpenWebUI in docker</a>
-</td>
-
-</tr>
-
-<tr data-index="12" data-categories="bGxt" data-listing-date-sort="1739800860000" data-listing-file-modified-sort="1759602502952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="276" data-listing-title-sort="Updating Ollama in an airgapped linux server" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Feb 17, 2025</span>
-</td>
-<td>
-<a href="./posts/updateollamainairgappedsystem/index.html" class="title listing-title">Updating Ollama in an airgapped linux server</a>
-</td>
-
-</tr>
-
-<tr data-index="13" data-categories="dG9vbA==" data-listing-date-sort="1739202240000" data-listing-file-modified-sort="1759602502952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="519" data-listing-title-sort="Switching from PIP to UV" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Feb 10, 2025</span>
-</td>
-<td>
-<a href="./posts/switchingfrompiptouv/index.html" class="title listing-title">Switching from PIP to UV</a>
-</td>
-
-</tr>
-
-<tr data-index="14" data-categories="YXp1cmVkZXZvcHM=" data-listing-date-sort="1730465760000" data-listing-file-modified-sort="1759602502875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="399" data-listing-title-sort="Content of file from Azure DevOps repository" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Nov 1, 2024</span>
-</td>
-<td>
-<a href="./posts/gettingfilecontentfromazuredevops/index.html" class="title listing-title">Content of file from Azure DevOps repository</a>
-</td>
-
-</tr>
-
-<tr data-index="15" data-categories="ZGF0YXNjaWVuY2UlMkNmdW5kYW1lbnRhbHM=" data-listing-date-sort="1726573440000" data-listing-file-modified-sort="1759602502947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="959" data-listing-title-sort="Notes on time series analysis" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 17, 2024</span>
-</td>
-<td>
-<a href="./posts/notesontimeseries/index.html" class="title listing-title">Notes on time series analysis</a>
-</td>
-
-</tr>
-
-<tr data-index="16" data-categories="bGxt" data-listing-date-sort="1721227440000" data-listing-file-modified-sort="1759602502870" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="940" data-listing-title-sort="Creating a custom llamafile 🦙" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jul 17, 2024</span>
-</td>
-<td>
-<a href="./posts/creatingacustomllamafile/index.html" class="title listing-title">Creating a custom llamafile 🦙</a>
-</td>
-
-</tr>
-
-<tr data-index="17" data-categories="c2NyaXB0cw==" data-listing-date-sort="1720691040000" data-listing-file-modified-sort="1759602502953" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="297" data-listing-title-sort="ZSH with Powerlevel10k" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jul 11, 2024</span>
-</td>
-<td>
-<a href="./posts/zshwithpowerlevel10k/index.html" class="title listing-title">ZSH with Powerlevel10k</a>
-</td>
-
-</tr>
-
-<tr data-index="18" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1720296120000" data-listing-file-modified-sort="1759602502868" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="406" data-listing-title-sort="Beryl GL MT-1300 travel router" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jul 6, 2024</span>
-</td>
-<td>
-<a href="./posts/berylglmt1300travelrouter/index.html" class="title listing-title">Beryl GL MT-1300 travel router</a>
-</td>
-
-</tr>
-
-<tr data-index="19" data-categories="dG9vbA==" data-listing-date-sort="1718399700000" data-listing-file-modified-sort="1759602502952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="301" data-listing-title-sort="Ventoy bootable USB" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jun 14, 2024</span>
-</td>
-<td>
-<a href="./posts/ventoybootabelusb/index.html" class="title listing-title">Ventoy bootable USB</a>
-</td>
-
-</tr>
-
-<tr data-index="20" data-categories="YmxvY2tjaGFpbg==" data-listing-date-sort="1718150400000" data-listing-file-modified-sort="1759602502936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="232" data-listing-title-sort="Nerd miner setup" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jun 12, 2024</span>
-</td>
-<td>
-<a href="./posts/nerdminersetup/index.html" class="title listing-title">Nerd miner setup</a>
-</td>
-
-</tr>
-
-<tr data-index="21" data-categories="YXV0b21hdGlvbg==" data-listing-date-sort="1717977600000" data-listing-file-modified-sort="1759602502953" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="466" data-listing-title-sort="Video download script" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jun 10, 2024</span>
-</td>
-<td>
-<a href="./posts/videodownloadscript/index.html" class="title listing-title">Video download script</a>
-</td>
-
-</tr>
-
-<tr data-index="22" data-categories="YXBpJTIwY2xpZW50" data-listing-date-sort="1717286400000" data-listing-file-modified-sort="1759602502868" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="236" data-listing-title-sort="Bruno API client" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jun 2, 2024</span>
-</td>
-<td>
-<a href="./posts/bruno/index.html" class="title listing-title">Bruno API client</a>
-</td>
-
-</tr>
-
-<tr data-index="23" data-categories="c2NyaXB0cw==" data-listing-date-sort="1716422400000" data-listing-file-modified-sort="1759602502952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="851" data-listing-title-sort="Useful linux commands" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">May 23, 2024</span>
-</td>
-<td>
-<a href="./posts/usefullinuxcommands/index.html" class="title listing-title">Useful linux commands</a>
-</td>
-
-</tr>
-
-<tr data-index="24" data-categories="c2NyaXB0cw==" data-listing-date-sort="1716076800000" data-listing-file-modified-sort="1759602502874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129" data-listing-title-sort="Essentials installer for debian distribution" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">May 19, 2024</span>
-</td>
-<td>
-<a href="./posts/essentialsinstallerfordebiandistribution/index.html" class="title listing-title">Essentials installer for debian distribution</a>
-</td>
-
-</tr>
-
-<tr data-index="25" data-categories="b3B0aW1pemF0aW9u" data-listing-date-sort="1716076800000" data-listing-file-modified-sort="1759602502952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1782" data-listing-title-sort="Solving linear programming problems" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">May 19, 2024</span>
-</td>
-<td>
-<a href="./posts/solvinglinearprogrammingproblems/index.html" class="title listing-title">Solving linear programming problems</a>
-</td>
-
-</tr>
-
-<tr data-index="26" data-categories="dG9vbA==" data-listing-date-sort="1715904000000" data-listing-file-modified-sort="1759602502874" data-listing-date-modified-sort="1759602502000" data-listing-reading-time-sort="5" data-listing-word-count-sort="855" data-listing-title-sort="Diagram as code" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">May 17, 2024</span>
-</td>
-<td>
-<a href="./posts/diagramascode/index.html" class="title listing-title">Diagram as code</a>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1067,6 +739,38 @@ Title
     }
   });
   </script>
+<input type="hidden" id="giscus-base-theme" value="dark">
+<input type="hidden" id="giscus-alt-theme" value="light">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "jeev20/jeev20.github.io";
+    script.dataset.repoId = "R_kgDOL9EtQw";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOL9EtQ84CfcOd";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
