@@ -1,0 +1,18 @@
+---
+title: creatingaservicefileinlinux
+description: creatingaservicefileinlinux
+author: "Jeevith Hegde"
+date: 2025-10-04 19:08 +0200
+format: html
+toc: true
+lang: en
+jupyter: python3
+ipynb-shell-interactivity: all
+execute:
+  echo: false
+categories: ["UNTITLED"]
+tags: ["TAG"]
+comments:
+  giscus:
+    repo: jeev20/jeev20.github.io
+---

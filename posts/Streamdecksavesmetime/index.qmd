@@ -1,0 +1,70 @@
+---
+title: Stream deck makes me time
+description: A need to have gadget
+author: "Jeevith Hegde"
+date: 2025-10-04 19:09 +0200
+format: html
+toc: true
+lang: en
+jupyter: python3
+ipynb-shell-interactivity: all
+execute:
+  echo: false
+categories: ["productivity"]
+tags: ["streamdeck", "elgato"]
+comments:
+  giscus:
+    repo: jeev20/jeev20.github.io
+---
+
+# Background
+I work in the field of automation and I have always tried to improving my daily workflows at work. Once such addition to my desk setup has been Stream Deck for the past 2 years. I will never going back to the old way of doing things!
+
+Stream Deck by Elgato is a macro keyboard which keeps growing with external integrations. I prefer the 15 key Stream Deck. Currently there are 4 different versions of the Stream Deck 
+
+* Stream Deck Mini
+* Strem Deck
+* Stream Deck Plus 
+* Stream Deck XL
+
+## How does it work?
+For example, when I want launch a frequently used application, I save that application as one of the shortcuts in Stream Deck. I can then click on the physical buttons of Stream Deck to open that application. 
+
+If I did not have Stream Deck or any other macro keyboard, I would waste time in opening the menu in any operating system and would have to navigate with my mouse to open the application. This may sound like an overkill, but trust me it kills your flow state. 
+
+![Stream Deck from Elgato](https://res.cloudinary.com/elgato-pwa/image/upload/pg_name:10GBA9901;10GBA9901/f_auto/q_auto/v1756981926/2025/Stream%20Deck%20Classic/01_ATF/01_ATFs_static_003.psd)
+
+# How much time does it save though?
+Imagine if searching, navigating and clicking a menu item took 2 seconds each time and you open this application 4 times a day, i.e., 20 times in a 5 day work week for 52 weeks 
+
+2 * 20 * 52 = 34 minutes! 
+
+This is the time saved in a year for just one application shortcut. 
+
+In my Stream Deck I have close to 40-50 shortcuts which has become second nature for me to locate and use. You probaly get the potential for time savings now! 
+
+In Industrial Engineering this kind of study is called Work-Study where a method to perform a task is studied and measured, which later helps increase the overall productivity of a worker. 
+
+I also chain certain actions (multi-action) by include some hardcoded delays. For example, I have one multi-action macro to login to a virtual machine (VM), which is behind a VPN. So when I click this shortcut, I first get connected to the VPN and then open the VM and input my smart-card key to log into the machine. 
+
+This action probably has run atleast 1000-1500 times in the past two years, thanks to a unreliable VPN which keeps disconnecting and then I use this shortcut to login to the VM again. 
+
+If I did these actions manually, I would have to waste a lot of time and It would be extremely demotivating to reconnect whenever the VPN connection disconnected. 
+
+
+# Inherently safe design
+Another amazing security feature of Stream Deck is that the configuration in itself is decoupled from the physical device and the config always resides in the host machine. So if I want to use the same Stream Deck on another device, I just have to create new config in that device and create shortcuts to the applications in that device. One Stream Deck can be used in any number of machines. Just like a Usb-tongle based wireless mouse. 
+
+The isolated configuration file also means that if I use some security codes or non critical passwords for certain application, they will remain safely in the host machine and I do not need to worry if the Stream Deck is stolen or misplaced. None of the configuration is persistently saved on device.
+
+# My expierence
+
+I look at Stream Deck as being my productivity hack. I have tried to demonstrate the advantages of Stream Deck to my collegues and friends.  Companies who are willing to buy the best of the tools for their employees should also start looking at macro keyboards like Stream Deck to be part of company issued peripheral. To me owning a Stream Deck is a no brainer and undoubtly has been one of the best buys.
+
+In the future, Stream Deck may be used to run AI agents performing tasks side-by-side in the machine as I could have dedicated short-cuts for specific agents in Stream Deck. 
+
+If you read this post, my call to action is that you should give Stream Deck a try. It has native application both in Windows and MacOs. Linux users can also use the Stream Deck but will have to use some open-source application to create their shortcuts. 
+
+It is a turn-key solution to improving our workday.
+
+

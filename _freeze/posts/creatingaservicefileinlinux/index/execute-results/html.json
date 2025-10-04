@@ -1,0 +1,12 @@
+{
+  "hash": "03608567d20c82c71ac99d3360532d72",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Setitng up a service file in linux\ndescription: A how to \nauthor: \"Jeevith Hegde\"\ndate: 2025-10-04 14:48 +0200\nformat: html\ntoc: true\nlang: en\njupyter: python3\nipynb-shell-interactivity: all\nexecute:\n  echo: false\ncategories: [\"service\"]\ntags: [\"bash\", \"linux\"]\ncomments:\n  giscus:\n    repo: jeev20/jeev20.github.io\n---\n\n\nTest\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
