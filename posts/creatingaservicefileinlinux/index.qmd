@@ -1,0 +1,167 @@
+---
+title: Create a llamafile service in linux
+description: A walkthrough of running llamafile as a service
+author: "Jeevith Hegde"
+date: 2025-11-04 19:08 +0200
+format: html
+toc: true
+lang: en
+jupyter: python3
+ipynb-shell-interactivity: all
+execute:
+  echo: false
+categories: ["llm"]
+tags: ["local llm", "llamafile", "self hosted", "servicefile"]
+comments:
+  giscus:
+    repo: jeev20/jeev20.github.io
+---
+
+
+## Background 
+In order to run llamafile as a service we have to create a system account which has access to the folder and can run the command on restart. We call the user `llamafile`. 
+
+Below I show how a fine_tuned Phi4 model can be served.
+
+  
+```bash
+sudo useradd -r -s /usr/sbin/nologin -U -m -d /data/LLM/phi4_finetuning llamafile
+sudo chown -R llamafile:llamafile /usr/local/bin/llamafile
+```
+
+  
+
+Lets move the llamafile binary to a better place and change the ownership
+
+```bash
+sudo mv /data/LLM/phi4_finetuning/llamafile-0.9.3 /usr/local/bin/llamafile
+sudo chmod +x /usr/local/bin/llamafile
+```
+
+  
+
+We will also create log files for the service
+
+```bash
+sudo nano /var/log/llamafile.log /var/log/llamafile.err
+sudo chown llamafile:llamafile /var/log/llamafile.*
+```
+
+  
+## Wrap our commands in a shell script 
+ 
+```bash
+sudo nano /usr/local/bin/llamafile-wrapper.sh
+```
+
+Paste the command in the shell script
+
+```bash
+#!/bin/bash
+exec /usr/local/bin/llamafile -m /data/LLM/phi4_finetuning/unsloth.Q4_K_M.gguf -ngl 9999 --gpu nvidia --server --v2 -l 0.0.0.0:8080 --temp 0
+```
+
+Make it an executable, this ensures that the user we created previously can easily invoke this script on restart.
+
+```bash
+sudo chmod +x /usr/local/bin/llamafile-wrapper.sh
+```
+
+## Service file contents
+
+Then we create a Service file with the content and link the shell script to it. As we want the service to restart automatically on every boot, we have to set `Restart=always`. 
+
+  
+
+```bash
+[Unit]
+Description=Llamafile v2 Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/llamafile-wrapper.sh
+Restart=always
+RestartSec=10
+User=llamafile
+WorkingDirectory=/data/LLM/phi4_finetuning
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+StandardOutput=append:/var/log/llamafile.log
+StandardError=append:/var/log/llamafile.err
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+  
+
+Now we move this file to `/etc/systemd/system/llamafile.service`
+
+  
+
+We could also create a file and paste in the above content by using
+
+```bash
+sudo nano /etc/systemd/system/llamafile.service
+```
+
+Paste content from clipboard, then press ctr+x. Press y and enter.
+
+  
+
+Now the service is created but we have to enable and start it. We then run the following commands. 
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable llamafile
+sudo systemctl start llamafile
+```
+
+
+To check the status of the service
+```bash
+sudo systemctl status llamafile
+```
+
+
+Stop the service by using
+
+```bash
+sudo systemctl stop llamafile
+```
+
+  
+
+Disable the service
+
+```bash
+sudo systemctl disable ollama
+```
+
+  
+  
+
+## Future updates
+
+  
+
+Now you only need to update the command in shell script `/usr/local/bin/llamafile-wrapper.sh`. You make the edits in nano or any text editor. 
+
+  
+
+```bash
+sudo nano /usr/local/bin/llamafile-wrapper.sh
+```
+
+  
+
+Once the new command is set. We do have to reload the daemon and start llamafile service once again.
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable llamafile
+sudo systemctl start llamafile
+```
+
+That is it! This post showed an example for a llamfile, but this technique is useful to create any kind of service file. 
