@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/creatingaservicefileinlinux/index.html",
       "/posts/Streamdecksavesmetime/index.html",
       "/posts/finetuningphi4usingunsloth/index.html",
       "/posts/securingazurestaticwebappusingazureactivedirectory/index.html",
