@@ -359,9 +359,37 @@
   {
     "objectID": "posts/creatingaservicefileinlinux/index.html",
     "href": "posts/creatingaservicefileinlinux/index.html",
-    "title": "Setitng up a service file in linux",
+    "title": "Create a llamafile service in linux",
     "section": "",
-    "text": "Test"
+    "text": "In order to run llamafile as a service we have to create a system account which has access to the folder and can run the command on restart. We call the user llamafile.\nBelow I show how a fine_tuned Phi4 model can be served.\nsudo useradd -r -s /usr/sbin/nologin -U -m -d /data/LLM/phi4_finetuning llamafile\nsudo chown -R llamafile:llamafile /usr/local/bin/llamafile\nLets move the llamafile binary to a better place and change the ownership\nsudo mv /data/LLM/phi4_finetuning/llamafile-0.9.3 /usr/local/bin/llamafile\nsudo chmod +x /usr/local/bin/llamafile\nWe will also create log files for the service\nsudo nano /var/log/llamafile.log /var/log/llamafile.err\nsudo chown llamafile:llamafile /var/log/llamafile.*"
+  },
+  {
+    "objectID": "posts/creatingaservicefileinlinux/index.html#background",
+    "href": "posts/creatingaservicefileinlinux/index.html#background",
+    "title": "Create a llamafile service in linux",
+    "section": "",
+    "text": "In order to run llamafile as a service we have to create a system account which has access to the folder and can run the command on restart. We call the user llamafile.\nBelow I show how a fine_tuned Phi4 model can be served.\nsudo useradd -r -s /usr/sbin/nologin -U -m -d /data/LLM/phi4_finetuning llamafile\nsudo chown -R llamafile:llamafile /usr/local/bin/llamafile\nLets move the llamafile binary to a better place and change the ownership\nsudo mv /data/LLM/phi4_finetuning/llamafile-0.9.3 /usr/local/bin/llamafile\nsudo chmod +x /usr/local/bin/llamafile\nWe will also create log files for the service\nsudo nano /var/log/llamafile.log /var/log/llamafile.err\nsudo chown llamafile:llamafile /var/log/llamafile.*"
+  },
+  {
+    "objectID": "posts/creatingaservicefileinlinux/index.html#wrap-our-commands-in-a-shell-script",
+    "href": "posts/creatingaservicefileinlinux/index.html#wrap-our-commands-in-a-shell-script",
+    "title": "Create a llamafile service in linux",
+    "section": "Wrap our commands in a shell script",
+    "text": "Wrap our commands in a shell script\nsudo nano /usr/local/bin/llamafile-wrapper.sh\nPaste the command in the shell script\n#!/bin/bash\nexec /usr/local/bin/llamafile -m /data/LLM/phi4_finetuning/unsloth.Q4_K_M.gguf -ngl 9999 --gpu nvidia --server --v2 -l 0.0.0.0:8080 --temp 0\nMake it an executable, this ensures that the user we created previously can easily invoke this script on restart.\nsudo chmod +x /usr/local/bin/llamafile-wrapper.sh"
+  },
+  {
+    "objectID": "posts/creatingaservicefileinlinux/index.html#service-file-contents",
+    "href": "posts/creatingaservicefileinlinux/index.html#service-file-contents",
+    "title": "Create a llamafile service in linux",
+    "section": "Service file contents",
+    "text": "Service file contents\nThen we create a Service file with the content and link the shell script to it. As we want the service to restart automatically on every boot, we have to set Restart=always.\n[Unit]\nDescription=Llamafile v2 Server\nAfter=network.target\n\n[Service]\nType=simple\nExecStart=/usr/local/bin/llamafile-wrapper.sh\nRestart=always\nRestartSec=10\nUser=llamafile\nWorkingDirectory=/data/LLM/phi4_finetuning\nEnvironment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\nStandardOutput=append:/var/log/llamafile.log\nStandardError=append:/var/log/llamafile.err\n\n[Install]\nWantedBy=multi-user.target\nNow we move this file to /etc/systemd/system/llamafile.service\nWe could also create a file and paste in the above content by using\nsudo nano /etc/systemd/system/llamafile.service\nPaste content from clipboard, then press ctr+x. Press y and enter.\nNow the service is created but we have to enable and start it. We then run the following commands.\nsudo systemctl daemon-reload\nsudo systemctl enable llamafile\nsudo systemctl start llamafile\nTo check the status of the service\nsudo systemctl status llamafile\nStop the service by using\nsudo systemctl stop llamafile\nDisable the service\nsudo systemctl disable ollama"
+  },
+  {
+    "objectID": "posts/creatingaservicefileinlinux/index.html#future-updates",
+    "href": "posts/creatingaservicefileinlinux/index.html#future-updates",
+    "title": "Create a llamafile service in linux",
+    "section": "Future updates",
+    "text": "Future updates\nNow you only need to update the command in shell script /usr/local/bin/llamafile-wrapper.sh. You make the edits in nano or any text editor.\nsudo nano /usr/local/bin/llamafile-wrapper.sh\nOnce the new command is set. We do have to reload the daemon and start llamafile service once again.\nsudo systemctl daemon-reload\nsudo systemctl enable llamafile\nsudo systemctl start llamafile\nThat is it! This post showed an example for a llamfile, but this technique is useful to create any kind of service file."
   },
   {
     "objectID": "posts/gettingfilecontentfromazuredevops/index.html",
