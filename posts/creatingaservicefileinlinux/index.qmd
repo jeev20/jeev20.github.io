@@ -29,7 +29,6 @@ sudo useradd -r -s /usr/sbin/nologin -U -m -d /data/LLM/phi4_finetuning llamafil
 sudo chown -R llamafile:llamafile /usr/local/bin/llamafile
 ```
 
-  
 
 Lets move the llamafile binary to a better place and change the ownership
 
@@ -38,7 +37,6 @@ sudo mv /data/LLM/phi4_finetuning/llamafile-0.9.3 /usr/local/bin/llamafile
 sudo chmod +x /usr/local/bin/llamafile
 ```
 
-  
 
 We will also create log files for the service
 
