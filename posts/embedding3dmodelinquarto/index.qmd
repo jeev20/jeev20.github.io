@@ -1,0 +1,112 @@
+---
+title: Embedding 3D model in Quarto
+description: Interact with 3D models in a Quarto website
+author: "Jeevith Hegde"
+date: 2025-11-28 19:03 +0100
+format: html
+toc: true
+lang: en
+jupyter: python3
+resources: 
+  - DamagedHelmet.glb
+  - spruit_sunrise_1k_HDR.hdr
+  - poster.webp
+include-in-header:
+  - text: |
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+ipynb-shell-interactivity: all
+execute:
+  echo: false
+categories: ["3D-rendering", "model-viewer"]
+tags: ["3D visualization"]
+comments:
+  giscus:
+    repo: jeev20/jeev20.github.io
+---
+
+A couple of weeks back, I found about [Model viewer](https://modelviewer.dev/). Model viewer can render 3D models in a web browser with minimal syntax. I found it to be fascinating because of its ease of use and possible usecases. Not to forget it is also open-source!
+
+However, I had some challenges getting the `html` code to retrieve the 3D model and other resources in Quarto. 
+
+## Front matter edits
+I had to add the below keys and values in the front matter of the this quarto post.
+
+### Alternative 1 - filenames
+```{.yaml}
+resources: 
+  - DamagedHelmet.glb
+  - spruit_sunrise_1k_HDR.hdr
+  - poster.webp
+include-in-header:
+  - text: |
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+```
+### Alternative 2 - wildcards
+```{.yaml}
+resources:
+  - "*.glb"
+  - "*.hdr"
+  - "*.webp"
+include-in-header:
+  - text: |
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+```
+
+### Alternative 3 - folder
+All resources will have to be in the `model_assets` folder where the `.qmd` file of the post resides.
+```{.yaml}
+resources:
+  - "model_assets/"
+include-in-header:
+  - text: |
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+```
+
+### Alternative 4 - copy all resources
+```{.yaml}
+resources:
+  - "*"
+include-in-header:
+  - text: |
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+```
+
+
+## HTML code
+Now we connect the resources to the keys in `<model-viewer>` tag. The below code should be of `{=html}` type in markdown code block.
+```{.html}
+<model-viewer 
+  src="DamagedHelmet.glb" 
+  alt="A 3D model of a helmet" 
+  auto-rotate 
+  camera-controls 
+  environment-image="spruit_sunrise_1k_HDR.hdr"
+  skybox-image="spruit_sunrise_1k_HDR.hdr"
+  style="width: 100%; height: 500px; background-color: #f0f0f0;">
+</model-viewer>
+```
+
+
+## Rendered model
+
+This took a while to realize but was worth the headache! I did get some help from Gemini Pro 3 on how to use the resources tag in the front matter. 
+```{=html}
+<model-viewer 
+  src="DamagedHelmet.glb" 
+  alt="A 3D model of a helmet" 
+  auto-rotate 
+  camera-controls 
+  environment-image="spruit_sunrise_1k_HDR.hdr"
+  skybox-image="spruit_sunrise_1k_HDR.hdr"
+  style="width: 100%; height: 500px; background-color: #f0f0f0;"
+>
+</model-viewer>
+
+```
+
+
+# References
+* [Model viewer](https://modelviewer.dev/)
+* [Model Viewer Editor](https://modelviewer.dev/editor/)
+
+
