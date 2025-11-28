@@ -2,130 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jeev20.github.io/drafts/programaticallyaddingtabsetsinquarto/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.031Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.546Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/assets/resume.html</loc>
-    <lastmod>2025-11-15T21:33:10.031Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.546Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/finetuningphi4usingunsloth/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.039Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.574Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/diagramascode/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.038Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.553Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/videodownloadscript/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.116Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.652Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/notesontimeseries/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.111Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.646Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/switchingfrompiptouv/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.116Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/notesdatascience/EDA/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.100Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/notesdatascience/FeatureEngineering/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.100Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/creatingacustomllamafile/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/ventoybootabelusb/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.116Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/searchandvalidationofanorwegianidentitynumber/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.111Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/essentialsinstallerfordebiandistribution/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.038Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/zshwithpowerlevel10k/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.117Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/bruno/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.032Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/repurposeoldmacsusingopencorelegacy/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.111Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.032Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/buildingapowerfulenoughlocalaiserver/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/installingollamaandopenwebuiusingdocker/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.039Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/usefullinuxcommands/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.116Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/Streamdecksavesmetime/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.032Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/creatingaservicefileinlinux/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/gettingfilecontentfromazuredevops/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.039Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/updatingpythonprojectinanairgappedmachine/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.116Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jeev20.github.io/posts/notesdatascience/DataIngestion/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.100Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.651Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/nerdminersetup/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.100Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/notesdatascience/DataIngestion/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/updatingpythonprojectinanairgappedmachine/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/gettingfilecontentfromazuredevops/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.574Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/creatingaservicefileinlinux/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.548Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/Streamdecksavesmetime/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.547Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/usefullinuxcommands/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.652Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/installingollamaandopenwebuiusingdocker/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.574Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/buildingapowerfulenoughlocalaiserver/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.548Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.546Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/repurposeoldmacsusingopencorelegacy/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.647Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/bruno/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.547Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/zshwithpowerlevel10k/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.652Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/essentialsinstallerfordebiandistribution/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.574Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/searchandvalidationofanorwegianidentitynumber/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.647Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/ventoybootabelusb/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.652Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/creatingacustomllamafile/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.548Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/notesdatascience/FeatureEngineering/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.636Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/notesdatascience/EDA/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jeev20.github.io/posts/embedding3dmodelinquarto/index.html</loc>
+    <lastmod>2025-11-28T20:56:09.566Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/updateollamainairgappedsystem/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.116Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.651Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/berylglmt1300travelrouter/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.032Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.547Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/solvinglinearprogrammingproblems/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.116Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.651Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/notesonpracticalstatisticsfordatascientist/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.111Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.646Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/posts/securingazurestaticwebappusingazureactivedirectory/index.html</loc>
-    <lastmod>2025-11-15T21:33:10.116Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.651Z</lastmod>
   </url>
   <url>
     <loc>https://jeev20.github.io/about.html</loc>
-    <lastmod>2025-11-15T21:33:10.031Z</lastmod>
+    <lastmod>2025-11-28T20:56:09.546Z</lastmod>
   </url>
 </urlset>

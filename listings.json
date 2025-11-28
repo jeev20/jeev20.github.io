@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/embedding3dmodelinquarto/index.html",
       "/posts/creatingaservicefileinlinux/index.html",
       "/posts/Streamdecksavesmetime/index.html",
       "/posts/finetuningphi4usingunsloth/index.html",
