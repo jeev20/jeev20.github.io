@@ -11,12 +11,21 @@ format:
 ---
 
 
-**Jeevith Hegde, Ph.D.**  
+**Dr. Jeevith Hegde**  
 [linkedin.com/in/jeevhegde](https://www.linkedin.com/in/jeevhegde/) |  [github.com/jeev20](https://github.com/jeev20)
 
 ### **Experience**
 
-2025-Present:  **Helse Midt-Norge IT** Trondheim, Norway  
+2025-Present:  **Sensor Innovation AS** Trondheim, Norway  
+***Data Scientist***
+
+* Development and maintenance of machine learning models and data-driven insights for use in the company's services and decision support
+* Data collection, data cleaning and structuring of larger datasets for various internal and external sources
+* Contribute to shaping the company's strategy in data analysis, machine learning and artificial intelligence
+* Visualization and communication of findings to technical and non-technical stakeholders
+
+
+2025-2025:  **Helse Midt-Norge IT** Trondheim, Norway  
 ***Automation and AI Advisor***
 
 * Built and deployed AI solutions for suitable usecases across departments and usecases
@@ -110,4 +119,4 @@ Research publications can be accessed [here](https://scholar.google.com/citation
 
 --------------------------------------------------------------------------
 
-*Last updated : October 2 2025*
+*Last updated : January 11 2026*

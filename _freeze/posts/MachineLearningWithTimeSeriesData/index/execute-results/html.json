@@ -1,0 +1,12 @@
+{
+  "hash": "8de6a53f42fbd5772aba6c801a5e92f9",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: ML Classification with Time Series Data\ndescription: My learnings\nauthor: \"Jeevith Hegde\"\ndate: 2025-12-30 15:51 +0100\nformat: html\ntoc: true\nlang: en\njupyter: python3\nipynb-shell-interactivity: all\nexecute:\n  echo: false\ncategories: [\"UNTITLED\"]\ntags: [\"TAG\"]\ncomments:\n  giscus:\n    repo: jeev20/jeev20.github.io\n---\n\nTest\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
