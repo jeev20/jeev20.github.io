@@ -19,11 +19,12 @@ format:
 2025-Present:  **Sensor Innovation AS** Trondheim, Norway  
 ***Data Scientist***
 
-* Development and maintenance of machine learning models and data-driven insights for use in the company's services and decision support
-* Data collection, data cleaning and structuring of larger datasets for various internal and external sources
-* Contribute to shaping the company's strategy in data analysis, machine learning and artificial intelligence
-* Visualization and communication of findings to technical and non-technical stakeholders
-
+* Developed the business critical moisture classification deep learning model for inside-roof into® sensors using Long-Short Term Memory (LSTM)
+* Developed an algorithm to predict sudden spikes in into® sensor's moisture readings which provided early alarms / notifications possibilities
+* Developed an ensamble denoiser / smoothner for relative humidity readings from into® sensors using median and kalman filters resulting in user interpretable charts in the into® Control System (iCS)
+* Improved business critical data pipelines deployed in AWS such as IOT core integration with SQS and all python based lambda functions
+* Developed observability dashboards in AWS spanning different operational business needs such as drift in ML model and RDS and Lambda performance. 
+* Developed internal proof-of-concepts to retriving updated customer invoicing data in hubspot for the sales department
 
 2025-2025:  **Helse Midt-Norge IT** Trondheim, Norway  
 ***Automation and AI Advisor***
@@ -119,4 +120,4 @@ Research publications can be accessed [here](https://scholar.google.com/citation
 
 --------------------------------------------------------------------------
 
-*Last updated : January 11 2026*
+*Last updated : March 21 2026*
