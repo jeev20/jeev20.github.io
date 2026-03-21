@@ -22,8 +22,8 @@ format:
 * Developed the business critical moisture classification deep learning model for inside-roof into® sensors using Long-Short Term Memory (LSTM)
 * Developed an algorithm to predict sudden spikes in into® sensor's moisture readings which provided early alarms / notifications possibilities
 * Developed an ensamble denoiser / smoothner for relative humidity readings from into® sensors using median and kalman filters resulting in user interpretable charts in the into® Control System (iCS)
-* Improved business critical data pipelines deployed in AWS such as IOT core integration with SQS and all python based lambda functions
-* Developed observability dashboards in AWS spanning different operational business needs such as drift in ML model and RDS and Lambda performance. 
+* Improved business critical data pipelines deployed in AWS such as IOT core integration with SQS and relevant python based lambda functions
+* Developed observability dashboards in AWS spanning different operational business needs such as drift in ML model and RDS/Lambda performance. 
 * Developed internal proof-of-concepts to retriving updated customer invoicing data in hubspot for the sales department
 
 2025-2025:  **Helse Midt-Norge IT** Trondheim, Norway  
@@ -110,9 +110,8 @@ UiRPA, UiARD, UiABA, AI-900, AZ-900, Robocorp, BluePrism Developer & Solution De
 
 
 ### Awards
-UiPath MVP 2022, 2023 and 2024, UiPath <br>
-
-HyperHack 2022 1st prize winner 
+UiPath MVP 2022, 2023 and 2024, <br> 
+UiPath HyperHack 2022 1st prize winner 
 
 ### Publications
 Research publications can be accessed [here](https://scholar.google.com/citations?user=QL98iX4AAAAJ&hl=en) 

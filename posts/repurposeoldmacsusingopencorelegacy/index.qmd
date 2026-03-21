@@ -1,5 +1,5 @@
 ---
-title: Reviving an old apple mac 💻 🖥️
+title: Reviving an old apple mac
 description: "Old macs new operating systems" 
 author: "Jeevith Hegde"
 format: html
