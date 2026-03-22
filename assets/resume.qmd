@@ -19,7 +19,7 @@ format:
 2025-Present:  **Sensor Innovation AS** Trondheim, Norway  
 ***Data Scientist***
 
-* Developed the business critical moisture classification deep learning model for inside-roof into® sensors using Long-Short Term Memory (LSTM)
+* Developed the business critical moisture classification deep learning model for inside-roof into® sensors
 * Developed an algorithm to predict sudden spikes in into® sensor's moisture readings which provided early alarms / notifications possibilities
 * Developed an ensamble denoiser / smoothner for relative humidity readings from into® sensors using median and kalman filters resulting in user interpretable charts in the into® Control System (iCS)
 * Improved business critical data pipelines deployed in AWS such as IOT core integration with SQS and relevant python based lambda functions
