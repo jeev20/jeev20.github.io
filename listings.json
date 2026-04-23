@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/picodingagent/index.html",
       "/posts/embedding3dmodelinquarto/index.html",
       "/posts/creatingaservicefileinlinux/index.html",
       "/posts/Streamdecksavesmetime/index.html",
@@ -28,8 +29,8 @@
       "/posts/videodownloadscript/index.html",
       "/posts/bruno/index.html",
       "/posts/usefullinuxcommands/index.html",
-      "/posts/essentialsinstallerfordebiandistribution/index.html",
       "/posts/solvinglinearprogrammingproblems/index.html",
+      "/posts/essentialsinstallerfordebiandistribution/index.html",
       "/posts/diagramascode/index.html"
     ]
   }

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeevith Hegde">
-<meta name="dcterms.date" content="2024-07-11">
-<meta name="description" content="My personal zsh configuration">
+<meta name="dcterms.date" content="2026-04-23">
+<meta name="description" content="A powerful customized agentic harness">
 
-<title>ZSH with Powerlevel10k – Automata</title>
+<title>Why I use Pi Coding Agent – Automata</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,41 +25,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -311,14 +276,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">ZSH with Powerlevel10k</h1>
+      <h1 class="title">Why I use Pi Coding Agent</h1>
                   <div>
         <div class="description">
-          My personal zsh configuration
+          A powerful customized agentic harness
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">scripts</div>
+                <div class="quarto-category">llm</div>
               </div>
                   </div>
   </div>
@@ -336,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 11, 2024</p>
+        <p class="date">April 23, 2026</p>
       </div>
     </div>
     
@@ -352,11 +317,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installation-script" id="toc-installation-script" class="nav-link active" data-scroll-target="#installation-script">Installation script</a></li>
-  <li><a href="#customized-p10k-configure" id="toc-customized-p10k-configure" class="nav-link" data-scroll-target="#customized-p10k-configure">Customized p10K configure</a></li>
-  <li><a href="#contents-of-my-.zshrc-and-.p10k.zsh" id="toc-contents-of-my-.zshrc-and-.p10k.zsh" class="nav-link" data-scroll-target="#contents-of-my-.zshrc-and-.p10k.zsh">Contents of my .zshrc and .p10k.zsh</a></li>
-  <li><a href="#zshrc-gist" id="toc-zshrc-gist" class="nav-link" data-scroll-target="#zshrc-gist">.zshrc gist</a></li>
-  <li><a href="#p10k.zsh-gist" id="toc-p10k.zsh-gist" class="nav-link" data-scroll-target="#p10k.zsh-gist">.p10k.zsh gist</a></li>
+  <li><a href="#agentic-harness-experiences" id="toc-agentic-harness-experiences" class="nav-link active" data-scroll-target="#agentic-harness-experiences">Agentic harness experiences</a>
+  <ul class="collapse">
+  <li><a href="#pi-coding-agent" id="toc-pi-coding-agent" class="nav-link" data-scroll-target="#pi-coding-agent">Pi coding agent</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -368,67 +333,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>My terminal now looks something like this across all of my devices. Thanks to <a href="https://www.zsh.org/">zsh</a>, <a href="https://github.com/ohmyzsh/ohmyzsh">ohmyzsh</a> and <a href="https://github.com/romkatv/powerlevel10k">p10k</a> projects!</p>
+<p>Since late 2022, I have steadily been learning to use LLM’s both using local models and cloud providers. It started first with Ollama and OpenWebUi and an never ending question and answer interaction after setting these up in docker.</p>
+<p>In 2026, the meta has changed. A chat interface alone with a single shot question and answer interface is not a viable setup for any developer. Copilot, wink wink!</p>
+<p>We now live in the world of agentic harnesses and personal assistants.</p>
+<section id="agentic-harness-experiences" class="level1">
+<h1>Agentic harness experiences</h1>
+<p>In short, agentic harness / command line interfaces or TUI interfaces provide the end user an interface to not just ask questions LLM’s, but allow LLM’s to perform tasks by providing a unified interface which combines skills, tools and extensions.</p>
+<p>Agentic harness make it possible to transcend beyond single-shot responses, which probably is still used by the majority of the users in the world. But for developers, an agentic harness is a mandatory skill to learn and master.</p>
+<p>In 2024 I first tried <a href="https://openhands.dev/">OpenHands</a> which is an open source competitor to <a href="https://github.com/features/copilot">GitHub Copilot</a>. I could not believe that an my local LLM can read the code base and edit my programs for me. Although with poor accuracy. Then I tried Github Copliot at home as it was free to use in Visual Studio Code. I was impressed.</p>
+<p>All this while, at work I only had access to Microsoft’s Copilot. looking back, asking it single shot questions was a chore!</p>
+<p>Then in 2025, at my new workplace, I got access to enterprise GitHub Copilot and things just took off. I now had access to more powerful LLM’s. I remembered how different and capable it was compated to OpenHands. I was both excited and scared!</p>
+<p>Then I tried <a href="https://github.com/anomalyco/opencode">OpenCode</a> in Feburary 2026 in which I could use my Github Copilot subscription. Until this time I was not worried about the context window as most of my code base would fit within the context window. But I noticed that whenever I used the Claude models, my context window started to be consumed much faster no matter which agentic harness I used.</p>
+<p>Little did I know that, these harnesses themselves append a large system prompt to aid the LLM’s with understading tool calling, skills and extension they have access to. The system prompt consumed part of the context window with each new conversation meaning that the actually request sent to the model was much more wordy then it needed to be. This turns out can <a href="https://arxiv.org/abs/2604.00025">result in sub optimal responses</a> from LLMs.</p>
+<section id="pi-coding-agent" class="level2">
+<h2 class="anchored" data-anchor-id="pi-coding-agent">Pi coding agent</h2>
+<p>After all those expierences, in April 2026, I came across pi a <a href="https://pi.dev/">shittycodingagent</a> after which the way I use LLM’s has drastically changed! Let me explain.</p>
+<ol type="1">
+<li><p>Pi is minimal with the smallest system prompt of all the harneses I tried</p>
+<p>This meant that my context window was not used up so much by the inbuilt system prompt.</p></li>
+<li><p>Simple planning mode</p>
+<p>I like the fact that the planning mode is an community extension and not inbuilt feature. I rather have the LLM save a plan to MD file which I can review than have it come up with a plan which anyway needs my intervention to improve or accept. Using an MD file gives me the control over the features already completed and the ones still remaining</p></li>
+<li><p>Token usage</p>
+<p>One day at work with Claude Sonnet 4.6 I vibe coded straight for over 5 hours. The context window still showed 50% remaining. I did the same on OpenCode and Zed editor, both ate up my context on the same model within 30 - 40 minutes! That is a clear win for me.</p></li>
+<li><p>Customize with purpose</p>
+<p>I can choose to customize how pi works. Especially, slowly build up a skills, tools and extensions. For example, I use</p>
 <ul>
-<li><p>Standard directory view <img src="images/zshp10k.png" class="img-fluid" alt="ZSHP10K"></p></li>
-<li><p>Standard git directory and virtualenv <img src="images/zshp10kVenv.png" class="img-fluid" alt="zshp10kVenv"></p></li>
-</ul>
-<hr>
-<p>Some years ago I had tested the <code>zsh</code> terminal and the Powerlevel10K theme to go with it, but for reasons unknown I did not use it actively. In recent times, my time within the terminal has increased, hence it was time to make the terminal look a little prettier than the standard <code>bash</code> terminal.</p>
-<section id="installation-script" class="level3">
-<h3 class="anchored" data-anchor-id="installation-script">Installation script</h3>
-<p>The script below installs the <code>zsh</code> terminal and installs the <a href="https://github.com/romkatv/powerlevel10k">powerlevel10K</a> theme. We also need to install the <a href="https://github.com/ohmyzsh/ohmyzsh">ohmyzsh</a> project. Finally, the <code>zsh</code> terminal is set as the default terminal. This last part requires <code>sudo</code> permissions/authentication and cannot be completed unattended.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install zsh</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--depth</span><span class="op">=</span>1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'source ~/powerlevel10k/powerlevel10k.zsh-theme'</span> <span class="op">&gt;&gt;</span>~/.zshrc</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--depth</span><span class="op">=</span>1 https://github.com/romkatv/powerlevel10k.git <span class="va">${ZSH_CUSTOM</span><span class="op">:-</span><span class="va">$HOME</span>/.oh-my-zsh/custom<span class="va">}</span>/themes/powerlevel10k</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">chsh</span> <span class="at">-s</span> /bin/zsh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>p10k configure</code> can then be used to configure the terminal as one pleases. This runs the configuration wizard.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/p10kconfigure.png" class="img-fluid figure-img"></p>
-<figcaption>p10kconfigure</figcaption>
-</figure>
-</div>
-<p>Plugins used in <code>.zshrc</code> are independent of the options chosen in the <code>p10k configure</code>. For example, I needed the auto suggestions in ohmyzsh, python environment and pip zsh plugins. Installing plugins is a simple as setting the following line in the <code>.zshrc</code> file. Here is a list of <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">available plugins</a> from <a href="https://github.com/ohmyzsh/ohmyzsh">ohmyzsh</a> project.</p>
-<pre class="plaintext"><code>.zshrc
-....
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting pipenv pip)
-...</code></pre>
+<li><p><a href="https://github.com/JuliusBrussee/caveman">caveman</a> skill, which allowed me to avoid excessive output tokens from the LLM responses.</p></li>
+<li><p><a href="https://github.com/run-llama/liteparse">Liteparse</a> which is handy when I want to parse pdf and images and extract texts from them.</p></li>
+<li><p><a href="https://github.com/vincentkoc/tokenjuice">tokenjuice</a> helps me ensure the extra text matter after running bash commands and not sent to LLM’s context. Removes the fluff!</p></li>
+</ul></li>
+<li><p>How can you not like pi when the creator is so genuine?</p>
+<p>This <a href="https://www.youtube.com/watch?v=RjfbvDXpFls">YouTube video</a> is a great watch for anyone still wondering if you should make the shift.</p></li>
+<li><p>Not to forget the most viral project of 2026 (OpenClaw) uses pi as its agentic harness. So yes pi is battle tested much like claude code!</p></li>
+<li><p>The <code>/tree</code>, <code>/export</code> and <code>/fork</code> commands are great to have access to. They give me a choice as to how I interact with a session.</p></li>
+</ol>
+<p>Things I am not so impressed when using pi</p>
+<ol type="1">
+<li>As pi is getting a lot of organic traction, it gets updated often and can have breaking changes.</li>
+<li>It has YOLO mode as default, which means that if I provide some prompt the agent will not ask me for any permissions, it will just perform the operations. I become a spectator. I can change this by using an extension or editting the agent prompt. Nonetheless, this is a risk when working on production environments.</li>
+<li>I miss the feature which OpenCode has when you open a new session, you can use the up arrow key to spawn the last prompt used in that folder. I think this is possible in pi as well, but I have not been able to find how to get this by default.</li>
+</ol>
 </section>
-<section id="customized-p10k-configure" class="level3">
-<h3 class="anchored" data-anchor-id="customized-p10k-configure">Customized p10K configure</h3>
-<p>My p10k options are: <em>awesome-fontconfig, large icons, rainbow, unicode, 24h time, blurred heads, blurred tails, 2 lines, solid, full frame, light-ornaments, sparse, many icons, fluent, instant_prompt=verbose.</em></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In the last step of the configuration wizard, the <code>.zshrc</code> file is updated with the selected options.</p>
-<p>Remember that the <code>.zshrc</code> and <code>.p10k.zsh</code> files are overwritten by default. So backup them before running <code>p10K configure</code>.</p>
-</div>
-</div>
-</section>
-<section id="contents-of-my-.zshrc-and-.p10k.zsh" class="level3">
-<h3 class="anchored" data-anchor-id="contents-of-my-.zshrc-and-.p10k.zsh">Contents of my .zshrc and .p10k.zsh</h3>
-</section>
-<section id="zshrc-gist" class="level3">
-<h3 class="anchored" data-anchor-id="zshrc-gist"><a href="https://gist.github.com/jeev20/77f1ae86f5a9e6709ddd5398dbfbc96f">.zshrc gist</a></h3>
-<script src="https://gist.github.com/jeev20/77f1ae86f5a9e6709ddd5398dbfbc96f.js"></script>
-</section>
-<section id="p10k.zsh-gist" class="level3">
-<h3 class="anchored" data-anchor-id="p10k.zsh-gist"><a href="https://gist.github.com/jeev20/a5fecd61b8ce9b985bae88095374e05d">.p10k.zsh gist</a></h3>
-<script src="https://gist.github.com/jeev20/a5fecd61b8ce9b985bae88095374e05d.js"></script>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<p>Building pi in a World of Slop — Mario Zechner </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/RjfbvDXpFls" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
+<p>Hands down the best short introduction on Pi Coding Agent </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/BZ0w0JhPQ9o" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
