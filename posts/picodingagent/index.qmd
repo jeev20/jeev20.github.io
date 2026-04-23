@@ -26,17 +26,17 @@ We now live in the world of agentic harnesses and personal assistants.
 # Agentic harness experiences
 In short, agentic harness / command line interfaces or TUI interfaces provide the end user an interface to not just ask questions LLM's, but allow LLM's to perform tasks by providing a unified interface which combines skills, tools and extensions. 
 
-Agentic harness make it possible to transcend beyond single-shot responses, which probably is still used by the majority of the users in the world. But for developers, an agentic harness is a mandatory skill to learn and master. 
+Agentic harness make it possible to transcend beyond single-shot responses, which probably is still used by the majority of the users in the world. But for developers and researchers, learning and mastering an agentic harness is a mandatory skill now. 
 
-In 2024 I first tried [OpenHands](https://openhands.dev/) which is an open source competitor to [GitHub Copilot](https://github.com/features/copilot). I could not believe that an my local LLM can read the code base and edit my programs for me. Although with poor accuracy. Then I tried Github Copliot at home as it was free to use in Visual Studio Code. I was impressed.
+In 2024, I first tried [OpenHands](https://openhands.dev/) which is an open source competitor to [GitHub Copilot](https://github.com/features/copilot). I could not believe that a local LLM can read the code base and edit my programs for me. Although with poor accuracy. Then I tried Github Copliot at home as it was free to use in Visual Studio Code. I was impressed.
 
-All this while, at work I only had access to Microsoft's Copilot. looking back, asking it single shot questions was a chore!
+All this while, at work I only had access to Microsoft's Copilot. Looking back, asking it single shot questions was a chore!
 
-Then in 2025, at my new workplace, I got access to enterprise GitHub Copilot and things just took off. I now had access to more powerful LLM's. I remembered how different and capable it was compated to OpenHands. I was both excited and scared!
+Then in 2025, at my new workplace, I got access to enterprise GitHub Copilot and things just took off. I now had access to more powerful LLM's. I remembered how different and capable it was compared to OpenHands. I was both excited and scared!
 
-Then I tried [OpenCode](https://github.com/anomalyco/opencode) in Feburary 2026 in which I could use my Github Copilot subscription. Until this time I was not worried about the context window as most of my code base would fit within the context window. But I noticed that whenever I used the Claude models, my context window started to be consumed much faster no matter which agentic harness I used. 
+In Feburary 2026, I tried out [OpenCode](https://github.com/anomalyco/opencode)  within which I could use my Github Copilot subscription. Until this time, I was not worried about the context window as most of my code base would fit within the context window. At lets be honest, context optimization was not top priority. Although soon I noticed that whenever I used the Claude models, my context window was consumed much faster no matter which agentic harness I used. 
 
-Little did I know that, these harnesses themselves append a large system prompt to aid the LLM's with understading tool calling, skills and extension they have access to. The system prompt consumed part of the context window with each new conversation meaning that the actually request sent to the model was much more wordy then it needed to be. This turns out can [result in sub optimal responses](https://arxiv.org/abs/2604.00025) from LLMs.  
+Little did I know that, these harnesses themselves append a large system prompt to aid the LLM's in understading tools, skills and extension they have access to. The system prompt consumed part of the context window with each new conversation meaning that the actually request sent to the model was much more wordy then it needed to be. This turns out can [result in sub optimal responses](https://arxiv.org/abs/2604.00025) from LLMs.  
 
 
 ## Pi coding agent

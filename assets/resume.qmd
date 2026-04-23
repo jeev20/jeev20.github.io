@@ -20,10 +20,11 @@ format:
 ***Data Scientist***
 
 * Developed the business critical moisture classification deep learning model for inside-roof into® sensors
-* Developed an algorithm to predict sudden spikes in into® sensor's moisture readings which provided early alarms / notifications possibilities
+* Developed and deployed [into® RiskScore](https://www.sensorinnovation.no/en/blog/from-sintef-research-to-tool-risk-model-for-moisture-damage-in-buildings) by adapting research results from SINTEF and combining climate projections data from Köppen-Geiger climate classification
 * Developed an ensamble denoiser / smoothner for relative humidity readings from into® sensors using median and kalman filters resulting in user interpretable charts in the into® Control System (iCS)
+* Developed an algorithm to predict sudden spikes in into® sensor's moisture readings which provided early alarms / notifications possibilities
 * Improved business critical data pipelines deployed in AWS such as IOT core integration with SQS and relevant python based lambda functions
-* Developed observability dashboards in AWS spanning different operational business needs such as drift in ML model and RDS/Lambda performance. 
+* Developed observability dashboards in AWS spanning different operational business needs such as drift in ML model, RDS/Lambda performance and others. 
 * Developed internal proof-of-concepts to retriving updated customer invoicing data in hubspot for the sales department
 
 2025-2025:  **Helse Midt-Norge IT** Trondheim, Norway  
@@ -103,7 +104,19 @@ English (native), Kannada (native), Hindi (professional), Norwegian (professiona
 
 
 ### Technical Skills
-Python (Data science, Machine Learning),UiPath, BluePrism, Robocorp, PowerApps, Power Automate, PowerShell, Bash, SQL, Azure Devops, Git, PowerBI, Grafana, Splunk, Godot, Office 365, BlockChain, Quarto.
+
+#### AI & Automation
+Python (Data science, Machine Learning), Ml-Flow, uv, Label Studio, Pi Coding Agent, Github-Copilot, UiPath, BluePrism, Robocorp, PowerApps, Power Automate, PowerShell, Bash.
+
+#### Cloud
+SQS, Lambda, CloudWatch, EC2, ECR, IOT Core, Glue, Athena, Amplify, IAM, Secrets Manager, EventBrigde
+ 
+#### Business Intelligence
+PowerBI, Grafana, Splunk, Excel
+
+#### Others
+Docker, SQL, Azure Devops, Git / GitHub, Godot, Office 365, BlockChain, Quarto. 
+
 
 ### Certifications
 UiRPA, UiARD, UiABA, AI-900, AZ-900, Robocorp, BluePrism Developer & Solution Designer, PowerBI, Splunk  
