@@ -1,0 +1,60 @@
+---
+title: StarLink as primary ISP
+description: My expierence with using StarLink for a year
+author: "Jeevith Hegde"
+date: 2025-12-15 21:00 +0200
+format: html
+toc: true
+lang: en
+jupyter: python3
+ipynb-shell-interactivity: all
+execute:
+  echo: false
+categories: ["starlink"]
+tags: ["networking"]
+comments:
+  giscus:
+    repo: jeev20/jeev20.github.io
+---
+
+
+Late 2023, I was fed up with the poor Internet connection provided by Telenor which also was quite unreliable. I had heard a lot about SpaceX and its Starlink product. I decided to try it out!
+
+From an online marketplace, I bought a used third generation Starlink antenna with a bundled Wi-Fi 6 router. I was not completely convinced that StarLink could be my primary Internet service provider so I tested it by laying the Starlink antenna in my backyard, which is not recommended by SpaceX because such setups can result in obstructions between the antenna and this satellites.
+
+## Double NAT
+After my initial test, I found out that the bundled router’s coverage was poor which was not as I expected it to be. To circumvent this, I had to purchase an adapter which would allow me to bypass the OEM router (internet pass through) and use my Asus router.
+
+Since I was still testing the antenna on the lawn a part of my house became an obstruction. After a while the connection somehow got stable enough for me to continue my feasibility tests.
+
+I tested downstream connection from my router to all the devices in my network. Although everything worked locally, I soon realised there was a big issue: I could not connect to my router when I am outside my network. I used to use the inbuilt OpenVPN connection in the Asus router. Little did I know the Internet pass-through from the StarLink router meant that I had a double NAT problem similar to other reports on [reddit](https://www.reddit.com/r/Starlink/comments/15dxxl3/possible_double_nat_issues_with_starlink/). 
+
+The double NAT did not allow any of my OpenVPN clients to connect to my home network. 
+After some days of fiddling with the problem, I found out the only solution was to use [Tailscale](https://tailscale.com/) which easily could circumvent the double NAT issue.
+
+## Tailscale the saviour
+That’s serendipity. Tailscale was an amazing find in hindsight. Via Tailscale, I could connect to my home network as well as my network attached storage even with the NAT issues. This gave me the confidence that StarLink could work as my primary Internet service provider.
+
+Later that month, I moved the antenna on the side of the roof to ensure there are no obstructions between the StarLink antenna and the geo stationary satellites.
+
+StarLink was fairly economical compared to the fibre connection or the coaxial connection. It was half the price of these other connections and had no lock-in period. 
+
+## The issues
+However, the excitement and the novelty slowly faded and I noticed that Starlink Internet was not as stable as I expected it to be. 
+
+* The connection intermittently dropped which was especially embarrassing when I was attending certain important meetings via my home office. The random connections loss became unbearble when in teams meeting or other video conferencing tool. I guess the main culprit was the upload bandwidth, which was varied around 10 - 20 mbits. 
+
+* Since my Asus router had an internet fail over feature, I decided to connect a 4G SIM card to a Teltonika gateway and used it as a backup ISP. This allowed me to ensure that I always had a backup internet connection in my home network such that none of the services I used where abruptly stopped due to StarLink's abrupt disconnections. This was a cure, but also an additional overhead to baby-sit StarLink.
+
+## My verdict
+Although a cool product, after a year of using Starlink I was fed up with the constant hassle of dropped connections and very bad upload speeds. I decided to use a fibre provider and continued to use the Teltonika 4G gateway as a failover. 
+
+Overall, I was impressed by StarLink but as a user, they were more embarrassing days than I was willing to endure. The app worked fine the antenna functioned well all through the harsh winter. It took a beating in snow and sleet. 
+
+The third generation antenna also had the ability to melt snow using a inbuild heater which meant that there was little no ice buildup which could obstruct the satellite signal. But this also meant that, I was heating a device in negative temeratures and surely made a dent in my electricity bill that yeat. 
+
+Other ISPs all have a lockin period, while StarLink had non so it was really easy to onboard and offboard.
+
+But sadly after the year of use, **reliability** was more important to me than the novelty of using / supporting StarLink. 
+
+Now the StarLink antenna is still attached to my roof and maybe just maybe someday if I decide I do have a third ISP, its ready to be connected. Although I highly doubt it.

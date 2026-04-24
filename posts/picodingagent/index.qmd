@@ -1,5 +1,5 @@
 ---
-title: Why I use Pi Coding Agent
+title: My Pi Coding Agent
 description: A powerful customized agentic harness
 author: "Jeevith Hegde"
 date: 2026-04-23 17:43 +0200
