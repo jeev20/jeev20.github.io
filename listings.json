@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/exploringblendermcp/index.html",
       "/posts/picodingagent/index.html",
       "/posts/starlinkisp/index.html",
       "/posts/embedding3dmodelinquarto/index.html",
