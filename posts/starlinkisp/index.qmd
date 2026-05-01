@@ -51,7 +51,7 @@ Although a cool product, after a year of using Starlink I was fed up with the co
 
 Overall, I was impressed by StarLink but as a user, they were more embarrassing days than I was willing to endure. The app worked fine the antenna functioned well all through the harsh winter. It took a beating in snow and sleet. 
 
-The third generation antenna also had the ability to melt snow using a inbuild heater which meant that there was little no ice buildup which could obstruct the satellite signal. But this also meant that, I was heating a device in negative temeratures and surely made a dent in my electricity bill that yeat. 
+The third generation antenna also had the ability to melt snow using a inbuild heater which meant that there was little no ice buildup which could obstruct the satellite signal. But this also meant that, I was heating a device in negative temeratures and surely made a dent in my electricity bill that year. 
 
 Other ISPs all have a lockin period, while StarLink had non so it was really easy to onboard and offboard.
 
